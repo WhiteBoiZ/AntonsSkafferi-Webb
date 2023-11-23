@@ -7,6 +7,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:outputLabel value="Hello, world"/>
-    <h:outputLabel value="Test"/>
+
+    <h:form>
+        <h:inputText value="#{helloBean.name}"/>
+        <h:commandButton actionListener="#{helloBean.doGreet()}" value="Say hello"/>
+        <h:outputText value="#{helloBean.greeting}"/>
+
+    </h:form>
 </f:view>
 </html>
