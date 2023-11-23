@@ -13,6 +13,9 @@
         <h:commandButton actionListener="#{helloBean.doGreet()}" value="Say hello"/>
         <h:outputText value="#{helloBean.greeting}"/>
 
+        //test database connection
+        <h:commandButton actionListener="#{databaseExample.fetchDataFromDatabase()}" value="Test DB"/>
+
     </h:form>
 </f:view>
 </html>

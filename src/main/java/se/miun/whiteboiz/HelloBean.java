@@ -1,11 +1,15 @@
 package se.miun.whiteboiz;
 
+import jakarta.annotation.Resource;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
+
+import javax.sql.DataSource;
 
 @RequestScoped
 @Named
 public class HelloBean {
+
 
     private String name;
     private String greeting;
@@ -28,5 +32,6 @@ public class HelloBean {
     }
 
 }
+
 
 
