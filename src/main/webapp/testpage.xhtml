@@ -11,11 +11,13 @@
             <h:inputText id="lunchtitle" value="#{testBean.lunchTitle}"/><br/>
             <h:inputText id="desc" value="#{testBean.lunchDesc}"/><br/>
             <h:commandButton value="submit" actionListener="#{testBean.addLunch()}"/>
-            <h:dataTable value="#{testBean.listModel}" var="lunchItem">
-                <h:column>#{lunchItem.title}</h:column>
-                <h:column>#{lunchItem.description}</h:column>
-                <h:column><h:commandButton value="delete" actionListener="#{testBean.removeLunch}"/></h:column>
-            </h:dataTable>
+            <ui:repeat value="#{testBean.listModel}" var="lunchItem">
+                <div class="LunchElement">
+                    <h:outputText id="lunchTitle" value="#{lunchItem.title}"/>
+                    <h:outputText id="lunchDesc" value="#{lunchItem.description}"/>
+                    <h:commandButton id="deletebutton" value="delete" actionListener="#{testBean.removeLunch()}"/>
+                </div>
+            </ui:repeat>
         </h:form>
 
     </f:view>
