@@ -6,6 +6,12 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h:outputLabel value="Lägg till lunchrätt"/>
+    <h:form>
+        Title : <h:inputText value ="" id = "titleLunch"/><br/>
+    Beskrivning : <h:inputText value = "" id = "beskrivningLunch"/><br/>
+        <h:commandButton value = "Skicka" id = "knappSkickaLunch"/>
+    </h:form>
+
 </f:view>
 </html>
