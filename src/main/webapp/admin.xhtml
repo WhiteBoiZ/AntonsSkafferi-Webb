@@ -9,9 +9,17 @@
 <f:view>
     <h:outputLabel value="Lägg till lunchrätt"/>
     <h:form>
-        Title : <h:inputText value ="" id = "titleLunch"/><br/>
-    Beskrivning : <h:inputText value = "" id = "beskrivningLunch"/><br/>
-        <h:commandButton value = "Skicka" id = "knappSkickaLunch"/>
+        Title : <h:inputText value ="#{lunchBean.lunchTitle}" id = "titleLunch"/><br/>
+    Beskrivning : <h:inputText value ="#{lunchBean.lunchDescription}" id = "beskrivningLunch"/><br/>
+        <h:commandButton actionListener="#{lunchBean.showLunch(lunchBean.lunchTitle,lunchBean.lunchDescription)}" value = "Skicka" id = "knappSkickaLunch">
+            <f:ajax execute="titleLunch @this beskrivningLunch @this" render="updateLunch" />
+        </h:commandButton>
+        <h:panelGroup id = "updateLunch">
+            <h:outputText value="#{lunchBean.getLunch()}"/>
+
+        </h:panelGroup>
+
+
     </h:form>
 
 </f:view>
