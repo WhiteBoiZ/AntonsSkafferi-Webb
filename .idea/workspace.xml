@@ -9,11 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="La till primefaces och konverterade lite element i admin till det">
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Rensat upp efter merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Lunch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lunch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LunchBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LunchBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/testpage.xhtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/common/commonLayout.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/common/commonLayout.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,12 +61,18 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/webjars/npm/primeflex/3.3.1/primeflex-3.3.1.jar!/META-INF/resources/webjars/primeflex/3.3.1/primeflex.css" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -83,23 +92,45 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "feature-adminsida-primefaces-ruben",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Ruben/IdeaProjects/AntonsSkafferi-Webb/src/main/webapp/resources/css",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Artifacts",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.applicationServers",
+    "settings.editor.selected.configurable": "settings.sync",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ruben\IdeaProjects\AntonsSkafferi-Webb\src\main\webapp\resources\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ruben\IdeaProjects\AntonsSkafferi-Webb\src\main\webapp\resources\css\primeflex" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="hiddenConfigurations">
+      <map>
+        <entry key="GlassfishConfiguration">
+          <value>
+            <set>
+              <option value="GlassFish 6.8.0" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="RunManager">
-    <configuration name="GlassFish 6.8.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 6.8.0" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="17">
+    <configuration name="GlassFish 6.8.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 6.8.0" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT" />
-      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="Antons-Skafferi-Webb:war">
+        <artifact name="Antons-Skafferi-Webb:war exploded">
           <settings />
         </artifact>
       </deployment>
@@ -246,15 +277,7 @@
       <option name="project" value="LOCAL" />
       <updated>1701009160566</updated>
     </task>
-    <task id="LOCAL-00008" summary="La till primefaces och konverterade lite element i admin till det">
-      <option name="closed" value="true" />
-      <created>1701012309893</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1701012309893</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +294,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature-adminsida-primefaces" />
+                        <option value="origin/feature-adminsida-ruben" />
                       </list>
                     </value>
                   </entry>
@@ -290,8 +313,7 @@
     <MESSAGE value="Added lunchElementTemplate.xhtml" />
     <MESSAGE value="Integrerat Ruben och Emils delar" />
     <MESSAGE value="Rensat upp efter merge" />
-    <MESSAGE value="La till primefaces och konverterade lite element i admin till det" />
-    <option name="LAST_COMMIT_MESSAGE" value="La till primefaces och konverterade lite element i admin till det" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rensat upp efter merge" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
