@@ -17,12 +17,15 @@
     <h:form>
         Title : <h:inputText value ="#{lunchBean.lunchTitle}" id = "titleLunch"/><br/>
     Beskrivning : <h:inputText value ="#{lunchBean.lunchDescription}" id = "beskrivningLunch"/><br/>
-        <h:commandButton actionListener="#{lunchBean.showLunch(lunchBean.lunchTitle,lunchBean.lunchDescription)}" value = "Skicka" id = "knappSkickaLunch">
-            <f:ajax execute="titleLunch @this beskrivningLunch @this" render="updateLunch" />
-        </h:commandButton>
+        <h:commandButton actionListener="#{lunchBean.addLunch()}" value = "Skicka" id = "knappSkickaLunch"/>
         <h:panelGroup id = "updateLunch">
-            <h:outputText value="#{lunchBean.getLunch()}"/>
-
+            <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
+                <div class="LunchElement">
+                    <h:outputText id="lunchTitle" value="#{lunchItem.title}"/>
+                    <h:outputText id="lunchDesc" value="#{lunchItem.description}"/>
+                    <h:commandButton id="deletebutton" value="delete" actionListener="#{lunchBean.removeLunch()}"/>
+                </div>
+            </ui:repeat>
         </h:panelGroup>
     </h:form>
 

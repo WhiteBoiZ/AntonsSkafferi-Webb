@@ -1,12 +1,18 @@
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.model.ListDataModel;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
-@RequestScoped @Named
+import java.util.Date;
+
+@ApplicationScoped
+@Named
 public class LunchBean {
     private String lunchTitle;
     private String lunchDescription;
-    private String lunch;
+    private LunchList lunches = new LunchList();
+    private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);
 
     public void addLunch() {
         // Add your logic here to process the submitted data
@@ -29,13 +35,22 @@ public class LunchBean {
         this.lunchDescription = lunchDescription;
     }
 
-    public void showLunch(String title, String desc){
+    public void addLunch(){
+        lunches.add(new Lunch(lunchTitle, lunchDescription));
+        System.out.println(lunchTitle);
+    }
+    public void removeLunch(){
+        lunches.remove(listModel.getRowIndex());
+    }
 
-         lunch = "Titel: " + title + " " + "Beskrivning: " + desc;
+    public ListDataModel<Lunch> getListModel() {
+        return listModel;
     }
-    public String getLunch(){
-        return this.lunch;
+
+    public String now(){
+        return new Date().toString();
     }
+
 
 
 
