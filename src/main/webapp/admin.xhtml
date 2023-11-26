@@ -5,7 +5,13 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
- 
+
+<!--
+<h:head>
+    <title>Your Lunch Page</title>
+</h:head>
+-->
+
 <f:view>
     <h:outputLabel value="Lägg till lunchrätt"/>
     <h:form>
@@ -20,5 +26,21 @@
         </h:panelGroup>
     </h:form>
 
-</f:view>
+<h:body>
+    <ui:composition template="/template/common/commonLayout.xhtml">
+        <ui:define name="title">Antons Skafferi Admin page</ui:define>
+        <ui:define name="content">
+            <f:view>
+                <h:outputLabel value="Lägg till lunchrätt"/>
+                <h:form>
+                    Title : <h:inputText value="#{lunchBean.lunchTitle}" id="titleLunch"/><br/>
+                    Beskrivning : <h:inputText value="#{lunchBean.lunchDescription}" id="beskrivningLunch"/><br/>
+                    <h:commandButton value="Skicka" id="knappSkickaLunch" action="#{lunchBean.addLunch}"/>
+                </h:form>
+            </f:view>
+        </ui:define>
+
+    </ui:composition>
+</h:body>
 </html>
+
