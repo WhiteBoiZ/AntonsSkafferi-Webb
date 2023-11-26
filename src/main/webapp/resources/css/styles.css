@@ -15,7 +15,7 @@ body {
     background: rgba(37, 37, 37, 0.66);
     position: absolute;
     z-index: -1;
-    filter: blur(5px);
+    /*filter: blur(5px);*/
 }
 
 .welcome {
@@ -49,26 +49,33 @@ body {
     text-decoration: none;
 }
 
-#footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1;
-}
+
 .content {
     position: relative;
     z-index: 1;
 }
-.lunch {
-    text-align: center;
-    margin: 25em 20%;
-    display: flex;
-    gap: 2em;
+.a4 {
+    width: 210mm;
+    height: 297mm;
     border: 1px solid black;
 }
-
-
+.lunch {
+    text-align: center;
+    margin: 25em 30% 5em;
+    padding: 5em 0;
+    display: flex;
+    gap: 2em;
+}
+.lunch div {
+    padding: 1em;
+}
 
 .lunch h2 {
     font-size: 30px;
+}
+.alacarte {
+    text-align: center;
+    margin: 5em 30%;
+    padding: 5em 0;
+    gap: 2em;
 }

@@ -6,12 +6,6 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<!--
-<h:head>
-    <title>Your Lunch Page</title>
-</h:head>
--->
-
 <f:view>
     <ui:composition template="/template/common/commonLayout.xhtml">
         <ui:define name="title">Antons Skafferi</ui:define>
@@ -29,7 +23,7 @@
                         </ul>
                     </div> <!-- end of navbar -->
                 </div> <!-- end of welcome -->
-                <div class="lunch">
+                <div class="lunch a4">
                     <div class="dagens">
                         <h2>Dagens</h2>
                         <p>Tisdag</p>
@@ -38,14 +32,20 @@
                     <div class="veckans">
                         <h2>Veckans Lunchmeny</h2>
                         <p>Vecka 42</p>
+
                         <p>Måndag</p>
                         <p>Tisdag</p>
                         <p>Onsdag</p>
                         <p>Torsdag</p>
                         <p>Fredag</p>
-                    </div>
+                    </div> <!-- end of veckans -->
+                </div> <!-- end of lunch -->
+                <div class="alacarte a4">
+                    <h2>Ala Carte</h2>
+                    <p>Vi har ett brett utbud av rätter på vår ala carte meny. Välkommen in och se vad vi har att erbjuda.</p>
                 </div>
-            </div>
+
+            </div> <!-- end of container -->
         </ui:define>
     </ui:composition>
 </f:view>
