@@ -55,3 +55,20 @@ body {
     width: 100%;
     z-index: 1;
 }
+.content {
+    position: relative;
+    z-index: 1;
+}
+.lunch {
+    text-align: center;
+    margin: 25em 20%;
+    display: flex;
+    gap: 2em;
+    border: 1px solid black;
+}
+
+
+
+.lunch h2 {
+    font-size: 30px;
+}
