@@ -4,7 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <!--
 <h:head>
@@ -16,20 +18,20 @@
     <ui:composition template="/template/common/commonLayout.xhtml">
         <ui:define name="title">Antons Skafferi Admin page</ui:define>
         <ui:define name="content">
-            <h:outputLabel value="Lägg till lunchrätt"/>
+            <p:outputLabel value="Lägg till lunchrätt"/>
             <h:form>
-                Title : <h:inputText value ="#{lunchBean.lunchTitle}" id = "titleLunch"/><br/>
-                Beskrivning : <h:inputText value ="#{lunchBean.lunchDescription}" id = "beskrivningLunch"/><br/>
-                <h:commandButton actionListener="#{lunchBean.addLunch()}" value = "Skicka" id = "knappSkickaLunch"/>
-                <h:panelGroup id = "updateLunch">
+                Title : <p:inputText value ="#{lunchBean.lunchTitle}" id = "titleLunch"/><br/>
+                Beskrivning : <p:inputText value ="#{lunchBean.lunchDescription}" id="beskrivningLunch"/><br/>
+                <p:commandButton update="updateLunch" type="submit" actionListener="#{lunchBean.addLunch()}" value="Skicka" id="knappSkickaLunch"/>
+                <p:panel id = "updateLunch">
                     <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
                         <div class="LunchElement">
-                            <h:outputText id="lunchTitle" value="#{lunchItem.title}"/> <br/>
-                            <h:outputText id="lunchDesc" value="#{lunchItem.description}"/>
-                            <h:commandButton id="deletebutton" value="delete" actionListener="#{lunchBean.removeLunch()}"/>
+                            <p:outputLabel id="lunchTitle" value="#{lunchItem.title}"/> <br/>
+                            <p:outputLabel id="lunchDesc" value="#{lunchItem.description}"/>
+                            <p:commandButton type="submit" ajax="false" value="delete" actionListener="#{lunchBean.removeLunch()}"/>
                         </div>
                     </ui:repeat>
-                </h:panelGroup>
+                </p:panel>
             </h:form>
         </ui:define>
     </ui:composition>

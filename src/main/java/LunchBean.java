@@ -4,6 +4,7 @@ import jakarta.faces.model.ListDataModel;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 @ApplicationScoped
@@ -11,7 +12,7 @@ import java.util.Date;
 public class LunchBean {
     private String lunchTitle;
     private String lunchDescription;
-    private LunchList lunches = new LunchList();
+    private ArrayList<Lunch> lunches = new ArrayList<>();
     private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);
 
 
