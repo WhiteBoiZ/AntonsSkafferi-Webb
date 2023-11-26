@@ -1,10 +1,12 @@
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 @RequestScoped @Named
 public class LunchBean {
     private String lunchTitle;
     private String lunchDescription;
+    private String lunch;
 
     public void addLunch() {
         // Add your logic here to process the submitted data
@@ -26,6 +28,15 @@ public class LunchBean {
     public void setLunchDescription(String lunchDescription) {
         this.lunchDescription = lunchDescription;
     }
+
+    public void showLunch(String title, String desc){
+
+         lunch = "Titel: " + title + " " + "Beskrivning: " + desc;
+    }
+    public String getLunch(){
+        return this.lunch;
+    }
+
 
 
 }

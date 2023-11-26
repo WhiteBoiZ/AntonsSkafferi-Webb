@@ -5,11 +5,26 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+
 <!--
 <h:head>
     <title>Your Lunch Page</title>
 </h:head>
 -->
+
+<f:view>
+    <h:outputLabel value="Lägg till lunchrätt"/>
+    <h:form>
+        Title : <h:inputText value ="#{lunchBean.lunchTitle}" id = "titleLunch"/><br/>
+    Beskrivning : <h:inputText value ="#{lunchBean.lunchDescription}" id = "beskrivningLunch"/><br/>
+        <h:commandButton actionListener="#{lunchBean.showLunch(lunchBean.lunchTitle,lunchBean.lunchDescription)}" value = "Skicka" id = "knappSkickaLunch">
+            <f:ajax execute="titleLunch @this beskrivningLunch @this" render="updateLunch" />
+        </h:commandButton>
+        <h:panelGroup id = "updateLunch">
+            <h:outputText value="#{lunchBean.getLunch()}"/>
+
+        </h:panelGroup>
+    </h:form>
 
 <h:body>
     <ui:composition template="/template/common/commonLayout.xhtml">
