@@ -29,6 +29,16 @@
                             <p:outputLabel id="lunchTitle" value="#{lunchItem.title}"/> <br/>
                             <p:outputLabel id="lunchDesc" value="#{lunchItem.description}"/>
                             <p:commandButton type="submit" ajax="false" value="delete" actionListener="#{lunchBean.removeLunch()}"/>
+                            <p:selectBooleanCheckbox id = "monday" value = "#" />
+                            <h:outputLabel for = "monday" value = "Måndag"/>
+                            <p:selectBooleanCheckbox id = "tuesday" value = "#" />
+                            <h:outputLabel for = "tuesday" value = "Tisdag"/>
+                            <p:selectBooleanCheckbox id = "wednesday" value = "" />
+                            <h:outputLabel for = "wednesday" value = "Onsdag"/>
+                            <p:selectBooleanCheckbox id = "thursday" value = "#" />
+                            <h:outputLabel for = "monday" value = "Torsdag"/>
+                            <p:selectBooleanCheckbox id = "friday" value = "#" />
+                            <h:outputLabel for = "friday" value = "Fredag"/>
                         </p:card>
                     </ui:repeat>
                 </p:panel>
