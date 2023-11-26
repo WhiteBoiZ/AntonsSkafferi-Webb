@@ -9,10 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Added lunchElementTemplate.xhtml">
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Integrerat Ruben och Emils delar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/lunchElementTemplate.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/lunchElementTemplate.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/testpage.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/testpage.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LunchBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LunchBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature-adminsida" />
+        <entry key="$PROJECT_DIR$" value="feature-adminsida-integrate" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,7 +80,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature-adminsida-ruben",
+    "git-widget-placeholder": "feature-adminsida",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -210,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700945983900</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Integrerat Ruben och Emils delar">
+      <option name="closed" value="true" />
+      <created>1701008465547</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701008465547</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +240,8 @@
     <MESSAGE value="Added getLunch" />
     <MESSAGE value="Testsida där man kan lägga till luncher i en synlig lista." />
     <MESSAGE value="Added lunchElementTemplate.xhtml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added lunchElementTemplate.xhtml" />
+    <MESSAGE value="Integrerat Ruben och Emils delar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrerat Ruben och Emils delar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

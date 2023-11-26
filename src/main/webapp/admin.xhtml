@@ -13,37 +13,26 @@
 -->
 
 <f:view>
-    <h:outputLabel value="Lägg till lunchrätt"/>
-    <h:form>
-        Title : <h:inputText value ="#{lunchBean.lunchTitle}" id = "titleLunch"/><br/>
-    Beskrivning : <h:inputText value ="#{lunchBean.lunchDescription}" id = "beskrivningLunch"/><br/>
-        <h:commandButton actionListener="#{lunchBean.addLunch()}" value = "Skicka" id = "knappSkickaLunch"/>
-        <h:panelGroup id = "updateLunch">
-            <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
-                <div class="LunchElement">
-                    <h:outputText id="lunchTitle" value="#{lunchItem.title}"/>
-                    <h:outputText id="lunchDesc" value="#{lunchItem.description}"/>
-                    <h:commandButton id="deletebutton" value="delete" actionListener="#{lunchBean.removeLunch()}"/>
-                </div>
-            </ui:repeat>
-        </h:panelGroup>
-    </h:form>
-
-<h:body>
     <ui:composition template="/template/common/commonLayout.xhtml">
         <ui:define name="title">Antons Skafferi Admin page</ui:define>
         <ui:define name="content">
-            <f:view>
-                <h:outputLabel value="Lägg till lunchrätt"/>
-                <h:form>
-                    Title : <h:inputText value="#{lunchBean.lunchTitle}" id="titleLunch"/><br/>
-                    Beskrivning : <h:inputText value="#{lunchBean.lunchDescription}" id="beskrivningLunch"/><br/>
-                    <h:commandButton value="Skicka" id="knappSkickaLunch" action="#{lunchBean.addLunch}"/>
-                </h:form>
-            </f:view>
+            <h:outputLabel value="Lägg till lunchrätt"/>
+            <h:form>
+                Title : <h:inputText value ="#{lunchBean.lunchTitle}" id = "titleLunch"/><br/>
+                Beskrivning : <h:inputText value ="#{lunchBean.lunchDescription}" id = "beskrivningLunch"/><br/>
+                <h:commandButton actionListener="#{lunchBean.addLunch()}" value = "Skicka" id = "knappSkickaLunch"/>
+                <h:panelGroup id = "updateLunch">
+                    <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
+                        <div class="LunchElement">
+                            <h:outputText id="lunchTitle" value="#{lunchItem.title}"/> <br/>
+                            <h:outputText id="lunchDesc" value="#{lunchItem.description}"/>
+                            <h:commandButton id="deletebutton" value="delete" actionListener="#{lunchBean.removeLunch()}"/>
+                        </div>
+                    </ui:repeat>
+                </h:panelGroup>
+            </h:form>
         </ui:define>
-
     </ui:composition>
-</h:body>
+</f:view>
 </html>
 

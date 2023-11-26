@@ -14,12 +14,6 @@ public class LunchBean {
     private LunchList lunches = new LunchList();
     private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);
 
-    public void addLunch() {
-        // Add your logic here to process the submitted data
-        //System.out.println("Title: " + lunchTitle);
-        //System.out.println("Description: " + lunchDescription);
-
-    }
 
     // Getters and setters for title and description
     public String getLunchTitle() {
