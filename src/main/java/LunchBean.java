@@ -4,6 +4,8 @@ import jakarta.faces.model.ListDataModel;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
+import java.util.Date;
+
 @ApplicationScoped
 @Named
 public class LunchBean {
@@ -35,6 +37,10 @@ public class LunchBean {
 
     public ListDataModel<Lunch> getListModel() {
         return listModel;
+    }
+
+    public String now(){
+        return new Date().toString();
     }
 
 

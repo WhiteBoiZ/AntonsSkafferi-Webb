@@ -6,7 +6,7 @@
 
     <groupId>com.example</groupId>
     <artifactId>Antons-Skafferi-Webb</artifactId>
-    <version>0.1-BETA</version>
+    <version>1.0-SNAPSHOT</version>
     <name>Antons-Skafferi-Webb</name>
     <packaging>war</packaging>
 

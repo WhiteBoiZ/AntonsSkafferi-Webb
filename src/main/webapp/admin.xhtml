@@ -19,11 +19,14 @@
                 <div class="LunchElement">
                     <h:outputText id="lunchTitle" value="#{lunchItem.title}"/>
                     <h:outputText id="lunchDesc" value="#{lunchItem.description}"/>
-                    <h:commandButton id="deletebutton" value="delete" actionListener="#{testBean.removeLunch()}"/>
+                    <h:commandButton id="deletebutton" value="delete" actionListener="#{lunchBean.removeLunch()}">
+                        <f:ajax execute="@this updateLunch" render="updateLunch"/>
+                    </h:commandButton>
                 </div>
             </ui:repeat>
         </h:panelGroup>
     </h:form>
+    #{lunchBean.now()}
 
 </f:view>
 </html>
