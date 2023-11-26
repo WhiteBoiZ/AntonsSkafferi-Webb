@@ -25,11 +25,11 @@
                 <p:commandButton update="updateLunch" type="submit" actionListener="#{lunchBean.addLunch()}" value="Skicka" id="knappSkickaLunch"/>
                 <p:panel id = "updateLunch">
                     <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
-                        <div class="LunchElement">
+                        <p:card class="LunchElement">
                             <p:outputLabel id="lunchTitle" value="#{lunchItem.title}"/> <br/>
                             <p:outputLabel id="lunchDesc" value="#{lunchItem.description}"/>
                             <p:commandButton type="submit" ajax="false" value="delete" actionListener="#{lunchBean.removeLunch()}"/>
-                        </div>
+                        </p:card>
                     </ui:repeat>
                 </p:panel>
             </h:form>
