@@ -53,15 +53,9 @@ body {
 }
 
 #navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: 'Lora', serif;
     font-weight: 500;
-    background-color: #333333;
-    z-index: 100;
-    position: sticky;
-    width: 100%;
+
 }
 #navbar ul {
     display: flex;
@@ -91,16 +85,46 @@ body {
     padding: 1rem;
 }
 .lunch {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+}
+
+.dagens, .veckans {
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
 }
+
+#dagens-content {
+
+}
+
+
+.frame {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.frame .material-symbols-outlined {
+    font-size: 2rem;
+}
+
+
+
+
+
 .lunch div {
 
 }
 
 .lunch h2 {
-    font-size: 30px;
+    font-size: 2rem;
 }
 .alacarte {
     text-align: center;
