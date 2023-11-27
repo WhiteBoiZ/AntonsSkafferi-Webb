@@ -152,6 +152,58 @@ body {
 .lunch h2 {
     font-size: 2rem;
 }
-.alacarte {
+.alacarte h3{
     text-align: center;
+    width: 100%;
+}
+
+#alacarte {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   margin-top: 5%;
+}
+
+#course-container{
+    display: flex;
+    margin-top: 5%;
+}
+
+#first-course-dessert{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+}
+
+#main-course{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+#main-course h3{
+    margin-bottom: 5%;
+}
+
+#dessert{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 5%;
+}
+
+#first-course{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-top: 5%;
 }
