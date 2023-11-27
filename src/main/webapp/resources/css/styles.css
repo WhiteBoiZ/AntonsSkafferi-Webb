@@ -1,38 +1,56 @@
-body {
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f8f8;
+* {
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f8f8f8;
+    width: 100%;
+}
+
+#page {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 #background-img {
     top: 0;
     width: 100%;
-    height: 60%;
+    height: 4rem;
+    object-fit: cover;
     background: rgba(37, 37, 37, 0.66);
-    position: absolute;
     z-index: -1;
+    position: absolute;
     /*filter: blur(5px);*/
 }
 
 .welcome {
     text-align: center;
     color: white;
-    margin: 5em 30%;
+    background-color: #333333;
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #navbar {
     text-align: center;
-    margin: 0 auto;
-
 }
 #navbar ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
     overflow: hidden;
     text-align: center;
 
@@ -45,12 +63,12 @@ body {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
 }
 
 
 .content {
+
     position: relative;
     z-index: 1;
 }
@@ -58,16 +76,15 @@ body {
     width: 210mm;
     height: 297mm;
     border: 1px solid black;
+    padding: 1rem;
 }
 .lunch {
-    text-align: center;
-    margin: 25em 30% 5em;
-    padding: 5em 0;
     display: flex;
-    gap: 2em;
+    justify-content: space-between;
+    text-align: center;
 }
 .lunch div {
-    padding: 1em;
+
 }
 
 .lunch h2 {
@@ -75,7 +92,4 @@ body {
 }
 .alacarte {
     text-align: center;
-    margin: 5em 30%;
-    padding: 5em 0;
-    gap: 2em;
 }
