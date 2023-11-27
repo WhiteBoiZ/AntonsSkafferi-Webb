@@ -8,7 +8,6 @@ public class Lunch {
     public Lunch(String title, String description) {
         this.title = title;
         this.description = description;
-        selectedDays.add("Mån");
     }
 
     public ArrayList<String> getSelectedDays() {
