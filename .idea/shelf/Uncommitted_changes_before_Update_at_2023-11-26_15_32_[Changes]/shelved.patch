@@ -1,0 +1,269 @@
+Index: src/main/webapp/admin.xhtml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\r\n        \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\"\r\n      xmlns:h=\"http://xmlns.jcp.org/jsf/html\"\r\n      xmlns:ui=\"http://xmlns.jcp.org/jsf/facelets\"\r\n      xmlns:f=\"http://xmlns.jcp.org/jsf/core\">\r\n\r\n<!--\r\n<h:head>\r\n    <title>Your Lunch Page</title>\r\n</h:head>\r\n-->\r\n\r\n<f:view>\r\n    <h:outputLabel value=\"Lägg till lunchrätt\"/>\r\n    <h:form>\r\n        Title : <h:inputText value =\"#{lunchBean.lunchTitle}\" id = \"titleLunch\"/><br/>\r\n    Beskrivning : <h:inputText value =\"#{lunchBean.lunchDescription}\" id = \"beskrivningLunch\"/><br/>\r\n        <h:commandButton actionListener=\"#{lunchBean.addLunch()}\" value = \"Skicka\" id = \"knappSkickaLunch\"/>\r\n        <h:panelGroup id = \"updateLunch\">\r\n            <ui:repeat value=\"#{lunchBean.listModel}\" var=\"lunchItem\">\r\n                <div class=\"LunchElement\">\r\n                    <h:outputText id=\"lunchTitle\" value=\"#{lunchItem.title}\"/>\r\n                    <h:outputText id=\"lunchDesc\" value=\"#{lunchItem.description}\"/>\r\n                    <h:commandButton id=\"deletebutton\" value=\"delete\" actionListener=\"#{lunchBean.removeLunch()}\"/>\r\n                </div>\r\n            </ui:repeat>\r\n        </h:panelGroup>\r\n    </h:form>\r\n\r\n<h:body>\r\n    <ui:composition template=\"/template/common/commonLayout.xhtml\">\r\n        <ui:define name=\"title\">Antons Skafferi Admin page</ui:define>\r\n        <ui:define name=\"content\">\r\n            <f:view>\r\n                <h:outputLabel value=\"Lägg till lunchrätt\"/>\r\n                <h:form>\r\n                    Title : <h:inputText value=\"#{lunchBean.lunchTitle}\" id=\"titleLunch\"/><br/>\r\n                    Beskrivning : <h:inputText value=\"#{lunchBean.lunchDescription}\" id=\"beskrivningLunch\"/><br/>\r\n                    <h:commandButton value=\"Skicka\" id=\"knappSkickaLunch\" action=\"#{lunchBean.addLunch}\"/>\r\n                </h:form>\r\n            </f:view>\r\n        </ui:define>\r\n\r\n    </ui:composition>\r\n</h:body>\r\n</html>\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/admin.xhtml b/src/main/webapp/admin.xhtml
+--- a/src/main/webapp/admin.xhtml	(revision ffc05aba43b0f62b6664691e715a5141a7d8fecd)
++++ b/src/main/webapp/admin.xhtml	(date 1701008750121)
+@@ -5,45 +5,20 @@
+       xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+-
+-<!--
+-<h:head>
+-    <title>Your Lunch Page</title>
+-</h:head>
+--->
+-
++ 
+ <f:view>
+     <h:outputLabel value="Lägg till lunchrätt"/>
+     <h:form>
+         Title : <h:inputText value ="#{lunchBean.lunchTitle}" id = "titleLunch"/><br/>
+     Beskrivning : <h:inputText value ="#{lunchBean.lunchDescription}" id = "beskrivningLunch"/><br/>
+-        <h:commandButton actionListener="#{lunchBean.addLunch()}" value = "Skicka" id = "knappSkickaLunch"/>
++        <h:commandButton actionListener="#{lunchBean.showLunch(lunchBean.lunchTitle,lunchBean.lunchDescription)}" value = "Skicka" id = "knappSkickaLunch">
++            <f:ajax execute="titleLunch @this beskrivningLunch @this" render="updateLunch" />
++        </h:commandButton>
+         <h:panelGroup id = "updateLunch">
+-            <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
+-                <div class="LunchElement">
+-                    <h:outputText id="lunchTitle" value="#{lunchItem.title}"/>
+-                    <h:outputText id="lunchDesc" value="#{lunchItem.description}"/>
+-                    <h:commandButton id="deletebutton" value="delete" actionListener="#{lunchBean.removeLunch()}"/>
+-                </div>
+-            </ui:repeat>
++            <h:outputText value="#{lunchBean.getLunch()}"/>
++
+         </h:panelGroup>
+     </h:form>
+ 
+-<h:body>
+-    <ui:composition template="/template/common/commonLayout.xhtml">
+-        <ui:define name="title">Antons Skafferi Admin page</ui:define>
+-        <ui:define name="content">
+-            <f:view>
+-                <h:outputLabel value="Lägg till lunchrätt"/>
+-                <h:form>
+-                    Title : <h:inputText value="#{lunchBean.lunchTitle}" id="titleLunch"/><br/>
+-                    Beskrivning : <h:inputText value="#{lunchBean.lunchDescription}" id="beskrivningLunch"/><br/>
+-                    <h:commandButton value="Skicka" id="knappSkickaLunch" action="#{lunchBean.addLunch}"/>
+-                </h:form>
+-            </f:view>
+-        </ui:define>
+-
+-    </ui:composition>
+-</h:body>
++</f:view>
+ </html>
+-
+Index: src/main/java/LunchBean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import jakarta.enterprise.context.ApplicationScoped;\r\nimport jakarta.enterprise.context.RequestScoped;\r\nimport jakarta.faces.model.ListDataModel;\r\nimport jakarta.inject.Inject;\r\nimport jakarta.inject.Named;\r\n\r\nimport java.util.Date;\r\n\r\n@ApplicationScoped\r\n@Named\r\npublic class LunchBean {\r\n    private String lunchTitle;\r\n    private String lunchDescription;\r\n    private LunchList lunches = new LunchList();\r\n    private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);\r\n\r\n    public void addLunch() {\r\n        // Add your logic here to process the submitted data\r\n        //System.out.println(\"Title: \" + lunchTitle);\r\n        //System.out.println(\"Description: \" + lunchDescription);\r\n\r\n    }\r\n\r\n    // Getters and setters for title and description\r\n    public String getLunchTitle() {\r\n        return lunchTitle;\r\n    }\r\n    public void setLunchTitle(String lunchTitle) {\r\n        this.lunchTitle = lunchTitle;\r\n    }\r\n    public String getLunchDescription() {\r\n        return lunchDescription;\r\n    }\r\n    public void setLunchDescription(String lunchDescription) {\r\n        this.lunchDescription = lunchDescription;\r\n    }\r\n\r\n    public void addLunch(){\r\n        lunches.add(new Lunch(lunchTitle, lunchDescription));\r\n        System.out.println(lunchTitle);\r\n    }\r\n    public void removeLunch(){\r\n        lunches.remove(listModel.getRowIndex());\r\n    }\r\n\r\n    public ListDataModel<Lunch> getListModel() {\r\n        return listModel;\r\n    }\r\n\r\n    public String now(){\r\n        return new Date().toString();\r\n    }\r\n\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/LunchBean.java b/src/main/java/LunchBean.java
+--- a/src/main/java/LunchBean.java	(revision ffc05aba43b0f62b6664691e715a5141a7d8fecd)
++++ b/src/main/java/LunchBean.java	(date 1701008752990)
+@@ -1,27 +1,13 @@
+-import jakarta.enterprise.context.ApplicationScoped;
+ import jakarta.enterprise.context.RequestScoped;
+-import jakarta.faces.model.ListDataModel;
+ import jakarta.inject.Inject;
+ import jakarta.inject.Named;
+ 
+-import java.util.Date;
+-
+-@ApplicationScoped
+-@Named
++@RequestScoped @Named
+ public class LunchBean {
+     private String lunchTitle;
+     private String lunchDescription;
+-    private LunchList lunches = new LunchList();
+-    private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);
+-
+-    public void addLunch() {
+-        // Add your logic here to process the submitted data
+-        //System.out.println("Title: " + lunchTitle);
+-        //System.out.println("Description: " + lunchDescription);
++    private String lunch;
+ 
+-    }
+-
+-    // Getters and setters for title and description
+     public String getLunchTitle() {
+         return lunchTitle;
+     }
+@@ -35,22 +21,13 @@
+         this.lunchDescription = lunchDescription;
+     }
+ 
+-    public void addLunch(){
+-        lunches.add(new Lunch(lunchTitle, lunchDescription));
+-        System.out.println(lunchTitle);
+-    }
+-    public void removeLunch(){
+-        lunches.remove(listModel.getRowIndex());
+-    }
++    public void showLunch(String title, String desc){
+ 
+-    public ListDataModel<Lunch> getListModel() {
+-        return listModel;
++         lunch = "Titel: " + title + " " + "Beskrivning: " + desc;
+     }
+-
+-    public String now(){
+-        return new Date().toString();
++    public String getLunch(){
++        return this.lunch;
+     }
+-
+ 
+ 
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ArtifactsWorkspaceSettings\">\r\n    <artifacts-to-build>\r\n      <artifact name=\"Antons-Skafferi-Webb:war exploded\" />\r\n    </artifacts-to-build>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"6bdcdb45-e8d9-4997-a38d-1babeb19ff85\" name=\"Changes\" comment=\"Added lunchElementTemplate.xhtml\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/webapp/template/lunchElementTemplate.xhtml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/webapp/template/lunchElementTemplate.xhtml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/webapp/testpage.xhtml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/webapp/testpage.xhtml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"jsf\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"feature-adminsida\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;greger12&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubProjectSettings\">\r\n    <option name=\"branchProtectionPatterns\">\r\n      <list>\r\n        <option value=\"master\" />\r\n        <option value=\"development\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"63e604b8-4c96-4805-8869-d51b763353cc\" />\r\n        <option name=\"url\" value=\"https://github.com/WhiteBoiZ/AntonsSkafferi-Webb\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"LogFilters\">\r\n    <option name=\"FILTER_ERRORS\" value=\"false\" />\r\n    <option name=\"FILTER_WARNINGS\" value=\"false\" />\r\n    <option name=\"FILTER_INFO\" value=\"true\" />\r\n    <option name=\"FILTER_DEBUG\" value=\"true\" />\r\n    <option name=\"CUSTOM_FILTER\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2Ya6oyPtiioRFQMCDgwCJOXNcD0\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"git-widget-placeholder\": \"feature-adminsida-ruben\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"settings.editor.selected.configurable\": \"project.propVCSSupport.Mappings\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"GlassFish 6.8.0\" type=\"GlassfishConfiguration\" factoryName=\"Local\" APPLICATION_SERVER_NAME=\"GlassFish 6.8.0\" ALTERNATIVE_JRE_ENABLED=\"false\">\r\n      <option name=\"OPEN_IN_BROWSER_URL\" value=\"http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT\" />\r\n      <deployment>\r\n        <artifact name=\"Antons-Skafferi-Webb:war exploded\">\r\n          <settings />\r\n        </artifact>\r\n      </deployment>\r\n      <server-settings>\r\n        <option name=\"DOMAIN\" value=\"domain1\" />\r\n        <option name=\"PRESERVE\" value=\"false\" />\r\n        <option name=\"COMPATIBILITY\" value=\"false\" />\r\n        <option name=\"VIRTUAL_SERVER\" />\r\n        <option name=\"USERNAME\" value=\"admin\" />\r\n        <option name=\"CREDENTIAL_ALIAS\" />\r\n      </server-settings>\r\n      <predefined_log_file enabled=\"true\" id=\"GlassFish\" />\r\n      <RunnerSettings RunnerId=\"Debug\">\r\n        <option name=\"DEBUG_PORT\" value=\"9009\" />\r\n      </RunnerSettings>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Debug\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Run\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n        <option name=\"BuildArtifacts\" enabled=\"true\">\r\n          <artifact name=\"Antons-Skafferi-Webb:war exploded\" />\r\n        </option>\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"6bdcdb45-e8d9-4997-a38d-1babeb19ff85\" name=\"Changes\" comment=\"\" />\r\n      <created>1700751524595</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1700751524595</updated>\r\n      <workItem from=\"1700751525671\" duration=\"325000\" />\r\n      <workItem from=\"1700945137395\" duration=\"4454000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Initial Commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700751850288</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700751850288</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Added getLunch\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700917011456</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700917011456</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Added getLunch\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700917021631</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700917021631</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Testsida där man kan lägga till luncher i en synlig lista.\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700944072197</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700944072197</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Added lunchElementTemplate.xhtml\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1700945983900</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1700945983900</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Initial Commit\" />\r\n    <MESSAGE value=\"Added getLunch\" />\r\n    <MESSAGE value=\"Testsida där man kan lägga till luncher i en synlig lista.\" />\r\n    <MESSAGE value=\"Added lunchElementTemplate.xhtml\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Added lunchElementTemplate.xhtml\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ffc05aba43b0f62b6664691e715a5141a7d8fecd)
++++ b/.idea/workspace.xml	(date 1701009094039)
+@@ -9,10 +9,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Added lunchElementTemplate.xhtml">
++    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Added getLunch">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-11-25_11_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-11-25_11_32__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-11-25_11_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-11-25_11_32__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/lunchElementTemplate.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/lunchElementTemplate.xhtml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/webapp/testpage.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/testpage.xhtml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/LunchBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LunchBean.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -22,8 +24,8 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
+-        <option value="Class" />
+         <option value="jsf" />
++        <option value="Class" />
+       </list>
+     </option>
+   </component>
+@@ -73,23 +75,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "codeWithMe.voiceChat.enabledByDefault": "false",
+-    "git-widget-placeholder": "feature-adminsida-ruben",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;feature-adminsida&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RunManager">
+     <configuration name="GlassFish 6.8.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 6.8.0" ALTERNATIVE_JRE_ENABLED="false">
+       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT" />
+@@ -168,7 +168,6 @@
+       <option name="presentableId" value="Default" />
+       <updated>1700751524595</updated>
+       <workItem from="1700751525671" duration="325000" />
+-      <workItem from="1700945137395" duration="4454000" />
+     </task>
+     <task id="LOCAL-00001" summary="Initial Commit">
+       <option name="closed" value="true" />
+@@ -194,23 +193,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1700917021631</updated>
+     </task>
+-    <task id="LOCAL-00004" summary="Testsida där man kan lägga till luncher i en synlig lista.">
+-      <option name="closed" value="true" />
+-      <created>1700944072197</created>
+-      <option name="number" value="00004" />
+-      <option name="presentableId" value="LOCAL-00004" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1700944072197</updated>
+-    </task>
+-    <task id="LOCAL-00005" summary="Added lunchElementTemplate.xhtml">
+-      <option name="closed" value="true" />
+-      <created>1700945983900</created>
+-      <option name="number" value="00005" />
+-      <option name="presentableId" value="LOCAL-00005" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1700945983900</updated>
+-    </task>
+-    <option name="localTasksCounter" value="6" />
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -221,7 +204,19 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State />
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="feature-adminsida" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
+           </value>
+         </entry>
+       </map>
+@@ -230,9 +225,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Initial Commit" />
+     <MESSAGE value="Added getLunch" />
+-    <MESSAGE value="Testsida där man kan lägga till luncher i en synlig lista." />
+-    <MESSAGE value="Added lunchElementTemplate.xhtml" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Added lunchElementTemplate.xhtml" />
++    <option name="LAST_COMMIT_MESSAGE" value="Added getLunch" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
