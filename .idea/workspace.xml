@@ -13,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/common/commonLayout.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/common/commonLayout.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test-filip" />
+        <entry key="$PROJECT_DIR$" value="feature-hemsida-filip" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,7 +82,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="GlassFish 6.8.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 6.8.0" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="17">
+    <configuration name="GlassFish 6.8.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 6.8.01" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="17">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT" />
       <deployment>
         <artifact name="Antons-Skafferi-Webb:war exploded">
@@ -198,7 +197,14 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1701019398606</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Kan uppdatera meny från index2 - Alfred">
+      <option name="closed" value="true" />
+      <created>1701095265223</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1701095265223</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +214,7 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="hemsida" />
     <MESSAGE value="små uppdateringar på layouten" />
-    <option name="LAST_COMMIT_MESSAGE" value="små uppdateringar på layouten" />
+    <MESSAGE value="Kan uppdatera meny från index2 - Alfred" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kan uppdatera meny från index2 - Alfred" />
   </component>
 </project>
