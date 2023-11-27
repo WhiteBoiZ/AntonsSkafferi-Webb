@@ -9,14 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Rensat upp efter merge">
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Working on preview">
+      <change afterPath="$PROJECT_DIR$/src/main/java/LunchPreview.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-11-25_10_22__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-11-25_10_22__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-11-25_11_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-11-25_11_32__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-11-25_11_32__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023-11-25_11_32__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Lunch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Lunch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LunchBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LunchBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/template/common/commonLayout.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/template/common/commonLayout.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="jsf" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -90,7 +91,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "feature-adminsida-primefaces-ruben",
+    "git-widget-placeholder": "feature-adminsida-primefaces-ruben-Emilv2",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Ruben/IdeaProjects/AntonsSkafferi-Webb/src/main/webapp/resources/css",
     "node.js.detected.package.eslint": "true",
@@ -277,7 +278,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701009160566</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Working on preview">
+      <option name="closed" value="true" />
+      <created>1701090460742</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701090460742</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Working on preview">
+      <option name="closed" value="true" />
+      <created>1701090501569</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701090501569</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +330,8 @@
     <MESSAGE value="Added lunchElementTemplate.xhtml" />
     <MESSAGE value="Integrerat Ruben och Emils delar" />
     <MESSAGE value="Rensat upp efter merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rensat upp efter merge" />
+    <MESSAGE value="Working on preview" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on preview" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

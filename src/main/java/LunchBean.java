@@ -13,6 +13,10 @@ public class LunchBean {
     private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);
     private Lunch[] lunchMenu = new Lunch[5];
 
+    private List<LunchPreview> weekLunch = new ArrayList<>();
+    private String[] lunchArray = new String[10];
+
+
 
 
     // Getters and setters for title and description
@@ -27,6 +31,13 @@ public class LunchBean {
     }
     public void setLunchDescription(String lunchDescription) {
         this.lunchDescription = lunchDescription;
+    }
+
+    public String[] getLunchArray(){
+        return lunchArray;
+    }
+    public void setLunchArray(String[] lunchArray){
+        this.lunchArray = lunchArray;
     }
 
     public void addLunch(){
@@ -61,8 +72,7 @@ public class LunchBean {
         return lunches.get(listModel.getRowIndex());
      }
 
-     public List<String> getDaySelection(){
-        return getLunch().getSelectedDays();
+     public List<String> getDaySelection(){ return getLunch().getSelectedDays();
      }
      public void setDaySelection(ArrayList<String> selection){
         getLunch().setSelectedDays(selection);
@@ -114,5 +124,36 @@ public class LunchBean {
             default:
                 return "100";
         }
+    }
+    public void lunchPreview(){
+        List<String> selectedDays = getDaySelection();
+        for(String day : selectedDays){
+            if("mån".equalsIgnoreCase(day)){
+                lunchArray[0] = getLunchTitle();
+                lunchArray[1] = getLunchDescription();
+            }
+            if("tis".equalsIgnoreCase(day)){
+                lunchArray[2] = getLunchTitle();
+                lunchArray[3] = getLunchDescription();
+            }
+            if("ons".equalsIgnoreCase(day)){
+                lunchArray[4] = getLunchTitle();
+                lunchArray[5] = getLunchDescription();
+            }
+            if("tors".equalsIgnoreCase(day)){
+                lunchArray[6] = getLunchTitle();
+                lunchArray[7] = getLunchDescription();
+            }
+            if("fre".equalsIgnoreCase(day)){
+                lunchArray[8] = getLunchTitle();
+                lunchArray[9] = getLunchDescription();
+            }
+
+
+        }
+        System.out.println(lunchArray[8]);
+    }
+    public void updateLunchPreview(){
+        lunchPreview();
     }
 }
