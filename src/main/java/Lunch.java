@@ -1,26 +1,24 @@
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Lunch {
     private String title;
     private String description;
-    private Boolean[] daySelected = new Boolean[5];
+    private ArrayList<String> selectedDays = new ArrayList<>();
 
     public Lunch(String title, String description) {
         this.title = title;
         this.description = description;
+        selectedDays.add("Mån");
     }
 
-    public void selectDay(int day){
-        daySelected[day] = true;
+    public ArrayList<String> getSelectedDays() {
+        return selectedDays;
     }
 
-    public void unselectDay(int day){
-        daySelected[day] = false;
+    public void setSelectedDays(ArrayList<String> selectedDays) {
+        this.selectedDays = selectedDays;
     }
 
-    public void putSelection(int day, boolean choice){
-        daySelected[day] = choice;
-    }
     public String getTitle() {
         return title;
     }
@@ -37,11 +35,4 @@ public class Lunch {
         this.description = description;
     }
 
-    public Boolean[] getDaySelected() {
-        return daySelected;
-    }
-
-    public void setDaySelected(Boolean[] daySelected) {
-        this.daySelected = daySelected;
-    }
 }

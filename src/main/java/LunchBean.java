@@ -1,8 +1,5 @@
-import jakarta.el.MethodExpression;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.model.ListDataModel;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.util.*;
@@ -15,8 +12,6 @@ public class LunchBean {
     private ArrayList<Lunch> lunches = new ArrayList<>();
     private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);
     private Lunch[] lunchMenu = new Lunch[5];
-
-    private String[] selected;
 
 
 
@@ -61,34 +56,24 @@ public class LunchBean {
         return selection;
     }
 
-    public String[] getSelected() {
-        ArrayList<String> sel = new ArrayList<>();
-        Lunch currentLunch = lunches.get(listModel.getRowIndex());
-        for(int i = 0; i < currentLunch.getDaySelected().length; i++){
-            if(currentLunch.getDaySelected()[i]){
-                sel.add(dayIntToString(i));
-            }
-        }
-        return sel.toArray(new String[sel.size()]);
-    }
 
-    public void setSelected(String[] selected) {
-        this.selected = selected;
-        for(String sel:selected){
-            System.out.println(sel);
-        }
-    }
+     public Lunch getLunch(){
+        return lunches.get(listModel.getRowIndex());
+     }
 
-    public void selectedOptionsChanged() {
-        Lunch currentLunch = lunches.get(listModel.getRowIndex());
-        Arrays.fill(currentLunch.getDaySelected(), false);
-        if (selected != null){
-            for(String sel: selected){
-                currentLunch.selectDay(dayStringToInt(sel));
-            }
+     public List<String> getDaySelection(){
+        return getLunch().getSelectedDays();
+     }
+     public void setDaySelection(ArrayList<String> selection){
+        getLunch().setSelectedDays(selection);
+     }
+     public String onValueUpdate(){
+        StringBuilder builder = new StringBuilder();
+        for(String s: getLunch().getSelectedDays()){
+            builder.append(s);
         }
-    }
-
+        return builder.toString();
+     }
     private static int dayStringToInt(String day){
         switch (day) {
             case "man":

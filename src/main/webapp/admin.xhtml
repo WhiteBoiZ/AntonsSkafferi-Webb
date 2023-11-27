@@ -34,14 +34,15 @@
                         <p:card class="border-round-sm" style="margin-bottom: 1em">
                             <f:facet name="title">#{lunchItem.title}</f:facet>
                             <p style="margin-top: 0px">#{lunchItem.description}</p>
-                            <p:selectManyCheckbox id="daySelect" widgetVar="blub" value="#{lunchBean.selection}">
-                                <p:ajax listener="#{lunchBean.selectedOptionsChanged}" />
-                                <f:selectItem itemLabel="Mån" itemValue="man"/>
+                            <p:selectManyButton id="daySelect" widgetVar="blub" value="#{lunchBean.daySelection}">
+                                <p:ajax/>
+                                <f:selectItem itemLabel="Mån" itemValue="Mån"/>
                                 <f:selectItem itemLabel="Tis" itemValue="tis"/>
                                 <f:selectItem itemLabel="Ons" itemValue="ons"/>
                                 <f:selectItem itemLabel="Tor" itemValue="tor"/>
                                 <f:selectItem itemLabel="Fre" itemValue="fre"/>
-                            </p:selectManyCheckbox>
+                                <h:outputText></h:outputText>
+                            </p:selectManyButton>
                             <f:facet name="footer">
                                 <p:commandButton type="submit" ajax="false" icon="pi pi-trash" actionListener="#{lunchBean.removeLunch}"/>
                             </f:facet>
