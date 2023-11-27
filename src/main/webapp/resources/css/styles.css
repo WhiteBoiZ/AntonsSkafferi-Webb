@@ -22,7 +22,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1rem;
 }
 
 #background-img {
@@ -54,8 +53,15 @@ body {
 }
 
 #navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: 'Lora', serif;
     font-weight: 500;
+    background-color: #333333;
+    z-index: 100;
+    position: sticky;
+    width: 100%;
 }
 #navbar ul {
     display: flex;
