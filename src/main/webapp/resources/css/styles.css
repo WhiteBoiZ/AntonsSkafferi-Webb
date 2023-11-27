@@ -71,13 +71,6 @@ body {
     color: white;
     text-decoration: none;
 }
-
-
-.content {
-
-    position: relative;
-    z-index: 1;
-}
 .a4 {
     width: 210mm;
     height: 297mm;
@@ -85,23 +78,56 @@ body {
     padding: 1rem;
 }
 .lunch {
-    margin-top: 2rem;
     display: flex;
     justify-content: space-around;
     text-align: center;
     width: 100%;
+    height: calc(100vh - 8rem);
 }
 
 .dagens, .veckans {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     flex: 1;
 }
 
-#dagens-content {
+.dagens {
+}
 
+.veckans {
+}
+
+.dagens-container, .veckans-container {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#dagens-header {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+#dagens-header h2 {
+    font-size: 3rem;
+}
+
+#dagens-content {
+    width: 75%;
+    margin-bottom: 5rem;
+    font-size: 1.5rem;
+}
+
+#veckans-content {
+    width: 75%;
+}
+
+#veckans-content h3 {
+    margin-top: 0.5rem;
 }
 
 
@@ -112,7 +138,7 @@ body {
 }
 
 .frame .material-symbols-outlined {
-    font-size: 2rem;
+    font-size: 3.5rem;
 }
 
 
