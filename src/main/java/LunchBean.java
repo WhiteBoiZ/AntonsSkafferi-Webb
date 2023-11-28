@@ -13,7 +13,6 @@ public class LunchBean {
     private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);
     private Lunch[] lunchMenu = new Lunch[5];
 
-    private List<LunchPreview> weekLunch = new ArrayList<>();
     private String[] lunchArray = new String[10];
 
 
