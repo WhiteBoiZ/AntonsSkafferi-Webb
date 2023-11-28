@@ -1,6 +1,9 @@
+package se.miun.whiteboiz;
+
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.model.ListDataModel;
 import jakarta.inject.Named;
+import se.miun.whiteboiz.containers.Lunch;
 
 import java.util.*;
 
