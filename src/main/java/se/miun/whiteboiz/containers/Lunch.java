@@ -1,3 +1,5 @@
+package se.miun.whiteboiz.containers;
+
 import java.util.ArrayList;
 
 public class Lunch {
