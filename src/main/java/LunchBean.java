@@ -1,11 +1,8 @@
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.model.ListDataModel;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
 @ApplicationScoped
 @Named
@@ -14,6 +11,8 @@ public class LunchBean {
     private String lunchDescription;
     private ArrayList<Lunch> lunches = new ArrayList<>();
     private ListDataModel<Lunch> listModel = new ListDataModel<Lunch>(lunches);
+    private Lunch[] lunchMenu = new Lunch[5];
+
 
 
     // Getters and setters for title and description
@@ -42,11 +41,78 @@ public class LunchBean {
         return listModel;
     }
 
-    public String now(){
-        return new Date().toString();
+    public void setLunchMenu() {
+        int lunchIndex = listModel.getRowIndex();
+        lunchMenu[lunchIndex] = lunches.get(lunchIndex);
+    }
+
+    public List<Boolean> getSelection(){
+        List<Boolean> selection = Arrays.asList(new Boolean[5]);
+        for(int i = 0; i < lunchMenu.length; i++) {
+            if(lunchMenu[i] == lunches.get(listModel.getRowIndex())) {
+                selection.set(i, true);
+            }
+        }
+        return selection;
     }
 
 
+     public Lunch getLunch(){
+        return lunches.get(listModel.getRowIndex());
+     }
 
+     public List<String> getDaySelection(){
+        return getLunch().getSelectedDays();
+     }
+     public void setDaySelection(ArrayList<String> selection){
+        getLunch().setSelectedDays(selection);
+     }
+     public String onValueUpdate(){
+        StringBuilder builder = new StringBuilder();
+        for(String s: getLunch().getSelectedDays()){
+            builder.append(s);
+        }
+        return builder.toString();
+     }
+    private static int dayStringToInt(String day){
+        switch (day) {
+            case "man":
+                return 0;
+            case "tis":
+                return 1;
+            case "ons":
+                return 2;
+            case "tor":
+                return 3;
+            case "fre":
+                return 4;
+            case "lor":
+                return 5;
+            case "son":
+                return 6;
+            default:
+                return 100;
+        }
+    }
 
+    private static String dayIntToString(int day){
+        switch (day) {
+            case 0:
+                return "man";
+            case 1:
+                return "tis";
+            case 2:
+                return "ons";
+            case 3:
+                return "tor";
+            case 4:
+                return "fre";
+            case 5:
+                return "lor";
+            case 6:
+                return "son";
+            default:
+                return "100";
+        }
+    }
 }

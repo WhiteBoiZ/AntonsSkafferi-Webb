@@ -1,10 +1,21 @@
+import java.util.ArrayList;
+
 public class Lunch {
     private String title;
     private String description;
+    private ArrayList<String> selectedDays = new ArrayList<>();
 
     public Lunch(String title, String description) {
         this.title = title;
         this.description = description;
+    }
+
+    public ArrayList<String> getSelectedDays() {
+        return selectedDays;
+    }
+
+    public void setSelectedDays(ArrayList<String> selectedDays) {
+        this.selectedDays = selectedDays;
     }
 
     public String getTitle() {
@@ -22,4 +33,5 @@ public class Lunch {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }
