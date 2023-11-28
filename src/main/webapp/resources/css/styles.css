@@ -83,7 +83,6 @@ body {
     text-align: center;
     width: 100%;
     height: calc(100vh - 8rem);
-    margin-top: 1rem;
 }
 
 .dagens, .veckans {
@@ -98,6 +97,7 @@ body {
 }
 
 .veckans {
+    padding-top: 3rem;
 }
 
 .dagens-container, .veckans-container {
@@ -108,18 +108,18 @@ body {
 }
 
 #dagens-header {
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
 
 #dagens-header h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 #dagens-content {
     width: 75%;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     font-size: 1.5rem;
 }
 
@@ -139,7 +139,7 @@ body {
 }
 
 .frame .material-symbols-outlined {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 
