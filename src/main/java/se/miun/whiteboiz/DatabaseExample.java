@@ -17,6 +17,11 @@ public class DatabaseExample {
     @Resource(lookup = "jdbc/LocalSqlResource")
     private DataSource dataSource;
 
+    private String name;
+    private int id;
+
+
+
     public void fetchDataFromDatabase() {
         try (Connection connection = dataSource.getConnection()) {
             // Your database operations using the connection
@@ -26,14 +31,22 @@ public class DatabaseExample {
                  ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     // Process each row of the result set
-                    int id = resultSet.getInt("id");
-                    String name = resultSet.getString("name");
+                    id = resultSet.getInt("id");
+                    name = resultSet.getString("name");
                     // ... process other columns
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getId() {
+        return id;
     }
 }
 

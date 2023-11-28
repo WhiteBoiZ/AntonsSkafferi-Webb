@@ -16,6 +16,9 @@
         //test database connection
         <h:commandButton actionListener="#{databaseExample.fetchDataFromDatabase()}" value="Test DB"/>
 
+        <h:outputText value="#{databaseExample.getName()}"/>
+        <h:outputText value="#{databaseExample.getId()}"/>
+
     </h:form>
 </f:view>
 </html>
