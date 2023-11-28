@@ -79,7 +79,7 @@ body {
 }
 .lunch {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     text-align: center;
     width: 100%;
     height: calc(100vh - 8rem);

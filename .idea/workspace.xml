@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="mindre justeringar med css" />
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="mergad med feature-hemsida-filip-alacarte">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,12 +35,26 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "FIINNO"
+  }
+}]]></component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
         <option value="master" />
         <option value="development" />
       </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ee6d9a42-e1ad-4fe1-a5b5-7d8136bce765" />
+        <option name="url" value="https://github.com/WhiteBoiZ/AntonsSkafferi-Webb" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="LogFilters">
@@ -171,6 +188,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700751524595</updated>
       <workItem from="1700751525671" duration="325000" />
+      <workItem from="1701171657025" duration="1052000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -208,7 +226,14 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1701098814745</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="mergad med feature-hemsida-filip-alacarte">
+      <option name="closed" value="true" />
+      <created>1701099162564</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1701099162564</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +245,7 @@
     <MESSAGE value="små uppdateringar på layouten" />
     <MESSAGE value="styling av header och lunchsektion" />
     <MESSAGE value="mindre justeringar med css" />
-    <option name="LAST_COMMIT_MESSAGE" value="mindre justeringar med css" />
+    <MESSAGE value="mergad med feature-hemsida-filip-alacarte" />
+    <option name="LAST_COMMIT_MESSAGE" value="mergad med feature-hemsida-filip-alacarte" />
   </component>
 </project>
