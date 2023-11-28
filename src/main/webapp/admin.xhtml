@@ -38,7 +38,6 @@
                             <f:facet name="title">#{lunchItem.title}</f:facet>
                             <p style="margin-top: 0px">#{lunchItem.description}</p>
                             <p:selectManyButton id="daySelect" widgetVar="blub" value="#{lunchBean.daySelection}">
-
                                 <f:selectItem itemLabel="Mån" itemValue="mån"/>
                                 <f:selectItem itemLabel="Tis" itemValue="tis"/>
                                 <f:selectItem itemLabel="Ons" itemValue="ons"/>
@@ -52,7 +51,7 @@
                                 <h:outputText></h:outputText>
                             </p:selectManyButton>
                             <f:facet name="footer">
-                                <p:commandButton type="submit" ajax="false" icon="pi pi-trash" actionListener="#{lunchBean.removeLunch}"/>
+                                <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{lunchBean.removeLunch}"/>
                             </f:facet>
 
                         </p:card>
