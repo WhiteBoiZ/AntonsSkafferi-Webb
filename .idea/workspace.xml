@@ -9,6 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="fixade preview lite">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LunchBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LunchBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LunchPreview.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" afterDir="false" />
     <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="kanske fixat mellanrummet mellan dagens och veckans lunch för bredare skärmar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
@@ -31,11 +36,17 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test-filip" />
+        <entry key="$PROJECT_DIR$" value="feature-adminsida-primefaces" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;greger12&quot;
+  }
+}</component>
   <component name="GitHubPullRequestSearchHistory"><![CDATA[{
   "lastFilter": {
     "state": "OPEN",
@@ -53,16 +64,24 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
+        <option name="accountId" value="63e604b8-4c96-4805-8869-d51b763353cc" />
         <option name="accountId" value="ee6d9a42-e1ad-4fe1-a5b5-7d8136bce765" />
         <option name="url" value="https://github.com/WhiteBoiZ/AntonsSkafferi-Webb" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/webjars/npm/primeflex/3.3.1/primeflex-3.3.1.jar!/META-INF/resources/webjars/primeflex/3.3.1/primeflex.css" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
     <option name="CUSTOM_FILTER" value="" />
   </component>
   <component name="ProjectColorInfo">{
@@ -73,6 +92,50 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "feature-adminsida",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Ruben/IdeaProjects/AntonsSkafferi-Webb/src/main/webapp/resources/css",
+    "node.js.detected.package.eslint": "true",
+    "nde.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "settings.sync",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ruben\IdeaProjects\AntonsSkafferi-Webb\src\main\webapp\resources\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ruben\IdeaProjects\AntonsSkafferi-Webb\src\main\webapp\resources\css\primeflex" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="hiddenConfigurations">
+      <map>
+        <entry key="GlassfishConfiguration">
+          <value>
+            <set>
+              <option value="GlassFish 6.8.0" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -164,7 +227,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Antons-Skafferi-Webb:war exploded" />
+          <artifact name="Antons-Skafferi-Webb:war" />
         </option>
       </method>
     </configuration>
@@ -189,6 +252,9 @@
       <option name="presentableId" value="Default" />
       <updated>1700751524595</updated>
       <workItem from="1700751525671" duration="325000" />
+      <workItem from="1700945137395" duration="4454000" />
+      <workItem from="1701077638142" duration="8617000" />
+      <workItem from="1701089444195" duration="2934000" />
       <workItem from="1701171657025" duration="3133000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
@@ -199,6 +265,71 @@
       <option name="project" value="LOCAL" />
       <updated>1700751850288</updated>
     </task>
+    <task id="LOCAL-00002" summary="Initial Commit">
+      <option name="closed" value="true" />
+      <created>1701088757756</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701088757756</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Tog bort default val på varje lunch">
+      <option name="closed" value="true" />
+      <created>1701090552505</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701090552505</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixade preview lite">
+      <option name="closed" value="true" />
+      <created>1701176740176</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701176740176</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added lunchElementTemplate.xhtml">
+      <option name="closed" value="true" />
+      <created>1700945983900</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700945983900</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Integrerat Ruben och Emils delar">
+      <option name="closed" value="true" />
+      <created>1701008465547</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701008465547</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Rensat upp efter merge">
+      <option name="closed" value="true" />
+      <created>1701009160566</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701009160566</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Working on preview">
+      <option name="closed" value="true" />
+      <created>1701090460742</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701090460742</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Working on preview">
+      <option name="closed" value="true" />
+      <created>1701090501569</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701090501569</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <task id="LOCAL−00002" summary="hemsida">
       <option name="closed" value="true" />
       <created>1701017261627</created>
@@ -247,8 +378,45 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/feature-adminsida-ruben" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
+    <MESSAGE value="Added getLunch" />
+    <MESSAGE value="Testsida där man kan lägga till luncher i en synlig lista." />
+    <MESSAGE value="Added lunchElementTemplate.xhtml" />
+    <MESSAGE value="Integrerat Ruben och Emils delar" />
+    <MESSAGE value="Rensat upp efter merge" />
+    <MESSAGE value="Working on preview" />
+    <MESSAGE value="fixade preview lite" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixade preview lite" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+    <MESSAGE value="Tog bort default val på varje lunch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tog bort default val på varje lunch" />
     <MESSAGE value="hemsida" />
     <MESSAGE value="små uppdateringar på layouten" />
     <MESSAGE value="styling av header och lunchsektion" />
