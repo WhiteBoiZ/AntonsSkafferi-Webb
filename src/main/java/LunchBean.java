@@ -129,24 +129,24 @@ public class LunchBean {
         List<String> selectedDays = getDaySelection();
         for(String day : selectedDays){
             if("mån".equalsIgnoreCase(day)){
-                lunchArray[0] = getLunchTitle();
-                lunchArray[1] = getLunchDescription();
+                lunchArray[0] = getLunch().getTitle();
+                lunchArray[1] = getLunch().getDescription();
             }
             if("tis".equalsIgnoreCase(day)){
-                lunchArray[2] = getLunchTitle();
-                lunchArray[3] = getLunchDescription();
+                lunchArray[2] = getLunch().getTitle();
+                lunchArray[3] = getLunch().getDescription();
             }
             if("ons".equalsIgnoreCase(day)){
-                lunchArray[4] = getLunchTitle();
-                lunchArray[5] = getLunchDescription();
+                lunchArray[4] = getLunch().getTitle();
+                lunchArray[5] = getLunch().getDescription();
             }
             if("tors".equalsIgnoreCase(day)){
-                lunchArray[6] = getLunchTitle();
-                lunchArray[7] = getLunchDescription();
+                lunchArray[6] = getLunch().getTitle();
+                lunchArray[7] = getLunch().getDescription();
             }
             if("fre".equalsIgnoreCase(day)){
-                lunchArray[8] = getLunchTitle();
-                lunchArray[9] = getLunchDescription();
+                lunchArray[8] = getLunch().getTitle();
+                lunchArray[9] = getLunch().getDescription();
             }
 
 

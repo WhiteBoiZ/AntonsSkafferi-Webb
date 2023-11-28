@@ -43,12 +43,7 @@
                                 <f:selectItem itemLabel="Ons" itemValue="ons"/>
                                 <f:selectItem itemLabel="Tor" itemValue="tors"/>
                                 <f:selectItem itemLabel="Fre" itemValue="fre"/>
-                                <p:ajax update = "monday" listener="#{lunchBean.updateLunchPreview}"/>
-                                <p:ajax update = "tuesday" listener="#{lunchBean.updateLunchPreview}"/>
-                                <p:ajax update = "wednesday" listener="#{lunchBean.updateLunchPreview}"/>
-                                <p:ajax update = "thursday" listener="#{lunchBean.updateLunchPreview}"/>
-                                <p:ajax update = "friday" listener="#{lunchBean.updateLunchPreview}"/>
-                                <h:outputText></h:outputText>
+                                <p:ajax update = "monday tuesday wednesday thursday friday" listener="#{lunchBean.updateLunchPreview}"/>
                             </p:selectManyButton>
                             <f:facet name="footer">
                                 <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{lunchBean.removeLunch}"/>
@@ -59,7 +54,7 @@
                 </p:outputPanel>
             </h:form>
                 </p:splitterPanel>
-                <p:splitterPanel position ="right">
+                <p:splitterPanel id="lunchPreview" position ="right">
                     <h:outputText value="Förhandsgranskning Lunchmeny" style = "font-weight: bold;">
                 </h:outputText> <br/>
                     <br/>
