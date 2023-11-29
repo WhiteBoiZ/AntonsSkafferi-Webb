@@ -9,7 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="kanske fixat mellanrummet mellan dagens och veckans lunch för bredare skärmar">
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="merge med css för a la carte">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/header-bild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/header2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/kottbullar.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/laxbiffar.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/images/pannbiff.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" afterDir="false" />
@@ -36,12 +41,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "FIINNO"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;FIINNO&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
@@ -189,7 +194,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700751524595</updated>
       <workItem from="1700751525671" duration="325000" />
-      <workItem from="1701171657025" duration="3133000" />
+      <workItem from="1701171657025" duration="10580000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -241,7 +246,14 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1701172772141</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="merge med css för a la carte">
+      <option name="closed" value="true" />
+      <created>1701174951845</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1701174951845</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +267,7 @@
     <MESSAGE value="mindre justeringar med css" />
     <MESSAGE value="mergad med feature-hemsida-filip-alacarte" />
     <MESSAGE value="kanske fixat mellanrummet mellan dagens och veckans lunch för bredare skärmar" />
-    <option name="LAST_COMMIT_MESSAGE" value="kanske fixat mellanrummet mellan dagens och veckans lunch för bredare skärmar" />
+    <MESSAGE value="merge med css för a la carte" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge med css för a la carte" />
   </component>
 </project>
