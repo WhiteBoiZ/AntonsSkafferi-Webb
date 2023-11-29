@@ -9,8 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="gjort om veckans lunch sektionen lite">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/script.js" afterDir="false" />
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="la till smooth scroll">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/styles.css" afterDir="false" />
@@ -192,7 +191,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700751524595</updated>
       <workItem from="1700751525671" duration="325000" />
-      <workItem from="1701171657025" duration="15570000" />
+      <workItem from="1701171657025" duration="18902000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -272,7 +271,14 @@
       <option name="presentableId" value="LOCAL−00011" />
       <updated>1701266944665</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL−00012" summary="la till smooth scroll">
+      <option name="closed" value="true" />
+      <created>1701267850406</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1701267850406</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +296,7 @@
     <MESSAGE value="la till bild som header och fixat sticky navbar" />
     <MESSAGE value="gjort om dagens lunch sektionen lite" />
     <MESSAGE value="gjort om veckans lunch sektionen lite" />
-    <option name="LAST_COMMIT_MESSAGE" value="gjort om veckans lunch sektionen lite" />
+    <MESSAGE value="la till smooth scroll" />
+    <option name="LAST_COMMIT_MESSAGE" value="la till smooth scroll" />
   </component>
 </project>

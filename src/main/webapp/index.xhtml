@@ -28,44 +28,26 @@
     </div> <!-- end of navbar -->
 
     <div class="lunch">
-
         <div class="dagens">
             <div class="dagens-container">
-                <!--<div class="frame">
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                </div> -->
                 <div id="dagens-header">
-                    <h2>Dagens lunch</h2>
-                    <p>Tisdag</p>
+                    <h2>Dagens Lunch</h2>
+                    <!-- Byt ut hårdkodad value för dag mot dag från beans -->
+                    <h:outputText value="Tisdag" />
                 </div>
                 <div id="dagens-content">
+                    <!-- Byt ut hårdkodade luncher mot dagens luncher från beans -->
                     <h:outputText id="lunch-alt1" value="Köttbullar med potatismos,
                                     serveras med gräddsås och rårörda lingon" />
                     <span class="material-symbols-outlined">restaurant_menu</span>
                     <h:outputText id="lunch-alt2" value="Köttbullar med potatismos,
                                     serveras med gräddsås och rårörda lingon" />
                 </div>
-                <!--<div class="frame">
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                </div>-->
             </div>
 
         </div>
         <div id="image-column">
+            <!-- Dessa bilder ska kanske också kunna bytas av Anton på adminsidan? -->
             <h:graphicImage library="images" name="pannbiff.jpeg" id="matbild1" />
             <h:graphicImage library="images" name="kottbullar.jpeg" id="matbild2" />
             <h:graphicImage library="images" name="laxbiffar.jpeg" id="matbild3" />
@@ -74,60 +56,64 @@
             <div class="veckans-container">
                 <div id="veckans-header">
                     <h2>Veckans Lunchmeny</h2>
-                    <p>Vecka 42</p>
+                    <!-- Byt ut mot vecka från bean -->
+                    <h:outputText value="Vecka 48" />
                 </div>
                 <div id="veckans-content">
+                    <!-- Byt ut mot luncher från beans  -->
                     <h3>Måndag</h3>
-                    <h:outputLabel value="Köttbullar med potatismos, gräddsås och lingon"/><br/>
+                    <h:outputText value="Köttbullar med potatismos, gräddsås och lingon"/>
                     <h3>Tisdag</h3>
-                    <h:outputLabel value="Köttbullar med potatismos, gräddsås och lingon"/><br/>
+                    <h:outputText value="Köttbullar med potatismos, gräddsås och lingon"/>
                     <h3>Onsdag</h3>
-                    <h:outputLabel value="Köttbullar med potatismos, gräddsås och lingon"/><br/>
+                    <h:outputText value="Köttbullar med potatismos, gräddsås och lingon"/>
                     <h3>Torsdag</h3>
-                    <h:outputLabel value="Köttbullar med potatismos, gräddsås och lingon"/><br/>
+                    <h:outputText value="Köttbullar med potatismos, gräddsås och lingon"/>
                     <h3>Fredag</h3>
-                    <h:outputLabel value="Köttbullar med potatismos, gräddsås och lingon"/><br/>
+                    <h:outputText value="Köttbullar med potatismos, gräddsås och lingon"/>
                 </div>
             </div>
 
         </div> <!-- end of veckans -->
     </div> <!-- end of lunch -->
     <div class="alacarte a4" id="alacarte">
-
-        <h2>À la carte</h2>
-        <p>Vi har ett brett utbud av rätter på vår ala carte meny. Välkommen in och se vad vi har att erbjuda.</p>
+        <div id="alacarte-header">
+            <h2>À la carte</h2>
+            <p>Vi har ett brett utbud av rätter på vår à la carte meny. <br/> Välkommen in och se vad vi har att erbjuda.</p>
+        </div>
         <div id="course-container">
+            <!-- Byt ut value för alla rätter med rätter från beans -->
             <div id="first-course-dessert">
                 <h3>Förrätter</h3>
                 <div id="first-course">
-                    <h:outputLabel class="alacarte-title" value="Gravad lax med hovmästarsås och hembakat knäckebröd"/>
-                    <h:outputLabel class="description" value="En klassiker med noggrant gravad lax, serverad med den traditionella hovmästarsåsen och knaprigt hemlagat knäckebröd."/>
-                    <h:outputLabel class="alacarte-title" value="Kantarelltoast med vitlök och persilja"/>
-                    <h:outputLabel class="description" value="Saftiga kantareller stekta med vitlök och persilja, serverade på rostat bröd. En smakrik och säsongsbetonad förrätt."/>
-                    <h:outputLabel class="alacarte-title" value="Rödbetsterrin med getost och valnötter"/>
-                    <h:outputLabel class="description" value="En läcker terrin av rostade rödbetor, getost och knapriga valnötter. Serveras med en lätt sallad och balsamicoreduktion."/>
+                    <h:outputText class="alacarte-title" value="Gravad lax med hovmästarsås och hembakat knäckebröd"/>
+                    <h:outputText class="description" value="En klassiker med noggrant gravad lax, serverad med den traditionella hovmästarsåsen och knaprigt hemlagat knäckebröd."/>
+                    <h:outputText class="alacarte-title" value="Kantarelltoast med vitlök och persilja"/>
+                    <h:outputText class="description" value="Saftiga kantareller stekta med vitlök och persilja, serverade på rostat bröd. En smakrik och säsongsbetonad förrätt."/>
+                    <h:outputText class="alacarte-title" value="Rödbetsterrin med getost och valnötter"/>
+                    <h:outputText class="description" value="En läcker terrin av rostade rödbetor, getost och knapriga valnötter. Serveras med en lätt sallad och balsamicoreduktion."/>
                 </div>
                 <h3>Dessert</h3>
                 <div id="dessert">
-                    <h:outputLabel class="alacarte-title" value="Chokladtryffeltårta med hallon och vispad grädde"/>
-                    <h:outputLabel class="description" value="En ljuvlig chokladtryffeltårta toppad med färska hallon och krämig vispad grädde. En perfekt avslutning på måltiden."/>
-                    <h:outputLabel class="alacarte-title" value="Vaniljpannacotta med skogsbärskompott"/>
-                    <h:outputLabel class="description" value="Len vaniljpannacotta toppad med en smakrik kompott av skogsbär. En lätt och fräsch efterrätt."/>
+                    <h:outputText class="alacarte-title" value="Chokladtryffeltårta med hallon och vispad grädde"/>
+                    <h:outputText class="description" value="En ljuvlig chokladtryffeltårta toppad med färska hallon och krämig vispad grädde. En perfekt avslutning på måltiden."/>
+                    <h:outputText class="alacarte-title" value="Vaniljpannacotta med skogsbärskompott"/>
+                    <h:outputText class="description" value="Len vaniljpannacotta toppad med en smakrik kompott av skogsbär. En lätt och fräsch efterrätt."/>
                 </div>
             </div>
 
             <div id="main-course">
                 <h3>Varmrätter</h3>
-                <h:outputLabel class="alacarte-title" value="Wallenbergare med ärtor, potatismos och lingonsylt"/>
-                <h:outputLabel class="description" value="Hemlagade Wallenbergare av kalvfärs, serverade med klassiska tillbehör som ärtor, krämigt potatismos och syrlig lingonsylt."/>
-                <h:outputLabel class="alacarte-title" value="Svensk lövbiff med grönpepparsås, potatisgratäng och sallad"/>
-                <h:outputLabel class="description" value="Saftig lövbiff, serverad med krämig grönpepparsås, gratinerad potatisgratäng och en fräsch sallad."/>
-                <h:outputLabel class="alacarte-title" value="Rimmad lax med dillstuvad potatis och gröna ärtor"/>
-                <h:outputLabel class="description" value="Lax rimmad i en kryddig blandning, serverad med krämig dillstuvad potatis och lättkokta gröna ärtor."/>
-                <h:outputLabel class="alacarte-title" value="Köttbullar med gräddsås, potatismos och lingon"/>
-                <h:outputLabel class="description" value="Traditionella svenska köttbullar av blandfärs, serverade med krämig gräddsås, potatismos och sötsyrliga lingon."/>
-                <h:outputLabel class="alacarte-title" value="Laxfilé med vitvinssås, sparris och pressad potatis"/>
-                <h:outputLabel class="description" value="En saftig laxfilé, grillas eller ugnsbakas och serveras med en lätt vitvinssås, färsk sparris och pressad potatis. En fräsch och delikat rätt."/>
+                <h:outputText class="alacarte-title" value="Wallenbergare med ärtor, potatismos och lingonsylt"/>
+                <h:outputText class="description" value="Hemlagade Wallenbergare av kalvfärs, serverade med klassiska tillbehör som ärtor, krämigt potatismos och syrlig lingonsylt."/>
+                <h:outputText class="alacarte-title" value="Svensk lövbiff med grönpepparsås, potatisgratäng och sallad"/>
+                <h:outputText class="description" value="Saftig lövbiff, serverad med krämig grönpepparsås, gratinerad potatisgratäng och en fräsch sallad."/>
+                <h:outputText class="alacarte-title" value="Rimmad lax med dillstuvad potatis och gröna ärtor"/>
+                <h:outputText class="description" value="Lax rimmad i en kryddig blandning, serverad med krämig dillstuvad potatis och lättkokta gröna ärtor."/>
+                <h:outputText class="alacarte-title" value="Köttbullar med gräddsås, potatismos och lingon"/>
+                <h:outputText class="description" value="Traditionella svenska köttbullar av blandfärs, serverade med krämig gräddsås, potatismos och sötsyrliga lingon."/>
+                <h:outputText class="alacarte-title" value="Laxfilé med vitvinssås, sparris och pressad potatis"/>
+                <h:outputText class="description" value="En saftig laxfilé, grillas eller ugnsbakas och serveras med en lätt vitvinssås, färsk sparris och pressad potatis. En fräsch och delikat rätt."/>
             </div>
         </div>
 
@@ -136,8 +122,14 @@
 
     </div>
     <div id="events">
+        <div id="coming-events">
+            <div class="event"></div>
+            <div class="event"></div>
 
+        </div>
+        <div id="prev-events">
 
+        </div>
     </div>
 
     <div id="footer">
