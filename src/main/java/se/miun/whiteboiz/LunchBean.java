@@ -74,7 +74,7 @@ public class LunchBean {
         return lunches.get(listModel.getRowIndex());
      }
 
-     public List<String> getDaySelection(){ return getLunch().getSelectedDays();
+     public List<String> getCurrentLunchDaySelection(){ return getLunch().getSelectedDays();
      }
      public void setDaySelection(ArrayList<String> selection){
         getLunch().setSelectedDays(selection);
@@ -128,7 +128,7 @@ public class LunchBean {
         }
     }
     public void lunchPreview(){
-        List<String> selectedDays = getDaySelection();
+        List<String> selectedDays = getCurrentLunchDaySelection();
         for(String day : selectedDays){
             if("mån".equalsIgnoreCase(day)){
                 lunchArray[0] = getLunch().getTitle();

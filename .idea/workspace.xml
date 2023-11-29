@@ -9,10 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="fixade preview lite">
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="ändrade css directory till en simplare men ekvivalent">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/miun/whiteboiz/containers/WeekLunchMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/miun/whiteboiz/LunchBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/miun/whiteboiz/LunchBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.xhtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="jsf" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -214,7 +215,8 @@
       <workItem from="1701077638142" duration="8617000" />
       <workItem from="1701089444195" duration="2934000" />
       <workItem from="1701171657025" duration="3133000" />
-      <workItem from="1701263810429" duration="522000" />
+      <workItem from="1701263810429" duration="667000" />
+      <workItem from="1701267053253" duration="5288000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -272,13 +274,13 @@
       <option name="project" value="LOCAL" />
       <updated>1701009160566</updated>
     </task>
-    <task id="LOCAL-00008" summary="Working on preview">
+    <task id="LOCAL-00008" summary="ändrade css directory till en simplare men ekvivalent">
       <option name="closed" value="true" />
-      <created>1701090460742</created>
+      <created>1701264392590</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1701090460742</updated>
+      <updated>1701264392590</updated>
     </task>
     <task id="LOCAL-00009" summary="Working on preview">
       <option name="closed" value="true" />
@@ -330,7 +332,7 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1701172772141</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +370,8 @@
     <MESSAGE value="Working on preview" />
     <MESSAGE value="fixade preview lite" />
     <MESSAGE value="Initial Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
+    <MESSAGE value="ändrade css directory till en simplare men ekvivalent" />
+    <option name="LAST_COMMIT_MESSAGE" value="ändrade css directory till en simplare men ekvivalent" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

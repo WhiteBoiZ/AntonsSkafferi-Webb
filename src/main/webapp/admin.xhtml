@@ -7,7 +7,6 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
-
 <f:view>
     <ui:composition template="/template/common/commonLayout.xhtml">
         <ui:define name="title">Antons Skafferi Admin page</ui:define>
@@ -35,7 +34,7 @@
                                     <p:card class="border-round-sm" style="margin-bottom: 1em">
                                         <f:facet name="title">#{lunchItem.title}</f:facet>
                                         <p style="margin-top: 0">#{lunchItem.description}</p>
-                                        <p:selectManyButton id="daySelect" widgetVar="blub" value="#{lunchBean.daySelection}">
+                                        <p:selectManyButton id="daySelect" widgetVar="blub" value="#{lunchBean.currentLunchDaySelection}">
                                             <f:selectItem itemLabel="Mån" itemValue="mån"/>
                                             <f:selectItem itemLabel="Tis" itemValue="tis"/>
                                             <f:selectItem itemLabel="Ons" itemValue="ons"/>
