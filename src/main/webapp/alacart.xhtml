@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<f:view>
+    <ui:composition template="/template/common/commonLayout.xhtml">
+        <ui:define name="title">Antons Skafferi Admin page - Ala Carte</ui:define>
+        <ui:define name="content">
+            <div class="grid">
+                <div class="col-5">
+                    <div>
+                        <p:outputLabel value="Lägg till rätt"/>
+                        <h:form>
+                            <div>
+                                <p:outputLabel value="Huvudtext" for="@next"/>
+                                <p:inputTextarea value="#{lunchBean.lunchTitle}" id = "titleLunch" label="Title" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+                                <p:outputLabel value="Undertext" for="@next"/>
+                                <p:inputTextarea value ="#{lunchBean.lunchDescription}" id="beskrivningLunch" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
+                                <p:commandButton update="updateLunch" type="submit" actionListener="#{lunchBean.addLunch()}" value="Lägg till" icon="pi pi-plus" id="knappSkickaLunch">
+                                </p:commandButton>
+                            </div>
+                            <p:outputPanel id = "updateLunch" deferred="true">
+                                <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
+                                    <p:card class="border-round-sm" style="margin-bottom: 1em">
+                                        <f:facet name="title">#{lunchItem.title}</f:facet>
+                                        <p style="margin-top: 0">#{lunchItem.description}</p>
+                                        <p:selectManyButton id="daySelect" widgetVar="blub" value="#{lunchBean.currentLunchDaySelection}">
+                                            <f:selectItem itemLabel="Förrätt" itemValue="STARTER"/>
+                                            <f:selectItem itemLabel="Varmrätt" itemValue="MAIN"/>
+                                            <f:selectItem itemLabel="Efterrätt" itemValue="DESSERT"/>
+
+                                            <p:ajax update = "starter main dessert" listener="#{lunchBean.updateLunchPreview}"/>
+                                        </p:selectManyButton>
+                                        <f:facet name="footer">
+                                            <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{lunchBean.removeLunch}"/>
+                                        </f:facet>
+
+                                    </p:card>
+                                </ui:repeat>
+                            </p:outputPanel>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <p:divider layout="vertical"/>
+                </div>
+                <div class="col-5">
+                    <h:outputText value="Förhandsgranskning A la carte meny" style = "font-weight: bold;"/><br/>
+                    <br/>
+                    <p:card id = "starter" class="border-round-sm" style="margin-bottom: 1em">
+                        <h:outputText value="Förrätter">
+                        </h:outputText> <br/>
+                        <h:outputText value="Stortext visas här">
+                        </h:outputText>
+                        <br/>
+                        <h:outputText value="Liten text visas här">
+                        </h:outputText>
+                    </p:card>
+
+                    <p:card id = "main" class="border-round-sm" style="margin-bottom: 1em">
+                        <h:outputText value="Varmrätter">
+                        </h:outputText> <br/>
+                        <h:outputText value="Stortext visas här">
+                        </h:outputText>
+                        <br/>
+                        <h:outputText value="Liten text visas här">
+                        </h:outputText>
+                    </p:card>
+
+                    <p:card id = "dessert" class="border-round-sm" style="margin-bottom: 1em">
+                        <h:outputText value="Onsdag">
+                        </h:outputText> <br/>
+                        <h:outputText value="Stortext visas här">
+                        </h:outputText>
+                        <br/>
+                        <h:outputText value="Liten text visas här">
+                        </h:outputText>
+                    </p:card>
+
+                </div>
+            </div>
+
+
+        </ui:define>
+
+    </ui:composition>
+
+</f:view>
+</html>
+
