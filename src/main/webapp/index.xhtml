@@ -9,20 +9,21 @@
 <h:head>
     <title>Antons Skafferi</title>
     <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/styles.css" />
+    <h:outputScript name="js/script.js" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </h:head>
 
-<h:body>
+<h:body id="body">
     <h:graphicImage library="images" name="header2.png" id="background-img" />
     <div class="header">
         <h1>Antons Skafferi</h1>
     </div> <!-- end of welcome -->
     <div id="navbar">
         <ul>
-            <li><a href="">Lunch</a></li>
+            <li><a href="#body">Lunch</a></li>
             <li><a href="#alacarte">À la carte</a></li>
-            <li><a href="">Evenemang</a></li>
-            <li><a href="">Om oss</a></li>
+            <li><a href="#events">Evenemang</a></li>
+            <li><a href="#footer">Om oss</a></li>
         </ul>
     </div> <!-- end of navbar -->
 
@@ -132,6 +133,14 @@
 
 
 
+
+    </div>
+    <div id="events">
+
+
+    </div>
+
+    <div id="footer">
 
     </div>
 
