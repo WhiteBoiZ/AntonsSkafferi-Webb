@@ -4,12 +4,14 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.faces.model.ListDataModel;
 import jakarta.inject.Named;
 import se.miun.whiteboiz.containers.Lunch;
+import se.miun.whiteboiz.containers.WeekLunchMenu;
 
 import java.util.*;
 
 @ApplicationScoped
 @Named
 public class LunchBean {
+    private static String mon ="mån", tue ="tis", ons ="ons", tor ="tor", fri ="fre";
     private String lunchTitle;
     private String lunchDescription;
     private ArrayList<Lunch> lunches = new ArrayList<>();
@@ -18,6 +20,7 @@ public class LunchBean {
 
     private String[] lunchArray = new String[10];
 
+    private WeekLunchMenu weekLunchMenu = new WeekLunchMenu();
 
 
 
@@ -74,7 +77,7 @@ public class LunchBean {
         return lunches.get(listModel.getRowIndex());
      }
 
-     public List<String> getCurrentLunchDaySelection(){ return getLunch().getSelectedDays();
+     public List<String> getDaySelection(){ return getLunch().getSelectedDays();
      }
      public void setDaySelection(ArrayList<String> selection){
         getLunch().setSelectedDays(selection);
@@ -107,7 +110,7 @@ public class LunchBean {
         }
     }
 
-    private static String dayIntToString(int day){
+    public static String dayIntToString(int day){
         switch (day) {
             case 0:
                 return "man";
@@ -127,35 +130,51 @@ public class LunchBean {
                 return "100";
         }
     }
-    public void lunchPreview(){
-        List<String> selectedDays = getCurrentLunchDaySelection();
-        for(String day : selectedDays){
-            if("mån".equalsIgnoreCase(day)){
-                lunchArray[0] = getLunch().getTitle();
-                lunchArray[1] = getLunch().getDescription();
-            }
-            if("tis".equalsIgnoreCase(day)){
-                lunchArray[2] = getLunch().getTitle();
-                lunchArray[3] = getLunch().getDescription();
-            }
-            if("ons".equalsIgnoreCase(day)){
-                lunchArray[4] = getLunch().getTitle();
-                lunchArray[5] = getLunch().getDescription();
-            }
-            if("tors".equalsIgnoreCase(day)){
-                lunchArray[6] = getLunch().getTitle();
-                lunchArray[7] = getLunch().getDescription();
-            }
-            if("fre".equalsIgnoreCase(day)){
-                lunchArray[8] = getLunch().getTitle();
-                lunchArray[9] = getLunch().getDescription();
-            }
 
-
-        }
-        System.out.println(lunchArray[8]);
-    }
     public void updateLunchPreview(){
-        lunchPreview();
+        Lunch currentLunch = getLunch();
+        List<String> selectedDays = currentLunch.getSelectedDays();
+        weekLunchMenu.removeFromMenu(currentLunch);
+        for(String day : selectedDays){
+            if(mon.equalsIgnoreCase(day)){
+                weekLunchMenu.addToMenu(0, currentLunch);
+            }
+            if(tue.equalsIgnoreCase(day)){
+                weekLunchMenu.addToMenu(1, currentLunch);
+            }
+            if(ons.equalsIgnoreCase(day)){
+                weekLunchMenu.addToMenu(2, currentLunch);
+            }
+            if(tor.equalsIgnoreCase(day)){
+                weekLunchMenu.addToMenu(3, currentLunch);
+            }
+            if(fri.equalsIgnoreCase(day)){
+                weekLunchMenu.addToMenu(4, currentLunch);
+            }
+        }
+    }
+
+    public WeekLunchMenu getWeekLunchMenu() {
+        return weekLunchMenu;
+    }
+
+    public static String getFri() {
+        return fri;
+    }
+
+    public static String getMon() {
+        return mon;
+    }
+
+    public static String getOns() {
+        return ons;
+    }
+
+    public static String getTor() {
+        return tor;
+    }
+
+    public static String getTue() {
+        return tue;
     }
 }
