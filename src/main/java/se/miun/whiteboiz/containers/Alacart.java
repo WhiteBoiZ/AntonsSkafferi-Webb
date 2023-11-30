@@ -22,11 +22,11 @@ public class Alacart {
     public void setAlaCarteCategory(AlaCarteCategory category){
         this.alaCarteCategory = category;
     }
-    public String getTitel() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitel(String titel) {
+    public void setTitle(String titel) {
         this.title = title;
     }
 

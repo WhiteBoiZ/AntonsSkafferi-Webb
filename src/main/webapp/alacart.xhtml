@@ -19,32 +19,58 @@
                         <h:form>
                             <div>
                                 <p:outputLabel value="Huvudtext" for="@next"/>
-                                <p:inputTextarea value="#{alacartBean.alaCarteTitle}" id = "titleLunch" label="Title" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+                                <p:inputTextarea value="#{alacartBean.alaCarteTitle}" id = "titleHuvudText" label="Huvudtext" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
                                 <p:outputLabel value="Undertext" for="@next"/>
-                                <p:inputTextarea value ="#{alacartBean.alaCarteDescription}" id="beskrivningLunch" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
-                                <p:commandButton update="updateLunch" type="submit" actionListener="#{alacartBean.addStarter()}" value="Förrätt" icon="pi pi-plus" id="knappSkickaFörrätt">
+                                <p:inputTextarea value ="#{alacartBean.alaCarteDescription}" id="beskrivningUnderText" label="Undertext" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
+                                <p:commandButton update="updateAlaCarte updateAlaCarteStarter" type="submit" action="#{alacartBean.addStarter()}" value="Förrätt" icon="pi pi-plus" id="knappSkickaFörrätt">
                                 </p:commandButton>
-                                <p:commandButton update="updateLunch" type="submit" actionListener="#{alacartBean.addMain()}" value="Varmrätt" icon="pi pi-plus" id="knappSkickaVarmrätt">
+                                <p:commandButton update="updateAlaCarte" type="submit" action="#{alacartBean.addMain()}" value="Varmrätt" icon="pi pi-plus" id="knappSkickaVarmrätt">
                                 </p:commandButton>
-                                <p:commandButton update="updateLunch" type="submit" actionListener="#{alacartBean.addDessert()}" value="Efterrätt" icon="pi pi-plus" id="knappSkickaEfterrätt">
+                                <p:commandButton update="updateAlaCarte" type="submit" action="#{alacartBean.addDessert()}" value="Efterrätt" icon="pi pi-plus" id="knappSkickaEfterrätt">
                                 </p:commandButton>
+
                             </div>
-                            <p:outputPanel id = "updateLunch" deferred="true">
-                                <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
+
+                            <p:outputPanel id = "updateAlaCarte" deferred="true">
+                                <ui:repeat value="#{alacartBean.listModelStarter}" var="alacartItem">
                                     <p:card class="border-round-sm" style="margin-bottom: 1em">
-                                        <f:facet name="title">#{lunchItem.title}</f:facet>
-                                        <p style="margin-top: 0">#{lunchItem.description}</p>
-                                        <p:selectManyButton id="daySelect" widgetVar="blub" value="#{lunchBean.currentLunchDaySelection}">
-                                            <f:selectItem itemLabel="Förrätt" itemValue="STARTER"/>
-                                            <f:selectItem itemLabel="Varmrätt" itemValue="MAIN"/>
-                                            <f:selectItem itemLabel="Efterrätt" itemValue="DESSERT"/>
+                                        <f:facet name="title">#{alacartItem.title}</f:facet>
+                                        <p style="margin-top: 0">#{alacartItem.description}</p>
+                                        <!--chatgpt genererad -->
+                                        <h:outputText value="&lt;strong&gt;Kategori:&lt;/strong&gt; &lt;em&gt;Förrätt&lt;/em&gt;" escape="false">
 
-                                            <p:ajax update = "starter main dessert" listener="#{lunchBean.updateLunchPreview}"/>
-                                        </p:selectManyButton>
+                                        </h:outputText>
                                         <f:facet name="footer">
-                                            <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{lunchBean.removeLunch}"/>
+                                            <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeStarter()}"/>
                                         </f:facet>
+                                    </p:card>
+                                </ui:repeat>
 
+                                <ui:repeat value="#{alacartBean.listModelMain}" var="alacartItem">
+                                    <p:card class="border-round-sm" style="margin-bottom: 1em">
+                                        <f:facet name="title">#{alacartItem.title}</f:facet>
+                                        <p style="margin-top: 0">#{alacartItem.description}</p>
+                                        <!--chatgpt genererad -->
+                                        <h:outputText value="&lt;strong&gt;Kategori:&lt;/strong&gt; &lt;em&gt;Varmrätt&lt;/em&gt;" escape="false">
+
+                                        </h:outputText>
+                                        <f:facet name="footer">
+                                        <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeMain()}"/>
+                                        </f:facet>
+                                    </p:card>
+                                </ui:repeat>
+
+                                <ui:repeat value="#{alacartBean.listModelDessert}" var="alacartItem">
+                                    <p:card class="border-round-sm" style="margin-bottom: 1em">
+                                        <f:facet name="title">#{alacartItem.title}</f:facet>
+                                        <p style="margin-top: 0">#{alacartItem.description}</p>
+                                        <!--chatgpt genererad -->
+                                        <h:outputText value="&lt;strong&gt;Kategori:&lt;/strong&gt; &lt;em&gt;Dessert&lt;/em&gt;" escape="false">
+
+                                        </h:outputText>
+                                        <f:facet name="footer">
+                                        <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeDessert()}"/>
+                                        </f:facet>
                                     </p:card>
                                 </ui:repeat>
                             </p:outputPanel>
@@ -68,34 +94,30 @@
                             <div id="first-course-dessert">
                                 <h3>Förrätter</h3>
                                 <div id="first-course">
-                                    <h:outputLabel class="alacarte-title" value="#{alacartBean.alaCarteTitle}"/>
-                                    <h:outputLabel class="description" value="#{alacartBean.alaCarteDescription}"/>
-                                    <h:outputLabel class="alacarte-title" value="Kantarelltoast med vitlök och persilja"/>
-                                    <h:outputLabel class="description" value="Saftiga kantareller stekta med vitlök och persilja, serverade på rostat bröd. En smakrik och säsongsbetonad förrätt."/>
-                                    <h:outputLabel class="alacarte-title" value="Rödbetsterrin med getost och valnötter"/>
-                                    <h:outputLabel class="description" value="En läcker terrin av rostade rödbetor, getost och knapriga valnötter. Serveras med en lätt sallad och balsamicoreduktion."/>
+                                <ui:repeat id ="updateAlaCarteStarter" value="#{alacartBean.listModelStarter}" var="alacartItem">
+                                    <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
+                                    <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                                </ui:repeat>
                                 </div>
+
+
+
+
                                 <h3>Dessert</h3>
                                 <div id="dessert">
-                                    <h:outputLabel class="alacarte-title" value="Chokladtryffeltårta med hallon och vispad grädde"/>
-                                    <h:outputLabel class="description" value="En ljuvlig chokladtryffeltårta toppad med färska hallon och krämig vispad grädde. En perfekt avslutning på måltiden."/>
-                                    <h:outputLabel class="alacarte-title" value="Vaniljpannacotta med skogsbärskompott"/>
-                                    <h:outputLabel class="description" value="Len vaniljpannacotta toppad med en smakrik kompott av skogsbär. En lätt och fräsch efterrätt."/>
+                                    <ui:repeat id ="updateAlaCarteDessert" value="#{alacartBean.listModelDessert}" var="alacartItem">
+                                        <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
+                                        <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                                    </ui:repeat>
                                 </div>
                             </div>
 
                             <div id="main-course">
                                 <h3>Varmrätter</h3>
-                                <h:outputLabel class="alacarte-title" value="Wallenbergare med ärtor, potatismos och lingonsylt"/>
-                                <h:outputLabel class="description" value="Hemlagade Wallenbergare av kalvfärs, serverade med klassiska tillbehör som ärtor, krämigt potatismos och syrlig lingonsylt."/>
-                                <h:outputLabel class="alacarte-title" value="Svensk lövbiff med grönpepparsås, potatisgratäng och sallad"/>
-                                <h:outputLabel class="description" value="Saftig lövbiff, serverad med krämig grönpepparsås, gratinerad potatisgratäng och en fräsch sallad."/>
-                                <h:outputLabel class="alacarte-title" value="Rimmad lax med dillstuvad potatis och gröna ärtor"/>
-                                <h:outputLabel class="description" value="Lax rimmad i en kryddig blandning, serverad med krämig dillstuvad potatis och lättkokta gröna ärtor."/>
-                                <h:outputLabel class="alacarte-title" value="Köttbullar med gräddsås, potatismos och lingon"/>
-                                <h:outputLabel class="description" value="Traditionella svenska köttbullar av blandfärs, serverade med krämig gräddsås, potatismos och sötsyrliga lingon."/>
-                                <h:outputLabel class="alacarte-title" value="Laxfilé med vitvinssås, sparris och pressad potatis"/>
-                                <h:outputLabel class="description" value="En saftig laxfilé, grillas eller ugnsbakas och serveras med en lätt vitvinssås, färsk sparris och pressad potatis. En fräsch och delikat rätt."/>
+                                <ui:repeat id ="updateAlaCarteMain" value="#{alacartBean.listModelMain}" var="alacartItem">
+                                    <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
+                                    <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                                </ui:repeat>
                             </div>
                         </div>
 
