@@ -9,8 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Added preparation for ala cart page.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Minor changes, saving current work.">
       <change beforePath="$PROJECT_DIR$/src/main/webapp/alacart.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alacart.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="test-filip" />
+        <entry key="$PROJECT_DIR$" value="feature-adminsida-alacart" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,7 +53,7 @@
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
-        <option name="accountId" value="ee6d9a42-e1ad-4fe1-a5b5-7d8136bce765" />
+        <option name="accountId" value="63e604b8-4c96-4805-8869-d51b763353cc" />
         <option name="url" value="https://github.com/WhiteBoiZ/AntonsSkafferi-Webb" />
       </UrlAndAccount>
     </option>
@@ -86,7 +85,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature-adminsida-alacart",
+    "git-widget-placeholder": "feature-adminsida-alacartTest",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/dev/MIUN/Java/app-repo-test",
     "list.type.of.created.stylesheet": "CSS",
@@ -198,7 +197,7 @@
       <updated>1700751524595</updated>
       <workItem from="1700751525671" duration="325000" />
       <workItem from="1701171657025" duration="18902000" />
-      <workItem from="1701331939378" duration="4901000" />
+      <workItem from="1701331939378" duration="5221000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -301,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701290454611</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Minor changes, saving current work.">
+      <option name="closed" value="true" />
+      <created>1701337862375</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1701337862375</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +340,7 @@
     <MESSAGE value="la till smooth scroll" />
     <MESSAGE value="Working on allakart admin page" />
     <MESSAGE value="Added preparation for ala cart page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added preparation for ala cart page." />
+    <MESSAGE value="Minor changes, saving current work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes, saving current work." />
   </component>
 </project>
