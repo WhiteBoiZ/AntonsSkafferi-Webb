@@ -224,6 +224,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    margin-top: 3rem;
 }
 
 #alacarte-header {
@@ -292,18 +293,47 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 3rem;
+    gap: 1rem;
 }
 
-#coming-events {
+.event-container {
     display: flex;
-    gap: 3rem;
-    padding: 3rem;
+    gap: 1rem;
+    height: calc(100% - 3rem);
+}
+
+#coming-events, #prev-events {
+    flex: 1;
+}
+
+#coming-events h2, #prev-events h2 {
+    font-size: 2.5rem;
 }
 
 .event {
     flex: 1;
-    height: 50vh;
-    border: 2px solid var(--secondary-color);
+    display: flex;
+}
+
+.event-img-wrapper {
+    width: 50%;
+}
+
+.event-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.event-info {
+    width: 50%;
+    border: 4px solid var(--secondary-color);
+    padding: 1rem;
+}
+
+.event-title {
+    font-size: 2rem;
 }
 
 #footer {
