@@ -164,6 +164,9 @@ body {
 #dagens-header h2 {
     font-size: 3rem;
     text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-skip-ink: none;
     font-family: 'Dancing Script', cursive;
 }
 
@@ -186,6 +189,9 @@ body {
 #veckans-header h2 {
     font-size: 2.5rem;
     text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-skip-ink: none;
     font-family: 'Dancing Script', cursive;
 }
 
