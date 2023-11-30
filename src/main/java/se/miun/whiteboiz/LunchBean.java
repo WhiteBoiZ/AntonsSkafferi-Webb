@@ -177,4 +177,5 @@ public class LunchBean {
     public static String getTue() {
         return tue;
     }
+
 }
