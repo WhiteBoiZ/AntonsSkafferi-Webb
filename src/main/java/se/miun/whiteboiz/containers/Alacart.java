@@ -8,8 +8,8 @@ public class Alacart {
     private String description;
     private AlaCarteCategory alaCarteCategory;
 
-    public Alacart(AlaCarteCategory category, String title, String description){
-        this.alaCarteCategory = category;
+    public Alacart(String title, String description){
+        //this.alaCarteCategory = category;
         this.title = title;
         this.description = description;
 

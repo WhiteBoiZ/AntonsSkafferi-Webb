@@ -19,10 +19,14 @@
                         <h:form>
                             <div>
                                 <p:outputLabel value="Huvudtext" for="@next"/>
-                                <p:inputTextarea value="#{lunchBean.lunchTitle}" id = "titleLunch" label="Title" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+                                <p:inputTextarea value="#{alacartBean.alaCarteTitle}" id = "titleLunch" label="Title" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
                                 <p:outputLabel value="Undertext" for="@next"/>
-                                <p:inputTextarea value ="#{lunchBean.lunchDescription}" id="beskrivningLunch" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
-                                <p:commandButton update="updateLunch" type="submit" actionListener="#{lunchBean.addLunch()}" value="Lägg till" icon="pi pi-plus" id="knappSkickaLunch">
+                                <p:inputTextarea value ="#{alacartBean.alaCarteDescription}" id="beskrivningLunch" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
+                                <p:commandButton update="updateLunch" type="submit" actionListener="#{alacartBean.addStarter()}" value="Förrätt" icon="pi pi-plus" id="knappSkickaFörrätt">
+                                </p:commandButton>
+                                <p:commandButton update="updateLunch" type="submit" actionListener="#{alacartBean.addMain()}" value="Varmrätt" icon="pi pi-plus" id="knappSkickaVarmrätt">
+                                </p:commandButton>
+                                <p:commandButton update="updateLunch" type="submit" actionListener="#{alacartBean.addDessert()}" value="Efterrätt" icon="pi pi-plus" id="knappSkickaEfterrätt">
                                 </p:commandButton>
                             </div>
                             <p:outputPanel id = "updateLunch" deferred="true">
@@ -64,8 +68,8 @@
                             <div id="first-course-dessert">
                                 <h3>Förrätter</h3>
                                 <div id="first-course">
-                                    <h:outputLabel class="alacarte-title" value="Gravad lax med hovmästarsås och hembakat knäckebröd"/>
-                                    <h:outputLabel class="description" value="En klassiker med noggrant gravad lax, serverad med den traditionella hovmästarsåsen och knaprigt hemlagat knäckebröd."/>
+                                    <h:outputLabel class="alacarte-title" value="#{alacartBean.alaCarteTitle}"/>
+                                    <h:outputLabel class="description" value="#{alacartBean.alaCarteDescription}"/>
                                     <h:outputLabel class="alacarte-title" value="Kantarelltoast med vitlök och persilja"/>
                                     <h:outputLabel class="description" value="Saftiga kantareller stekta med vitlök och persilja, serverade på rostat bröd. En smakrik och säsongsbetonad förrätt."/>
                                     <h:outputLabel class="alacarte-title" value="Rödbetsterrin med getost och valnötter"/>
