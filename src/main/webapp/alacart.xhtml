@@ -10,6 +10,8 @@
 <f:view>
     <ui:composition template="/template/common/commonLayout.xhtml">
         <ui:define name="title">Antons Skafferi Admin page - Ala Carte</ui:define>
+        <h:outputStylesheet name="css/styles.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <ui:define name="content">
             <div class="grid">
                 <div class="col-5">
@@ -46,43 +48,61 @@
                         </h:form>
                     </div>
                 </div>
+
+
+
                 <div class="col-1">
                     <p:divider layout="vertical"/>
                 </div>
+
                 <div class="col-5">
-                    <h:outputText value="Förhandsgranskning A la carte meny" style = "font-weight: bold;"/><br/>
-                    <br/>
-                    <p:card id = "starter" class="border-round-sm" style="margin-bottom: 1em">
-                        <h:outputText value="Förrätter">
-                        </h:outputText> <br/>
-                        <h:outputText value="Stortext visas här">
-                        </h:outputText>
-                        <br/>
-                        <h:outputText value="Liten text visas här">
-                        </h:outputText>
-                    </p:card>
+                    <div class="container">
+                    <div class="alacarte a4" id="alacarte">
 
-                    <p:card id = "main" class="border-round-sm" style="margin-bottom: 1em">
-                        <h:outputText value="Varmrätter">
-                        </h:outputText> <br/>
-                        <h:outputText value="Stortext visas här">
-                        </h:outputText>
-                        <br/>
-                        <h:outputText value="Liten text visas här">
-                        </h:outputText>
-                    </p:card>
+                        <h2>À la carte</h2>
+                        <p>Vi har ett brett utbud av rätter på vår ala carte meny. Välkommen in och se vad vi har att erbjuda.</p>
+                        <div id="course-container">
+                            <div id="first-course-dessert">
+                                <h3>Förrätter</h3>
+                                <div id="first-course">
+                                    <h:outputLabel class="alacarte-title" value="Gravad lax med hovmästarsås och hembakat knäckebröd"/>
+                                    <h:outputLabel class="description" value="En klassiker med noggrant gravad lax, serverad med den traditionella hovmästarsåsen och knaprigt hemlagat knäckebröd."/>
+                                    <h:outputLabel class="alacarte-title" value="Kantarelltoast med vitlök och persilja"/>
+                                    <h:outputLabel class="description" value="Saftiga kantareller stekta med vitlök och persilja, serverade på rostat bröd. En smakrik och säsongsbetonad förrätt."/>
+                                    <h:outputLabel class="alacarte-title" value="Rödbetsterrin med getost och valnötter"/>
+                                    <h:outputLabel class="description" value="En läcker terrin av rostade rödbetor, getost och knapriga valnötter. Serveras med en lätt sallad och balsamicoreduktion."/>
+                                </div>
+                                <h3>Dessert</h3>
+                                <div id="dessert">
+                                    <h:outputLabel class="alacarte-title" value="Chokladtryffeltårta med hallon och vispad grädde"/>
+                                    <h:outputLabel class="description" value="En ljuvlig chokladtryffeltårta toppad med färska hallon och krämig vispad grädde. En perfekt avslutning på måltiden."/>
+                                    <h:outputLabel class="alacarte-title" value="Vaniljpannacotta med skogsbärskompott"/>
+                                    <h:outputLabel class="description" value="Len vaniljpannacotta toppad med en smakrik kompott av skogsbär. En lätt och fräsch efterrätt."/>
+                                </div>
+                            </div>
 
-                    <p:card id = "dessert" class="border-round-sm" style="margin-bottom: 1em">
-                        <h:outputText value="Onsdag">
-                        </h:outputText> <br/>
-                        <h:outputText value="Stortext visas här">
-                        </h:outputText>
-                        <br/>
-                        <h:outputText value="Liten text visas här">
-                        </h:outputText>
-                    </p:card>
+                            <div id="main-course">
+                                <h3>Varmrätter</h3>
+                                <h:outputLabel class="alacarte-title" value="Wallenbergare med ärtor, potatismos och lingonsylt"/>
+                                <h:outputLabel class="description" value="Hemlagade Wallenbergare av kalvfärs, serverade med klassiska tillbehör som ärtor, krämigt potatismos och syrlig lingonsylt."/>
+                                <h:outputLabel class="alacarte-title" value="Svensk lövbiff med grönpepparsås, potatisgratäng och sallad"/>
+                                <h:outputLabel class="description" value="Saftig lövbiff, serverad med krämig grönpepparsås, gratinerad potatisgratäng och en fräsch sallad."/>
+                                <h:outputLabel class="alacarte-title" value="Rimmad lax med dillstuvad potatis och gröna ärtor"/>
+                                <h:outputLabel class="description" value="Lax rimmad i en kryddig blandning, serverad med krämig dillstuvad potatis och lättkokta gröna ärtor."/>
+                                <h:outputLabel class="alacarte-title" value="Köttbullar med gräddsås, potatismos och lingon"/>
+                                <h:outputLabel class="description" value="Traditionella svenska köttbullar av blandfärs, serverade med krämig gräddsås, potatismos och sötsyrliga lingon."/>
+                                <h:outputLabel class="alacarte-title" value="Laxfilé med vitvinssås, sparris och pressad potatis"/>
+                                <h:outputLabel class="description" value="En saftig laxfilé, grillas eller ugnsbakas och serveras med en lätt vitvinssås, färsk sparris och pressad potatis. En fräsch och delikat rätt."/>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
 
                 </div>
+            </div>
             </div>
 
 

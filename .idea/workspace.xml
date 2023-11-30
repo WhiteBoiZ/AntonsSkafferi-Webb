@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Working on allakart admin page">
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/miun/whiteboiz/AlacartBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/miun/whiteboiz/containers/Alacart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/alacart.xhtml" afterDir="false" />
+    <list default="true" id="6bdcdb45-e8d9-4997-a38d-1babeb19ff85" name="Changes" comment="Added preparation for ala cart page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/alacart.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/alacart.xhtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +59,10 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/webjars/npm/primeflex/3.3.1/primeflex-3.3.1.jar!/META-INF/resources/webjars/primeflex/3.3.1/primeflex.css" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -85,6 +87,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "feature-adminsida-alacart",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/dev/MIUN/Java/app-repo-test",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -195,6 +198,7 @@
       <updated>1700751524595</updated>
       <workItem from="1700751525671" duration="325000" />
       <workItem from="1701171657025" duration="18902000" />
+      <workItem from="1701331939378" duration="4901000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -289,11 +293,30 @@
       <option name="project" value="LOCAL" />
       <updated>1701282253187</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added preparation for ala cart page.">
+      <option name="closed" value="true" />
+      <created>1701290454611</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701290454611</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
@@ -309,6 +332,7 @@
     <MESSAGE value="gjort om veckans lunch sektionen lite" />
     <MESSAGE value="la till smooth scroll" />
     <MESSAGE value="Working on allakart admin page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on allakart admin page" />
+    <MESSAGE value="Added preparation for ala cart page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added preparation for ala cart page." />
   </component>
 </project>
