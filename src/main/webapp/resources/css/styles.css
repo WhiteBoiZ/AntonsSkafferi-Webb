@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@100;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 :root {
     --primary-color: #f5f5f5;
@@ -54,6 +55,7 @@ body {
     z-index: 100;
     padding: 0.6rem 2rem;
     margin-top: -0.2rem;
+    margin-bottom: 1rem;
     background-color: rgba(63, 45, 28, 0.25);
     border: 1px solid var(--secondary-color);
 }
@@ -74,9 +76,9 @@ body {
 
 .lunch {
     display: flex;
+    align-items: center;
     width: 100%;
-    height: calc(100vh - 9rem);
-    margin-top: 6rem;
+    height: calc(100vh - 140px);
     position: relative;
     overflow: hidden;
 }
@@ -87,23 +89,35 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    z-index: -2;
 }
 
 .dagens {
-    background-color: rgba(245, 245, 245, 0.50);
     border: 4px solid var(--secondary-color);
     border-left: none;
     height: fit-content;
-    margin-top: 2rem;
+    padding: 3rem 125px 3rem 0;
+}
+
+.veckans {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-left: 125px;
+    background-color: rgba(63, 45, 28, 0.30);
+
 }
 
 
 #image-column {
-    z-index: -2;
+    width: 250px;
+    border: 4px solid var(--secondary-color);
+    z-index: -1;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    margin-top: -1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,24 +126,45 @@ body {
 }
 
 #matbild1, #matbild2, #matbild3 {
-    width: 40%;
+    width: 100%;
 }
 
+#matbild1 {
+    border-bottom: 4px solid var(--secondary-color);
+}
+
+#matbild2 {
+    border-top: 4px solid var(--secondary-color);
+    border-bottom: 4px solid var(--secondary-color);
+}
+
+#matbild3 {
+    border-top: 4px solid var(--secondary-color);
+}
 .dagens-container, .veckans-container {
     width: fit-content;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+
+}
+
+.veckans-container {
+    width: 100%;
+    height: 100%;
 }
 
 #dagens-header {
     padding-top: 4rem;
     font-size: 1.5rem;
+    font-family: 'Dancing Script', cursive;
 }
 
 #dagens-header h2 {
     font-size: 3rem;
     text-decoration: underline;
+    font-family: 'Dancing Script', cursive;
 }
 
 #dagens-content {
@@ -144,17 +179,19 @@ body {
 
 #veckans-header {
     padding-top: 4rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    font-family: 'Dancing Script', cursive;
 }
 
 #veckans-header h2 {
     font-size: 2.5rem;
     text-decoration: underline;
+    font-family: 'Dancing Script', cursive;
 }
 
 #veckans-content {
     margin-top: 1rem;
-    width: 75%;
+    width: 40%;
 }
 
 #veckans-content h3 {
@@ -191,7 +228,8 @@ body {
 }
 
 #alacarte-header h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
 }
 
 #course-container{
