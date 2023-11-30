@@ -55,7 +55,7 @@ body {
     z-index: 100;
     padding: 0.6rem 2rem;
     margin-top: -0.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
     background-color: rgba(63, 45, 28, 0.25);
     border: 1px solid var(--secondary-color);
 }
@@ -112,35 +112,32 @@ body {
 
 
 #image-column {
-    width: 250px;
+    height: 100%;
     border: 4px solid var(--secondary-color);
     z-index: -1;
     position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+}
+
+.image-wrapper {
+    height: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #matbild1, #matbild2, #matbild3 {
-    width: 100%;
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
 }
 
-#matbild1 {
-    border-bottom: 4px solid var(--secondary-color);
-}
-
-#matbild2 {
-    border-top: 4px solid var(--secondary-color);
-    border-bottom: 4px solid var(--secondary-color);
-}
-
-#matbild3 {
-    border-top: 4px solid var(--secondary-color);
-}
 .dagens-container, .veckans-container {
     width: fit-content;
     display: flex;
@@ -182,12 +179,12 @@ body {
 
 #veckans-header {
     padding-top: 4rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-family: 'Dancing Script', cursive;
 }
 
 #veckans-header h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
