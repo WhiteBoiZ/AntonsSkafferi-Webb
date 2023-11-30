@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<f:view>
+
+    <ui:composition template="/template/common/commonLayout.xhtml">
+
+        <ui:define name="title">Antons Skafferi Admin page</ui:define>
+        <ui:define name="content">
+            <div class="grid">
+                <div class="col-5">
+                    <div>
+                        <p:outputLabel value="Lägg till lunchrätt"/>
+                        <h:form>
+                            <div>
+                                <p:outputLabel value="Titel" for="@next"/>
+                                <p:inputText value="#{lunchBean.lunchTitle}" id = "titleLunch" label="Title" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+                                <p:outputLabel value="Beskrivning" for="@next"/>
+                                <p:inputTextarea value ="#{lunchBean.lunchDescription}" id="beskrivningLunch" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
+                                <p:commandButton update="updateLunch" type="submit" actionListener="#{lunchBean.addLunch()}" value="Lägg till" icon="pi pi-plus" id="knappSkickaLunch">
+                                    <p:confirm header="Konfirmation" message="Är du säker att du vill lägga till den här lunchen?" icon="ui-icon-alert"/>
+                                </p:commandButton>
+                                <p:confirmDialog global="true">
+                                    <p:commandButton value="Ja" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                                    <p:commandButton value="Nej" type="button" styleClass="ui-button-secondary" icon="ui-icon-close"/>
+                                </p:confirmDialog>
+                            </div>
+                            <p:outputPanel id = "updateLunch" deferred="true">
+                                <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
+                                    <p:card class="border-round-sm" style="margin-bottom: 1em">
+                                        <f:facet name="title">#{lunchItem.title}</f:facet>
+                                        <p style="margin-top: 0">#{lunchItem.description}</p>
+                                        <p:selectManyButton id="daySelect" widgetVar="blub" value="#{lunchBean.daySelection}">
+                                            <f:selectItem itemLabel="Mån" itemValue="mån"/>
+                                            <f:selectItem itemLabel="Tis" itemValue="tis"/>
+                                            <f:selectItem itemLabel="Ons" itemValue="ons"/>
+                                            <f:selectItem itemLabel="Tor" itemValue="tors"/>
+                                            <f:selectItem itemLabel="Fre" itemValue="fre"/>
+                                            <p:ajax update = "monday tuesday wednesday thursday friday" listener="#{lunchBean.updateLunchPreview}"/>
+                                        </p:selectManyButton>
+                                        <f:facet name="footer">
+                                            <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{lunchBean.removeLunch}"/>
+                                        </f:facet>
+
+                                    </p:card>
+                                </ui:repeat>
+                            </p:outputPanel>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <p:divider layout="vertical"/>
+                </div>
+                <div class="col-5">
+                    <h:outputText value="Förhandsgranskning Lunchmeny" style = "font-weight: bold;"/><br/>
+                    <br/>
+                    <p:card id = "monday" class="border-round-sm" style="margin-bottom: 1em">
+                        <h:outputText value="Måndag">
+                        </h:outputText> <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[0]}">
+                        </h:outputText>
+                        <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[1]}">
+                        </h:outputText>
+                    </p:card>
+
+                    <p:card id = "tuesday" class="border-round-sm" style="margin-bottom: 1em">
+                        <h:outputText value="Tisdag">
+                        </h:outputText> <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[2]}">
+                        </h:outputText>
+                        <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[3]}">
+                        </h:outputText>
+                    </p:card>
+
+                    <p:card id = "wednesday" class="border-round-sm" style="margin-bottom: 1em">
+                        <h:outputText value="Onsdag">
+                        </h:outputText> <br/><h:outputText value="#{lunchBean.lunchArray[4]}">
+                    </h:outputText>
+                        <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[5]}">
+                        </h:outputText>
+                    </p:card>
+
+                    <p:card id = "thursday" class="border-round-sm" style="margin-bottom: 1em">
+                        <h:outputText value="Torsdag">
+                        </h:outputText> <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[6]}">
+                        </h:outputText>
+                        <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[7]}">
+                        </h:outputText>
+                    </p:card>
+
+                    <p:card id = "friday" class="border-round-sm" style="margin-bottom: 1em">
+                        <h:outputText value="Fredag">
+                        </h:outputText> <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[8]}">
+                        </h:outputText>
+                        <br/>
+                        <h:outputText value="#{lunchBean.lunchArray[9]}">
+                        </h:outputText>
+                    </p:card>
+                </div>
+            </div>
+
+
+        </ui:define>
+
+    </ui:composition>
+
+</f:view>
+</html>
+
