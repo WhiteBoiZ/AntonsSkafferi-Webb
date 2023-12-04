@@ -6,22 +6,22 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
 >
 
 <h:body>
     <ui:composition>
 
-        <div id="navbar">
-            <ul>
-                <li><a href="">Lunch</a></li>
-                <li><a href="">Ala Carte</a></li>
-                <li><a href="">Dryck</a></li>
-                <li><a href="">Personal</a></li>
-                <li><a href="index.xhtml">Hem</a></li>
+        <p:toolbar id="navbar"  styleClass="m-1 bg-primary-300" style="min-height: 5em;">
+                <p:toolbarGroup class="flex flex-row flex-nowrap align-items-end gap-1 p-1">
+                    <p:link outcome="admin.xhtml" value="Lunch" styleClass="text-black-alpha-90 text-2xl shadow-3 border-round p-1 hover:shadow-none border-2 border-black-alpha-30"/>
+                    <p:link value="A la carte" styleClass="text-black-alpha-90 text-2xl shadow-3 border-round p-1 hover:shadow-none border-2 border-black-alpha-30"/>
+                    <p:link value="Dryck" styleClass="text-black-alpha-90 text-2xl shadow-3 border-round p-1 hover:shadow-none border-2 border-black-alpha-30"/>
+                    <p:link value="Personal" styleClass="text-black-alpha-90 text-2xl shadow-3 border-round p-1 hover:shadow-none border-2 border-black-alpha-30"/>
+                    <p:link outcome="index.xhtml" value="Hem" styleClass="text-black-alpha-90 text-2xl shadow-3 border-round p-1 hover:shadow-none border-2 border-black-alpha-30"/>
+                </p:toolbarGroup>
                 <!-- Add more navigation links as needed -->
-            </ul>
-        </div>
+        </p:toolbar>
 
     </ui:composition>
 
