@@ -2,6 +2,7 @@ drop database if exists antonsskafferi;
 create database antonsskafferi;
 use antonsskafferi;
 
+set CHARACTER SET utf8;
 create table lunch(
     id int unsigned auto_increment not null,
     titel varchar(255),
@@ -37,7 +38,7 @@ create table alacarte(
     primary key (id)
 );
 
-create table beställning(
+create table bestallning(
     id int unsigned auto_increment not null,
     datum date not null,
     tid time not null,
@@ -46,13 +47,13 @@ create table beställning(
     primary key (id)
 );
 
-create table rätt_instans(
+create table ratt_instans(
     id int unsigned auto_increment not null,
     tag_id int references typ(id),
-    rätt_preferenser text,
-    beställning_id int references beställning(id),
+    ratt_preferenser text,
+    bestallning_id int references bestallning(id),
     alacarte_id int references alacarte(id),
-    primary key (id, beställning_id, alacarte_id)
+    primary key (id, bestallning_id, alacarte_id)
 
 );
 
@@ -88,16 +89,16 @@ insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Toast', '
 insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Köttbullar', 'Köttbullar med potatismos och lingon', 2, false, 50);
 insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Pannbiff', 'Pannbiff med potatismos och lingon', 2, false, 50);
 
-insert into beställning (datum, tid, kommentar, bord_id) values ('2023-11-01', '16:11:00', 'Alla i sällskapet vill ha varmrätten vid olika tillfällen', 1);
-insert into beställning (datum, tid, kommentar, bord_id) values ('2023-11-01', '16:37:00', 'Kungen på besök', 2);
+insert into bestallning (datum, tid, kommentar, bord_id) values ('2023-11-01', '16:11:00', 'Alla i sällskapet vill ha varmrätten vid olika tillfällen', 1);
+insert into bestallning (datum, tid, kommentar, bord_id) values ('2023-11-01', '16:37:00', 'Kungen på besök', 2);
 
-insert into rätt_instans (tag_id, rätt_preferenser, beställning_id, alacarte_id) values (1, 'Ingen lök på toast skagen', 1, 1);
-insert into rätt_instans (tag_id, beställning_id, alacarte_id) values (1, 1, 2);
-insert into rätt_instans (tag_id, rätt_preferenser, beställning_id, alacarte_id) values (1, 'Vill ha köttbullar till förrätt', 1, 3);
+insert into ratt_instans (tag_id, ratt_preferenser, bestallning_id, alacarte_id) values (1, 'Ingen lök på toast skagen', 1, 1);
+insert into ratt_instans (tag_id, bestallning_id, alacarte_id) values (1, 1, 2);
+insert into ratt_instans (tag_id, ratt_preferenser, bestallning_id, alacarte_id) values (1, 'Vill ha köttbullar till förrätt', 1, 3);
 
-insert into rätt_instans (tag_id, beställning_id, alacarte_id) values (1, 2, 1);
-insert into rätt_instans (tag_id, beställning_id, alacarte_id) values (1, 2, 2);
-insert into rätt_instans (tag_id, beställning_id, alacarte_id) values (2, 2, 3);
+insert into ratt_instans (tag_id, bestallning_id, alacarte_id) values (1, 2, 1);
+insert into ratt_instans (tag_id, bestallning_id, alacarte_id) values (1, 2, 2);
+insert into ratt_instans (tag_id, bestallning_id, alacarte_id) values (2, 2, 3);
 
 
 
