@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<f:view>
+    <ui:composition template="/template/common/commonLayout.xhtml">
+        <ui:define name="title">Antons Skafferi Admin page - Ala Carte</ui:define>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+        <ui:define name="content">
+            <div class="grid">
+                <div class="col-5">
+                    <div>
+                        <p:outputLabel value="Lägg till rätt"/>
+                        <h:form>
+                            <div>
+                                <p:outputLabel value="Huvudtext" for="@next"/>
+                                <p:inputTextarea value="#{alacartBean.alaCarteTitle}" id = "titleHuvudText" label="Huvudtext" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+                                <p:outputLabel value="Undertext" for="@next"/>
+                                <p:inputTextarea value ="#{alacartBean.alaCarteDescription}" id="beskrivningUnderText" label="Undertext" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
+                                <p:commandButton update="updateAlaCarte updateAlaCarteStarter" type="submit" action="#{alacartBean.addStarter()}" value="Förrätt" icon="pi pi-plus" id="knappSkickaFörrätt">
+                                </p:commandButton>
+                                <p:commandButton update="updateAlaCarte" type="submit" action="#{alacartBean.addMain()}" value="Varmrätt" icon="pi pi-plus" id="knappSkickaVarmrätt">
+                                </p:commandButton>
+                                <p:commandButton update="updateAlaCarte" type="submit" action="#{alacartBean.addDessert()}" value="Efterrätt" icon="pi pi-plus" id="knappSkickaEfterrätt">
+                                </p:commandButton>
+
+                            </div>
+
+                            <p:outputPanel id = "updateAlaCarte" deferred="true">
+                                <ui:repeat value="#{alacartBean.listModelStarter}" var="alacartItem">
+                                    <p:card class="border-round-sm" style="margin-bottom: 1em">
+                                        <f:facet name="title">#{alacartItem.title}</f:facet>
+                                        <p style="margin-top: 0">#{alacartItem.description}</p>
+                                        <!--chatgpt genererad -->
+                                        <h:outputText value="&lt;strong&gt;Kategori:&lt;/strong&gt; &lt;em&gt;Förrätt&lt;/em&gt;" escape="false">
+
+                                        </h:outputText>
+                                        <f:facet name="footer">
+                                            <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeStarter()}"/>
+                                        </f:facet>
+                                    </p:card>
+                                </ui:repeat>
+
+                                <ui:repeat value="#{alacartBean.listModelMain}" var="alacartItem">
+                                    <p:card class="border-round-sm" style="margin-bottom: 1em">
+                                        <f:facet name="title">#{alacartItem.title}</f:facet>
+                                        <p style="margin-top: 0">#{alacartItem.description}</p>
+                                        <!--chatgpt genererad -->
+                                        <h:outputText value="&lt;strong&gt;Kategori:&lt;/strong&gt; &lt;em&gt;Varmrätt&lt;/em&gt;" escape="false">
+
+                                        </h:outputText>
+                                        <f:facet name="footer">
+                                        <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeMain()}"/>
+                                        </f:facet>
+                                    </p:card>
+                                </ui:repeat>
+
+                                <ui:repeat value="#{alacartBean.listModelDessert}" var="alacartItem">
+                                    <p:card class="border-round-sm" style="margin-bottom: 1em">
+                                        <f:facet name="title">#{alacartItem.title}</f:facet>
+                                        <p style="margin-top: 0">#{alacartItem.description}</p>
+                                        <!--chatgpt genererad -->
+                                        <h:outputText value="&lt;strong&gt;Kategori:&lt;/strong&gt; &lt;em&gt;Dessert&lt;/em&gt;" escape="false">
+
+                                        </h:outputText>
+                                        <f:facet name="footer">
+                                        <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeDessert()}"/>
+                                        </f:facet>
+                                    </p:card>
+                                </ui:repeat>
+                            </p:outputPanel>
+                        </h:form>
+                    </div>
+                </div>
+
+
+
+                <div class="col-1">
+                    <p:divider layout="vertical"/>
+                </div>
+
+                <div class="col-5">
+                    <div class="container">
+                    <div class="alacarte a4" id="alacarte">
+
+                        <h2>À la carte</h2>
+                        <p>Vi har ett brett utbud av rätter på vår ala carte meny. Välkommen in och se vad vi har att erbjuda.</p>
+                        <div id="course-container">
+                            <div id="first-course-dessert">
+                                <h3>Förrätter</h3>
+                                <div id="first-course">
+                                <ui:repeat id ="updateAlaCarteStarter" value="#{alacartBean.listModelStarter}" var="alacartItem">
+                                    <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
+                                    <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                                </ui:repeat>
+                                </div>
+
+
+
+
+                                <h3>Dessert</h3>
+                                <div id="dessert">
+                                    <ui:repeat id ="updateAlaCarteDessert" value="#{alacartBean.listModelDessert}" var="alacartItem">
+                                        <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
+                                        <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                                    </ui:repeat>
+                                </div>
+                            </div>
+
+                            <div id="main-course">
+                                <h3>Varmrätter</h3>
+                                <ui:repeat id ="updateAlaCarteMain" value="#{alacartBean.listModelMain}" var="alacartItem">
+                                    <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
+                                    <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                                </ui:repeat>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+
+        </ui:define>
+
+    </ui:composition>
+
+</f:view>
+</html>
+

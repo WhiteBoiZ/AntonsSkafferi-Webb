@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-232.10227.8">
+    <data-source name="antonsDatabas" uuid="0afac2dd-e99e-4a53-b433-bac0bf89357d">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
