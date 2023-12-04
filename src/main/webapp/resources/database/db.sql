@@ -4,14 +4,14 @@ use antonsskafferi;
 
 set CHARACTER SET utf8;
 create table lunch(
-    id int unsigned auto_increment not null,
+    id int auto_increment not null,
     titel varchar(255),
     beskrivning text,
     primary key (id)
 );
 
 CREATE TABLE dag (
-    id int unsigned auto_increment not null,
+    id int auto_increment not null,
     namn varchar(255),
     primary key (id)
 );
@@ -23,13 +23,13 @@ CREATE TABLE lunch_vecka (
 );
 
 create table typ(
-    id int unsigned auto_increment not null,
+    id int auto_increment not null,
     namn varchar(255) not null,
     primary key (id)
 );
 
 create table alacarte(
-    id int unsigned auto_increment not null,
+    id int auto_increment not null,
     titel varchar(255) not null,
     beskrivning text,
     typ_id int references typ(id),
@@ -39,7 +39,7 @@ create table alacarte(
 );
 
 create table bestallning(
-    id int unsigned auto_increment not null,
+    id int auto_increment not null,
     datum date not null,
     tid time not null,
     kommentar text,
@@ -48,7 +48,7 @@ create table bestallning(
 );
 
 create table ratt_instans(
-    id int unsigned auto_increment not null,
+    id int auto_increment not null,
     tag_id int references typ(id),
     ratt_preferenser text,
     bestallning_id int references bestallning(id),
