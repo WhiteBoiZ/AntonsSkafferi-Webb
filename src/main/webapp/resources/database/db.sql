@@ -11,7 +11,7 @@ create table lunch(
 );
 
 CREATE TABLE dag (
-    id int auto_increment not null,
+    id int not null,
     namn varchar(255),
     primary key (id)
 );
@@ -63,11 +63,11 @@ create table bord(
     primary key (id)
 );
 
-insert into dag (namn) values ('Måndag');
-insert into dag (namn) values ('Tisdag');
-insert into dag (namn) values ('Onsdag');
-insert into dag (namn) values ('Torsdag');
-insert into dag (namn) values ('Fredag');
+insert into dag (id, namn) values (1, 'Måndag');
+insert into dag (id, namn) values (2, 'Tisdag');
+insert into dag (id, namn) values (3, 'Onsdag');
+insert into dag (id, namn) values (4, 'Torsdag');
+insert into dag (id, namn) values (5, 'Fredag');
 
 insert into typ (namn) values ('Förrätt');
 insert into typ (namn) values ('Varmrätt');
