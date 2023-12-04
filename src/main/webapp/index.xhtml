@@ -17,7 +17,7 @@
     <h:graphicImage library="images" name="header2.png" id="background-img" />
     <div class="header">
         <h1>Antons Skafferi</h1>
-    </div> <!-- end of welcome -->
+    </div>
     <div id="navbar">
         <ul>
             <li><a href="#body">Lunch</a></li>
@@ -25,7 +25,7 @@
             <li><a href="#events">Evenemang</a></li>
             <li><a href="#footer">Om oss</a></li>
         </ul>
-    </div> <!-- end of navbar -->
+    </div>
 
     <div class="lunch">
         <div class="dagens">
@@ -120,43 +120,83 @@
 
     </div>
     <div id="events">
-        <div id="coming-events">
-            <h2>Kommande evenemang</h2>
-            <div class="event-container">
-                <div class="event">
-                    <div class="event-img-wrapper">
-                        <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+        <div class="selected-event">
+            <div class="sel-event-upper">
+                <div class="sel-event-img">
+                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                </div>
+                <div class="sel-event-info">
+                    <div class="event-title">
+                        <h:outputText value="Title" />
                     </div>
-                    <div class="event-info">
-                        <div class="event-title">
+                    <div class="event-desc">
+                        <h:outputText value="Description" />
+                    </div>
+                </div>
+            </div>
+            <div class="sel-event-lower">
+                <div class="sel-event-gallery">
+                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                </div>
+            </div>
+        </div>
+        <div class="event-container">
+            <div class="coming-events">
+                <h2>Kommande evenemang</h2>
+                <div class="coming-events-container">
+                    <div class="coming-event">
+                        <div class="coming-events-img">
+                            <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                        </div>
+                        <div class="coming-event-title">
                             <h:outputText value="Title" />
                         </div>
-                        <div class="event-desc">
-                            <h:outputText value="Description" />
+                    </div>
+                    <div class="coming-event">
+                        <div class="coming-events-img">
+                            <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                        </div>
+                        <div class="coming-event-title">
+                            <h:outputText value="Title" />
                         </div>
                     </div>
                 </div>
-                <div class="event">
-                    <div class="event-img-wrapper">
-                        <h:graphicImage library="images" name="event2.jpg" class="event-img" />
-                    </div>
-                    <div class="event-info">
-                        <div class="event-title">
+
+            </div>
+            <div class="prev-events">
+                <h2>Tidigare evenemang</h2>
+                <div class="prev-events-container">
+                    <div class="prev-event">
+                        <div class="prev-events-img">
+                            <h:graphicImage library="images" name="event1.jpg" class="prev-event-img" />
+                        </div>
+                        <div class="prev-event-title">
                             <h:outputText value="Title" />
                         </div>
-                        <div class="event-desc">
-                            <h:outputText value="Description" />
+                    </div>
+                    <div class="prev-event">
+                        <div class="prev-events-img">
+                            <h:graphicImage library="images" name="event1.jpg" class="prev-event-img" />
+                        </div>
+                        <div class="prev-event-title">
+                            <h:outputText value="Title" />
+                        </div>
+                    </div>
+                    <div class="prev-event">
+                        <div class="prev-events-img">
+                            <h:graphicImage library="images" name="event1.jpg" class="prev-event-img" />
+                        </div>
+                        <div class="prev-event-title">
+                            <h:outputText value="Title" />
                         </div>
                     </div>
                 </div>
             </div>
-
-        </div>
-        <div id="prev-events">
-            <h2>Tidigare evenemang</h2>
         </div>
     </div>
-
     <div id="footer">
 
     </div>
