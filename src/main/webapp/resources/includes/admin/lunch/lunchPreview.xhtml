@@ -12,9 +12,9 @@
             <br/>
             <p:card id = "monday" class="border-round-sm" style="margin-bottom: 1em">
                 <f:facet name="title">Måndag</f:facet>
-                <ui:repeat value="#{lunchBean.weekLunchMenu.getDayMenu(0)}" var="lunch">
+                <ui:repeat value="#{lunchService.findLunchDay(1)}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>

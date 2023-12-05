@@ -12,10 +12,10 @@
             <h:form>
                 <div>
                     <p:outputLabel value="Titel" for="@next"/>
-                    <p:inputText value="#{lunchBean.lunchTitle}" id = "titleLunch" label="Title" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
-                    <p:outputLabel value="Beskrivning" for="@next"/>
-                    <p:inputTextarea value ="#{lunchBean.lunchDescription}" id="beskrivningLunch" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
-                    <p:commandButton update="updateLunch" type="submit" actionListener="#{lunchBean.addLunch()}" value="Lägg till" icon="pi pi-plus" id="knappSkickaLunch">
+                    <p:inputText  value="#{lunchService.inputTitel}" id = "titleLunch" label="Title" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+                    <p:outputLabel id="descLunch" value="Beskrivning" for="@next"/>
+                    <p:inputTextarea value ="#{lunchService.inputBeskrivning}" id="beskrivningLunch" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
+                    <p:commandButton actionListener="#{lunchService.putLunch()}" update="updateLunch" type="submit" value="Lägg till" icon="pi pi-plus" id="knappSkickaLunch">
                         <p:confirm header="Konfirmation" message="Är du säker att du vill lägga till den här lunchen?" icon="ui-icon-alert"/>
                     </p:commandButton>
                     <p:confirmDialog global="true">
@@ -24,21 +24,21 @@
                     </p:confirmDialog>
                 </div>
                 <p:outputPanel id = "updateLunch" deferred="true">
-                    <ui:repeat value="#{lunchBean.listModel}" var="lunchItem">
+                    <ui:repeat value="#{lunchService.findAllLunches()}" var="lunchItem">
                         <p:card class="border-round-sm" style="margin-bottom: 1em">
-                            <f:facet name="title">#{lunchItem.title}</f:facet>
-                            <p style="margin-top: 0">#{lunchItem.description}</p>
-                            <p:selectManyButton id="daySelect" widgetVar="blub" value="#{lunchBean.daySelection}">
+                            <f:facet name="title">#{lunchItem.titel}</f:facet>
+                            <p style="margin-top: 0">#{lunchItem.beskrivning}</p>
+                            <!--<p:selectManyButton id="daySelect" widgetVar="blub">
                                 <f:selectItem itemLabel="Mån" itemValue="mån"/>
                                 <f:selectItem itemLabel="Tis" itemValue="tis"/>
                                 <f:selectItem itemLabel="Ons" itemValue="ons"/>
                                 <f:selectItem itemLabel="Tor" itemValue="tor"/>
                                 <f:selectItem itemLabel="Fre" itemValue="fre"/>
-                                <p:ajax update = "monday tuesday wednesday thursday friday" listener="#{lunchBean.updateLunchPreview}"/>
+                                <p:ajax update = "monday tuesday wednesday thursday friday" listener=""/>
                             </p:selectManyButton>
                             <f:facet name="footer">
-                                <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{lunchBean.removeLunch}"/>
-                            </f:facet>
+                                <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener=""/>
+                            </f:facet>-->
 
                         </p:card>
                     </ui:repeat>
