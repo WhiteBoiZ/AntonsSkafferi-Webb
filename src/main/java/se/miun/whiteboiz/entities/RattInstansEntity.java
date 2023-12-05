@@ -2,6 +2,8 @@ package se.miun.whiteboiz.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "ratt_instans", schema = "antonsskafferi", catalog = "")
 @IdClass(RattInstansEntityPK.class)
@@ -16,11 +18,14 @@ public class RattInstansEntity {
     @Column(name = "ratt_preferenser")
     private String rattPreferenser;
     @Id
-    @Column(name = "bestallning_id")
-    private int bestallningId;
+    @ManyToOne
+    @JoinColumn(name = "bestallning_id")
+    private BestallningEntity bestallningId;
+
     @Id
-    @Column(name = "alacarte_id")
-    private int alacarteId;
+    @ManyToOne
+    @JoinColumn(name = "alacarte_id")
+    private AlacarteEntity alacarteId;
 
     public int getId() {
         return id;
@@ -46,19 +51,19 @@ public class RattInstansEntity {
         this.rattPreferenser = rattPreferenser;
     }
 
-    public int getBestallningId() {
+    public BestallningEntity getBestallningId() {
         return bestallningId;
     }
 
-    public void setBestallningId(int bestallningId) {
+    public void setBestallningId(int BestallningEntity) {
         this.bestallningId = bestallningId;
     }
 
-    public int getAlacarteId() {
+    public AlacarteEntity getAlacarteId() {
         return alacarteId;
     }
 
-    public void setAlacarteId(int alacarteId) {
+    public void setAlacarteId(int AlacarteEntity) {
         this.alacarteId = alacarteId;
     }
 
@@ -66,26 +71,12 @@ public class RattInstansEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         RattInstansEntity that = (RattInstansEntity) o;
-
-        if (id != that.id) return false;
-        if (bestallningId != that.bestallningId) return false;
-        if (alacarteId != that.alacarteId) return false;
-        if (tagId != null ? !tagId.equals(that.tagId) : that.tagId != null) return false;
-        if (rattPreferenser != null ? !rattPreferenser.equals(that.rattPreferenser) : that.rattPreferenser != null)
-            return false;
-
-        return true;
+        return id == that.id && Objects.equals(tagId, that.tagId) && Objects.equals(rattPreferenser, that.rattPreferenser) && Objects.equals(bestallningId, that.bestallningId) && Objects.equals(alacarteId, that.alacarteId);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (tagId != null ? tagId.hashCode() : 0);
-        result = 31 * result + (rattPreferenser != null ? rattPreferenser.hashCode() : 0);
-        result = 31 * result + bestallningId;
-        result = 31 * result + alacarteId;
-        return result;
+        return Objects.hash(id, tagId, rattPreferenser, bestallningId, alacarteId);
     }
 }

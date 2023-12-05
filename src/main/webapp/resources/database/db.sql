@@ -33,7 +33,7 @@ create table alacarte(
     titel varchar(255) not null,
     beskrivning text,
     typ_id int references typ(id),
-    vald boolean,
+    vald int,
     pris int,
     primary key (id)
 );
