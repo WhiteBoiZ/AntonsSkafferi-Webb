@@ -1,25 +1,16 @@
 package se.miun.whiteboiz.containers;
 
-public class Alacart {
-    public enum AlaCarteCategory{
-        STARTER, MAIN, DESSERT
-    }
+import jakarta.faces.model.ListDataModel;
+
+public class Drink {
     private String title;
     private String description;
-    private AlaCarteCategory alaCarteCategory;
-
-    public Alacart(String title, String description){
-        //this.alaCarteCategory = category;
-        this.title = title;
-        this.description = description;
-
-
-    }
-    //Getters & Setters
-
-
     public String getTitle() {
         return title;
+    }
+    public Drink(String title, String description){
+        this.title = title;
+        this.description = description;
     }
 
     public void setTitle(String title) {
@@ -35,5 +26,7 @@ public class Alacart {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 
 }
