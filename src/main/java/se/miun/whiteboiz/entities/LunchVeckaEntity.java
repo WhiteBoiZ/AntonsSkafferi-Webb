@@ -2,31 +2,34 @@ package se.miun.whiteboiz.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "lunch_vecka", schema = "antonsskafferi", catalog = "")
 @IdClass(LunchVeckaEntityPK.class)
 public class LunchVeckaEntity {
     @Id
-    @Column(name = "dag_id")
-    private int dagId;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ManyToOne
+    @JoinColumn(name = "dag_id")
+    private DagEntity dagId;
     @Id
-    @Column(name = "lunch_id")
-    private int lunchId;
+    @ManyToOne
+    @JoinColumn(name = "lunch_id")
+    private LunchEntity lunchId;
 
-    public int getDagId() {
+    public DagEntity getDagId() {
         return dagId;
     }
 
-    public void setDagId(int dagId) {
+    public void setDagId(int DagEntity) {
         this.dagId = dagId;
     }
 
-    public int getLunchId() {
+    public LunchEntity getLunchId() {
         return lunchId;
     }
 
-    public void setLunchId(int lunchId) {
+    public void setLunchId(int LunchEntity) {
         this.lunchId = lunchId;
     }
 
@@ -34,19 +37,12 @@ public class LunchVeckaEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         LunchVeckaEntity that = (LunchVeckaEntity) o;
-
-        if (dagId != that.dagId) return false;
-        if (lunchId != that.lunchId) return false;
-
-        return true;
+        return Objects.equals(dagId, that.dagId) && Objects.equals(lunchId, that.lunchId);
     }
 
     @Override
     public int hashCode() {
-        int result = dagId;
-        result = 31 * result + lunchId;
-        return result;
+        return Objects.hash(dagId, lunchId);
     }
 }

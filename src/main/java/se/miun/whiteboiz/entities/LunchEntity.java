@@ -16,6 +16,10 @@ public class LunchEntity {
     @Column(name = "beskrivning")
     private String beskrivning;
 
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "")
+
+
     public int getId() {
         return id;
     }

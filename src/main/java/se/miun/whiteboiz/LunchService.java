@@ -21,4 +21,8 @@ public class LunchService {
     public List<LunchEntity> findAllLunches(){
         return em.createQuery("select L from LunchEntity L", LunchEntity.class).getResultList();
     }
+
+    public List<LunchVeckaEntity> findAllLunchesForWeek(){
+        return em.createQuery("select L from LunchVeckaEntity L ", LunchVeckaEntity.class).getResultList();
+    }
 }
