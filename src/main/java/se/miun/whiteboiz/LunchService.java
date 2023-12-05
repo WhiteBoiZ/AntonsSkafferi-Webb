@@ -15,7 +15,7 @@ import se.miun.whiteboiz.entities.LunchVeckaEntityPK;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequestScoped
+@ApplicationScoped
 @Named @Transactional
 public class LunchService {
     private String inputTitel;
