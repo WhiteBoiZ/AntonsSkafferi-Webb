@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import se.miun.whiteboiz.entities.LunchEntity;
+import se.miun.whiteboiz.entities.LunchVeckaEntity;
 
 import java.util.List;
 

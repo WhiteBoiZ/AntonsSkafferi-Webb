@@ -38,6 +38,12 @@ create table alacarte(
     primary key (id)
 );
 
+create table bord(
+    id int not null,
+    status varchar(255) not null,
+    primary key (id)
+);
+
 create table bestallning(
     id int auto_increment not null,
     datum date not null,
@@ -57,11 +63,6 @@ create table ratt_instans(
 
 );
 
-create table bord(
-    id int not null,
-    status varchar(255) not null,
-    primary key (id)
-);
 
 insert into dag (id, namn) values (1, 'Måndag');
 insert into dag (id, namn) values (2, 'Tisdag');
