@@ -17,9 +17,10 @@ public class AlacarteEntity {
     @Basic
     @Column(name = "beskrivning")
     private String beskrivning;
-    @Basic
-    @Column(name = "typ_id")
-    private Integer typId;
+
+    @ManyToOne
+    @JoinColumn(name = "typ_id")
+    private TypEntity typ;
     @Basic
     @Column(name = "vald")
     private int vald;
@@ -51,12 +52,12 @@ public class AlacarteEntity {
         this.beskrivning = beskrivning;
     }
 
-    public Integer getTypId() {
-        return typId;
+    public TypEntity getTyp() {
+        return typ;
     }
 
-    public void setTypId(Integer typId) {
-        this.typId = typId;
+    public void setTyp(TypEntity typId) {
+        this.typ = typId;
     }
 
     public int getVald() {
@@ -80,11 +81,11 @@ public class AlacarteEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AlacarteEntity that = (AlacarteEntity) o;
-        return id == that.id && vald == that.vald && Objects.equals(titel, that.titel) && Objects.equals(beskrivning, that.beskrivning) && Objects.equals(typId, that.typId) && Objects.equals(pris, that.pris);
+        return id == that.id && vald == that.vald && Objects.equals(titel, that.titel) && Objects.equals(beskrivning, that.beskrivning) && Objects.equals(typ, that.typ) && Objects.equals(pris, that.pris);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, titel, beskrivning, typId, vald, pris);
+        return Objects.hash(id, titel, beskrivning, typ, vald, pris);
     }
 }

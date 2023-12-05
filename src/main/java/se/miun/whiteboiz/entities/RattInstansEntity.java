@@ -11,9 +11,10 @@ public class RattInstansEntity {
     @Id
     @Column(name = "id")
     private int id;
-    @Basic
-    @Column(name = "tag_id")
-    private Integer tagId;
+    @ManyToOne
+    @JoinColumn(name = "tag_id")
+    private TypEntity tag;
+
     @Basic
     @Column(name = "ratt_preferenser")
     private String rattPreferenser;
@@ -35,12 +36,12 @@ public class RattInstansEntity {
         this.id = id;
     }
 
-    public Integer getTagId() {
-        return tagId;
+    public TypEntity getTagId() {
+        return tag;
     }
 
-    public void setTagId(Integer tagId) {
-        this.tagId = tagId;
+    public void setTagId(Integer TypEntity) {
+        this.tag = tag;
     }
 
     public String getRattPreferenser() {
@@ -72,11 +73,11 @@ public class RattInstansEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RattInstansEntity that = (RattInstansEntity) o;
-        return id == that.id && Objects.equals(tagId, that.tagId) && Objects.equals(rattPreferenser, that.rattPreferenser) && Objects.equals(bestallningId, that.bestallningId) && Objects.equals(alacarteId, that.alacarteId);
+        return id == that.id && Objects.equals(tag, that.tag) && Objects.equals(rattPreferenser, that.rattPreferenser) && Objects.equals(bestallningId, that.bestallningId) && Objects.equals(alacarteId, that.alacarteId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tagId, rattPreferenser, bestallningId, alacarteId);
+        return Objects.hash(id, tag, rattPreferenser, bestallningId, alacarteId);
     }
 }

@@ -44,8 +44,8 @@ create table bord(
 );
 create table bestallning(
     id int auto_increment not null,
-    datum date not null,
-    tid time not null,
+    datum varchar(255) not null,
+    tid varchar(255) not null,
     kommentar text,
     bord_id int references bord(id),
     primary key (id)

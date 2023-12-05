@@ -20,6 +20,7 @@ public class AlacarteService {
         return em.find(AlacarteEntity.class, id);
     }
 
+
     public List<AlacarteEntity> findAllAlacarte(){
         return em.createQuery("select A from AlacarteEntity A ", AlacarteEntity.class).getResultList();
     }

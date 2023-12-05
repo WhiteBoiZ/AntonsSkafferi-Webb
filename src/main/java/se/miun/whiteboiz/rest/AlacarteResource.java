@@ -20,4 +20,11 @@ public class AlacarteResource {
     public List<AlacarteEntity> findAllAlacarte() {
         return alacarteService.findAllAlacarte();
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/id/{id}")
+    public AlacarteEntity findAlacarte(@PathParam("id") int id) {
+        return alacarteService.findAlacarte(id);
+    }
 }

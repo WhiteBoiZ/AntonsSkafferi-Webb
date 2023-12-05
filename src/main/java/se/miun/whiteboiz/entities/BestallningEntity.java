@@ -2,8 +2,6 @@ package se.miun.whiteboiz.entities;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
-import java.sql.Time;
 
 @Entity
 @Table(name = "bestallning", schema = "antonsskafferi", catalog = "")
@@ -14,10 +12,10 @@ public class BestallningEntity {
     private int id;
     @Basic
     @Column(name = "datum")
-    private Date datum;
+    private String datum;
     @Basic
     @Column(name = "tid")
-    private Time tid;
+    private String tid;
     @Basic
     @Column(name = "kommentar")
     private String kommentar;
@@ -33,19 +31,19 @@ public class BestallningEntity {
         this.id = id;
     }
 
-    public Date getDatum() {
+    public String getDatum() {
         return datum;
     }
 
-    public void setDatum(Date datum) {
+    public void setDatum(String datum) {
         this.datum = datum;
     }
 
-    public Time getTid() {
+    public String getTid() {
         return tid;
     }
 
-    public void setTid(Time tid) {
+    public void setTid(String tid) {
         this.tid = tid;
     }
 
