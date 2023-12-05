@@ -28,17 +28,17 @@
                         <p:card class="border-round-sm" style="margin-bottom: 1em">
                             <f:facet name="title">#{lunchItem.titel}</f:facet>
                             <p style="margin-top: 0">#{lunchItem.beskrivning}</p>
-                            <!--<p:selectManyButton id="daySelect" widgetVar="blub">
-                                <f:selectItem itemLabel="Mån" itemValue="mån"/>
-                                <f:selectItem itemLabel="Tis" itemValue="tis"/>
-                                <f:selectItem itemLabel="Ons" itemValue="ons"/>
-                                <f:selectItem itemLabel="Tor" itemValue="tor"/>
-                                <f:selectItem itemLabel="Fre" itemValue="fre"/>
-                                <p:ajax update = "monday tuesday wednesday thursday friday" listener=""/>
+                            <p:selectManyButton value="#{lunchItem.selection}" id="daySelect" widgetVar="blub">
+                                <f:selectItem itemLabel="Mån" itemValue="Måndag"/>
+                                <f:selectItem itemLabel="Tis" itemValue="Tisdag"/>
+                                <f:selectItem itemLabel="Ons" itemValue="Onsdag"/>
+                                <f:selectItem itemLabel="Tor" itemValue="Torsdag"/>
+                                <f:selectItem itemLabel="Fre" itemValue="Fredag"/>
+                                <p:ajax update = "monday tuesday wednesday thursday friday"/>
                             </p:selectManyButton>
                             <f:facet name="footer">
-                                <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener=""/>
-                            </f:facet>-->
+                                <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{lunchService.removeLunch(lunchItem)}"/>
+                            </f:facet>
 
                         </p:card>
                     </ui:repeat>
