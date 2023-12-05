@@ -44,6 +44,7 @@ public class LunchService {
         return dayLunches;
     }
 
+
     public List<String> findDaysForLunch(LunchEntity lunch){
         ArrayList<String> days = new ArrayList<>();
         for (LunchVeckaEntity lunchVeckaEntity : findAllLunchesForWeek()) {

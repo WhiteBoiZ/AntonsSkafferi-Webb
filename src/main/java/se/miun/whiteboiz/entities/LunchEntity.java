@@ -27,35 +27,35 @@ public class LunchEntity {
     @Transient
     LunchService ls;
 
-    @Transient
-    private List<String> selection;
+    //@Transient
+    //private List<String> selection;
 
 
-    public List<String> getSelection(){
-        selection = ls.findDaysForLunch(this);
-        return selection;
-    }
+//    public List<String> getSelection(){
+//        selection = ls.findDaysForLunch(this);
+//        return selection;
+//    }
 
-    public void setSelection(ArrayList<String> select){
-        if(selection == null){
-            selection = ls.findDaysForLunch(this);
-        }
-        if(select.size() < selection.size()){//Lunchen har tagits bort från en dag.
-            selection.removeAll(select);
-            for (String s : selection) {
-                ls.removeLunchVecka(this, ls.getDagFromName(s));
-            }
-            selection = select;
-
-        } else if(select.size() > selection.size()){
-            select.removeAll(selection);
-            for(String s : select){
-                ls.mapLunchToDay(this, ls.getDagFromName(s));
-            }
-            selection.addAll(select);
-
-        }
-    }
+//    public void setSelection(ArrayList<String> select){
+//        if(selection == null){
+//            selection = ls.findDaysForLunch(this);
+//        }
+//        if(select.size() < selection.size()){//Lunchen har tagits bort från en dag.
+//            selection.removeAll(select);
+//            for (String s : selection) {
+//                ls.removeLunchVecka(this, ls.getDagFromName(s));
+//            }
+//            selection = select;
+//
+//        } else if(select.size() > selection.size()){
+//            select.removeAll(selection);
+//            for(String s : select){
+//                ls.mapLunchToDay(this, ls.getDagFromName(s));
+//            }
+//            selection.addAll(select);
+//
+//        }
+//    }
 
     public LunchEntity() {
     }
