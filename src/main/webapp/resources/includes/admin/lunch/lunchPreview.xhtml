@@ -23,7 +23,7 @@
                 <f:facet name="title">Tisdag</f:facet>
                 <ui:repeat value="#{lunchService.findLunchesForDay('Tisdag')}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>
@@ -32,7 +32,7 @@
                 <f:facet name="title">Onsdag</f:facet>
                 <ui:repeat value="#{lunchService.findLunchesForDay('Onsdag')}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>
@@ -41,7 +41,7 @@
                 <f:facet name="title">Torsdag</f:facet>
                 <ui:repeat value="#{lunchService.findLunchesForDay('Torsdag')}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>

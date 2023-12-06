@@ -17,6 +17,14 @@ public class LunchVeckaEntity {
     @JoinColumn(name = "lunch_id")
     private LunchEntity lunchId;
 
+    public LunchVeckaEntity() {
+    }
+
+    public LunchVeckaEntity(DagEntity dagId, LunchEntity lunchId) {
+        this.dagId = dagId;
+        this.lunchId = lunchId;
+    }
+
     public DagEntity getDagId() {
         return dagId;
     }

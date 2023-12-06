@@ -23,9 +23,6 @@ public class LunchEntity {
     @Column(name = "beskrivning")
     private String beskrivning;
 
-    @Inject
-    @Transient
-    LunchService ls;
 
     //@Transient
     //private List<String> selection;

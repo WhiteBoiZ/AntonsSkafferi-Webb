@@ -47,9 +47,9 @@ public class LunchService {
 
     public List<String> findDaysForLunch(LunchEntity lunch){
         ArrayList<String> days = new ArrayList<>();
-        for (LunchVeckaEntity lunchVeckaEntity : findAllLunchesForWeek()) {
-            if(lunchVeckaEntity.getLunchId() == lunch){
-                days.add(lunchVeckaEntity.getDagId().getNamn());
+        for (LunchVeckaEntity lunchVecka : findAllLunchesForWeek()) {
+            if(lunchVecka.getLunchId().getId() == lunch.getId() ){
+                days.add(lunchVecka.getDagId().getNamn());
             }
         }
         return days;
@@ -63,7 +63,7 @@ public class LunchService {
     }
 
     public void mapLunchToDay(LunchEntity lunch, DagEntity dag){
-
+        em.persist(new LunchVeckaEntity(dag, lunch));
     }
 
     public DagEntity getDagFromName(String name){
