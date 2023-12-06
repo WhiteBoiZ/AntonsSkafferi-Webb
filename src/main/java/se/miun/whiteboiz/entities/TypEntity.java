@@ -3,7 +3,7 @@ package se.miun.whiteboiz.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "typ", schema = "antonsskafferi", catalog = "")
+@Table(name = "typ", schema = "antonsskafferi")
 public class TypEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

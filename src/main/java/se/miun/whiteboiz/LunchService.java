@@ -27,11 +27,28 @@ public class LunchService {
     public LunchEntity findLunch(int id){
         return em.find(LunchEntity.class, id);
     }
+    public void deleteLunch(int lunchId) {
+        LunchEntity lunch = em.find(LunchEntity.class, lunchId);
+        em.remove(lunch);
+    }
+
+    public void addLunch(LunchEntity lunch) {
+        em.persist(lunch);
+    }
+
     public List<LunchEntity> findAllLunches(){
         return em.createQuery("select L from LunchEntity L", LunchEntity.class).getResultList();
     }
     public List<LunchVeckaEntity> findAllLunchesForWeek(){
         return em.createQuery("select L from LunchVeckaEntity L ", LunchVeckaEntity.class).getResultList();
+    }
+
+    public LunchVeckaEntity findLunchVecka(int dagId, int lunchId){
+        LunchVeckaEntityPK pk = new LunchVeckaEntityPK();
+        pk.setDag(dagId);
+        pk.setLunch(lunchId);
+
+        return em.find(LunchVeckaEntity.class, pk);
     }
 
     public List<LunchEntity> findLunchesForDay(String day){

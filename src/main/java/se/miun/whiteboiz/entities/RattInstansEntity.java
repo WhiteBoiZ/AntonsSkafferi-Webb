@@ -5,27 +5,29 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ratt_instans", schema = "antonsskafferi", catalog = "")
+@Table(name = "ratt_instans", schema = "antonsskafferi")
 @IdClass(RattInstansEntityPK.class)
 public class RattInstansEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
-    @Basic
-    @Column(name = "tag_id")
-    private Integer tagId;
+    @ManyToOne
+    @JoinColumn(name = "tag_id")
+    private TypEntity tag;
+
     @Basic
     @Column(name = "ratt_preferenser")
     private String rattPreferenser;
     @Id
     @ManyToOne
     @JoinColumn(name = "bestallning_id")
-    private BestallningEntity bestallningId;
+    private BestallningEntity bestallning;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "alacarte_id")
-    private AlacarteEntity alacarteId;
+    private AlacarteEntity alacarte;
 
     public int getId() {
         return id;
@@ -35,12 +37,12 @@ public class RattInstansEntity {
         this.id = id;
     }
 
-    public Integer getTagId() {
-        return tagId;
+    public TypEntity getTag() {
+        return tag;
     }
 
-    public void setTagId(Integer tagId) {
-        this.tagId = tagId;
+    public void setTag(TypEntity tag) {
+        this.tag = tag;
     }
 
     public String getRattPreferenser() {
@@ -51,20 +53,20 @@ public class RattInstansEntity {
         this.rattPreferenser = rattPreferenser;
     }
 
-    public BestallningEntity getBestallningId() {
-        return bestallningId;
+    public BestallningEntity getBestallning() {
+        return bestallning;
     }
 
-    public void setBestallningId(int BestallningEntity) {
-        this.bestallningId = bestallningId;
+    public void setBestallning(BestallningEntity bestallning) {
+        this.bestallning = bestallning;
     }
 
-    public AlacarteEntity getAlacarteId() {
-        return alacarteId;
+    public AlacarteEntity getAlacarte() {
+        return alacarte;
     }
 
-    public void setAlacarteId(int AlacarteEntity) {
-        this.alacarteId = alacarteId;
+    public void setAlacarte(AlacarteEntity alacarte) {
+        this.alacarte = alacarte;
     }
 
     @Override
@@ -72,11 +74,11 @@ public class RattInstansEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RattInstansEntity that = (RattInstansEntity) o;
-        return id == that.id && Objects.equals(tagId, that.tagId) && Objects.equals(rattPreferenser, that.rattPreferenser) && Objects.equals(bestallningId, that.bestallningId) && Objects.equals(alacarteId, that.alacarteId);
+        return id == that.id && Objects.equals(tag, that.tag) && Objects.equals(rattPreferenser, that.rattPreferenser) && Objects.equals(bestallning, that.bestallning) && Objects.equals(alacarte, that.alacarte);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tagId, rattPreferenser, bestallningId, alacarteId);
+        return Objects.hash(id, tag, rattPreferenser, bestallning, alacarte);
     }
 }

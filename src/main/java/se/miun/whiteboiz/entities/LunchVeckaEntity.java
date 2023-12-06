@@ -5,40 +5,41 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "lunch_vecka", schema = "antonsskafferi", catalog = "")
+@Table(name = "lunch_vecka", schema = "antonsskafferi")
 @IdClass(LunchVeckaEntityPK.class)
 public class LunchVeckaEntity {
     @Id
     @ManyToOne
     @JoinColumn(name = "dag_id")
-    private DagEntity dagId;
+    private DagEntity dag;
     @Id
     @ManyToOne
     @JoinColumn(name = "lunch_id")
-    private LunchEntity lunchId;
+    private LunchEntity lunch;
+
+    public DagEntity getDag() {
+        return dag;
 
     public LunchVeckaEntity() {
     }
 
-    public LunchVeckaEntity(DagEntity dagId, LunchEntity lunchId) {
-        this.dagId = dagId;
-        this.lunchId = lunchId;
+    public LunchVeckaEntity(DagEntity dag, LunchEntity lunch) {
+        this.dag = dag;
+        this.lunch = lunch;
     }
 
-    public DagEntity getDagId() {
-        return dagId;
     }
 
-    public void setDagId(int DagEntity) {
-        this.dagId = dagId;
+    public void setDag(int DagEntity) {
+        this.dag = dag;
     }
 
-    public LunchEntity getLunchId() {
-        return lunchId;
+    public LunchEntity getLunch() {
+        return lunch;
     }
 
-    public void setLunchId(int LunchEntity) {
-        this.lunchId = lunchId;
+    public void setLunch(int LunchEntity) {
+        this.lunch = lunch;
     }
 
     @Override
@@ -46,11 +47,11 @@ public class LunchVeckaEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LunchVeckaEntity that = (LunchVeckaEntity) o;
-        return Objects.equals(dagId, that.dagId) && Objects.equals(lunchId, that.lunchId);
+        return Objects.equals(dag, that.dag) && Objects.equals(lunch, that.lunch);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(dagId, lunchId);
+        return Objects.hash(dag, lunch);
     }
 }

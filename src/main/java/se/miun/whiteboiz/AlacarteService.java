@@ -20,6 +20,16 @@ public class AlacarteService {
         return em.find(AlacarteEntity.class, id);
     }
 
+    public void deleteAlacarte(int alacarteId) {
+        AlacarteEntity alacarte = em.find(AlacarteEntity.class, alacarteId);
+        em.remove(alacarte);
+    }
+
+    public void addAlacarte(AlacarteEntity alacarte) {
+        em.persist(alacarte);
+    }
+
+
     public List<AlacarteEntity> findAllAlacarte(){
         return em.createQuery("select A from AlacarteEntity A ", AlacarteEntity.class).getResultList();
     }
