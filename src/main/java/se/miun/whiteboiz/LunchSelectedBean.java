@@ -30,6 +30,7 @@ public class LunchSelectedBean {
     }
 
     public List<String> getSelected() {
+        System.out.println("Fetching Selected");
         selected = ls.findDaysForLunch(lunch);
         return selected;
     }

@@ -29,7 +29,6 @@
                             <f:facet name="title">#{lunchItem.titel}</f:facet>
                             <p style="margin-top: 0">#{lunchItem.beskrivning}</p>
                             <p:selectManyButton value="#{lunchSelectedBean.chooseLunch(lunchItem).selected}" valueChangeListener="#{lunchSelectedBean.listen()}" id="daySelect" widgetVar="blub">
-                                <p:ajax update = "monday tuesday wednesday thursday friday"/>
                                 <f:selectItem itemLabel="Mån" itemValue="Måndag"/>
                                 <f:selectItem itemLabel="Tis" itemValue="Tisdag"/>
                                 <f:selectItem itemLabel="Ons" itemValue="Onsdag"/>
