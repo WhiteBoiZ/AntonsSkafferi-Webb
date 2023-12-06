@@ -19,16 +19,16 @@ public class LunchVeckaEntity {
 
     public DagEntity getDag() {
         return dag;
-
-    public LunchVeckaEntity() {
     }
 
-    public LunchVeckaEntity(DagEntity dag, LunchEntity lunch) {
+    public LunchVeckaEntity() {
+    };
+
+    public LunchVeckaEntity(DagEntity day, LunchEntity lunch) {
         this.dag = dag;
         this.lunch = lunch;
     }
 
-    }
 
     public void setDag(int DagEntity) {
         this.dag = dag;

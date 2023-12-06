@@ -54,8 +54,8 @@ public class LunchService {
     public List<LunchEntity> findLunchesForDay(String day){
         ArrayList<LunchEntity> dayLunches = new ArrayList<>();
         for (LunchVeckaEntity lunchDag : findAllLunchesForWeek()) {
-            if (lunchDag.getDagId().getNamn().equals(day) && lunchDag.getLunchId() != null ){
-                dayLunches.add(lunchDag.getLunchId());
+            if (lunchDag.getDag().getNamn().equals(day) && lunchDag.getLunch() != null ){
+                dayLunches.add(lunchDag.getLunch());
             }
         }
         return dayLunches;
@@ -65,8 +65,8 @@ public class LunchService {
     public List<String> findDaysForLunch(LunchEntity lunch){
         ArrayList<String> days = new ArrayList<>();
         for (LunchVeckaEntity lunchVecka : findAllLunchesForWeek()) {
-            if(lunchVecka.getLunchId().getId() == lunch.getId() ){
-                days.add(lunchVecka.getDagId().getNamn());
+            if(lunchVecka.getLunch().getId() == lunch.getId() ){
+                days.add(lunchVecka.getDag().getNamn());
             }
         }
         return days;
@@ -75,8 +75,8 @@ public class LunchService {
     public List<DagEntity> findDaysEntityForLunch(LunchEntity lunch){
         ArrayList<DagEntity> days = new ArrayList<>();
         for (LunchVeckaEntity lunchVecka : findAllLunchesForWeek()) {
-            if(lunchVecka.getLunchId().getId() == lunch.getId() ){
-                days.add(lunchVecka.getDagId());
+            if(lunchVecka.getLunch().getId() == lunch.getId() ){
+                days.add(lunchVecka.getDag());
             }
         }
         return days;
@@ -85,7 +85,7 @@ public class LunchService {
     public List<LunchVeckaEntity> findVeckorForLunch(LunchEntity lunch){
         List<LunchVeckaEntity> lunchveckor = new ArrayList<>();
         for(LunchVeckaEntity vecka : findAllLunchesForWeek()){
-            if(vecka.getLunchId().getId() == lunch.getId()){
+            if(vecka.getLunch().getId() == lunch.getId()){
                 lunchveckor.add(vecka);
             }
         }
@@ -116,8 +116,8 @@ public class LunchService {
 
     public LunchVeckaEntity findLunchVecka(LunchEntity lunch, DagEntity dag){
         LunchVeckaEntityPK pk = new LunchVeckaEntityPK();
-        pk.setLunchId(lunch.getId());
-        pk.setDagId(dag.getId());
+        pk.setLunch(lunch.getId());
+        pk.setDag(dag.getId());
         return em.find(LunchVeckaEntity.class, pk);
     }
     public void removeLunchVecka(LunchEntity lunch, DagEntity dag){
