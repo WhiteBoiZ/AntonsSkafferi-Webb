@@ -19,6 +19,15 @@ public class LunchService {
     public LunchEntity findLunch(int id){
         return em.find(LunchEntity.class, id);
     }
+    public void deleteLunch(int lunchId) {
+        LunchEntity lunch = em.find(LunchEntity.class, lunchId);
+        em.remove(lunch);
+    }
+
+    public void addLunch(LunchEntity lunch) {
+        em.persist(lunch);
+    }
+
     public List<LunchEntity> findAllLunches(){
         return em.createQuery("select L from LunchEntity L", LunchEntity.class).getResultList();
     }
@@ -34,4 +43,5 @@ public class LunchService {
 
         return em.find(LunchVeckaEntity.class, pk);
     }
+
 }

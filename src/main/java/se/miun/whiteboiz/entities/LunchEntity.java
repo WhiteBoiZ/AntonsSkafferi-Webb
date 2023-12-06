@@ -17,7 +17,6 @@ public class LunchEntity {
     private String beskrivning;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "")
 
 
     public int getId() {

@@ -24,6 +24,24 @@ public class LunchResource {
         return lunchService.findLunch(lunch_id);
     }
 
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/id/{lunch_id}")
+    public void deleteLunchById(@PathParam("lunch_id") int lunch_id) {
+        lunchService.deleteLunch(lunch_id);
+    }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public void addLunch(@QueryParam("titel") String titel, @QueryParam("beskrivning") String beskrivning) {
+        LunchEntity lunch = new LunchEntity();
+        lunch.setTitel(titel);
+        lunch.setBeskrivning(beskrivning);
+        lunchService.addLunch(lunch);
+    }
+
+
+
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/lunch/all
     @GET
     @Produces(MediaType.APPLICATION_JSON)

@@ -27,4 +27,6 @@ public class AlacarteResource {
     public AlacarteEntity findAlacarte(@PathParam("id") int id) {
         return alacarteService.findAlacarte(id);
     }
+
+
 }

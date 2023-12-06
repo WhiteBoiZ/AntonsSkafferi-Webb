@@ -19,9 +19,9 @@ public class BestallningEntity {
     @Basic
     @Column(name = "kommentar")
     private String kommentar;
-    @Basic
-    @Column(name = "bord_id")
-    private Integer bordId;
+    @ManyToOne
+    @JoinColumn(name = "bord_id")
+    private BordEntity bord;
 
     public int getId() {
         return id;
@@ -55,12 +55,12 @@ public class BestallningEntity {
         this.kommentar = kommentar;
     }
 
-    public Integer getBordId() {
-        return bordId;
+    public BordEntity getBordId() {
+        return bord;
     }
 
-    public void setBordId(Integer bordId) {
-        this.bordId = bordId;
+    public void setBordId(BordEntity bord) {
+        this.bord = bord;
     }
 
     @Override
@@ -74,7 +74,7 @@ public class BestallningEntity {
         if (datum != null ? !datum.equals(that.datum) : that.datum != null) return false;
         if (tid != null ? !tid.equals(that.tid) : that.tid != null) return false;
         if (kommentar != null ? !kommentar.equals(that.kommentar) : that.kommentar != null) return false;
-        if (bordId != null ? !bordId.equals(that.bordId) : that.bordId != null) return false;
+        if (bord != null ? !bord.equals(that.bord) : that.bord != null) return false;
 
         return true;
     }
@@ -85,7 +85,7 @@ public class BestallningEntity {
         result = 31 * result + (datum != null ? datum.hashCode() : 0);
         result = 31 * result + (tid != null ? tid.hashCode() : 0);
         result = 31 * result + (kommentar != null ? kommentar.hashCode() : 0);
-        result = 31 * result + (bordId != null ? bordId.hashCode() : 0);
+        result = 31 * result + (bord != null ? bord.hashCode() : 0);
         return result;
     }
 }
