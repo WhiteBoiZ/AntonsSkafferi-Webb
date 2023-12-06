@@ -15,6 +15,7 @@ target/
 .idea/workspace.xml
 .idea/dataSources.xml
 idea/datasources.local.xml
+.idea
 
 ### Eclipse ###
 .apt_generated
