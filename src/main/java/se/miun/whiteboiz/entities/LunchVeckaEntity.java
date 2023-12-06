@@ -25,7 +25,7 @@ public class LunchVeckaEntity {
     };
 
     public LunchVeckaEntity(DagEntity day, LunchEntity lunch) {
-        this.dag = dag;
+        this.dag = day;
         this.lunch = lunch;
     }
 
