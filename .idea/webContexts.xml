@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/resources/includes/admin/lunch/lunchForm.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/resources/includes/admin/lunch" />
       </map>
     </option>
   </component>

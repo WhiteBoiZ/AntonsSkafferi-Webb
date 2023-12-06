@@ -12,7 +12,7 @@
             <br/>
             <p:card id = "monday" class="border-round-sm" style="margin-bottom: 1em">
                 <f:facet name="title">Måndag</f:facet>
-                <ui:repeat value="#{lunchService.findLunchDay(1)}" var="lunch">
+                <ui:repeat value="#{lunchService.findLunchesForDay('Måndag')}" var="lunch">
                     <p>
                         #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
@@ -21,36 +21,36 @@
 
             <p:card id = "tuesday" class="border-round-sm" style="margin-bottom: 1em">
                 <f:facet name="title">Tisdag</f:facet>
-                <ui:repeat value="#{lunchBean.weekLunchMenu.getDayMenu(1)}" var="lunch">
+                <ui:repeat value="#{lunchService.findLunchesForDay('Tisdag')}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>
 
             <p:card id = "wednesday" class="border-round-sm" style="margin-bottom: 1em">
                 <f:facet name="title">Onsdag</f:facet>
-                <ui:repeat value="#{lunchBean.weekLunchMenu.getDayMenu(2)}" var="lunch">
+                <ui:repeat value="#{lunchService.findLunchesForDay('Onsdag')}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>
 
             <p:card id = "thursday" class="border-round-sm" style="margin-bottom: 1em">
                 <f:facet name="title">Torsdag</f:facet>
-                <ui:repeat value="#{lunchBean.weekLunchMenu.getDayMenu(3)}" var="lunch">
+                <ui:repeat value="#{lunchService.findLunchesForDay('Torsdag')}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>
 
             <p:card id = "friday" class="border-round-sm" style="margin-bottom: 1em">
                 <f:facet name="title">Fredag</f:facet>
-                <ui:repeat value="#{lunchBean.weekLunchMenu.getDayMenu(4)}" var="lunch">
+                <ui:repeat value="#{lunchService.findLunchesForDay('Fredag')}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>

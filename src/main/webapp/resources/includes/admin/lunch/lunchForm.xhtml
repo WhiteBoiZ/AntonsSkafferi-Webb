@@ -27,18 +27,46 @@
                     <ui:repeat value="#{lunchService.findAllLunches()}" var="lunchItem">
                         <p:card class="border-round-sm" style="margin-bottom: 1em">
                             <f:facet name="title">#{lunchItem.titel}</f:facet>
-                            <p style="margin-top: 0">#{lunchItem.beskrivning}</p>
-                            <!--<p:selectManyButton id="daySelect" widgetVar="blub">
-                                <f:selectItem itemLabel="Mån" itemValue="mån"/>
-                                <f:selectItem itemLabel="Tis" itemValue="tis"/>
-                                <f:selectItem itemLabel="Ons" itemValue="ons"/>
-                                <f:selectItem itemLabel="Tor" itemValue="tor"/>
-                                <f:selectItem itemLabel="Fre" itemValue="fre"/>
-                                <p:ajax update = "monday tuesday wednesday thursday friday" listener=""/>
-                            </p:selectManyButton>
+                            <p class="surface-200 p-2 border-round" style="margin-top: 0; margin-bottom: 1rem">#{lunchItem.beskrivning}</p>
+                            <div class="flex flex-wrap gap-1">
+                                <div class="justify-content-start gap-0 border-round surface-100" style="padding-left: 0.25rem; margin-right: 0.25rem">
+                                    <p:outputLabel value="Mån"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.setLunchOnDay(lunchItem, 'Måndag')}" icon="pi pi-plus" styleClass="ui-button-plain" style="scale: 60%;margin: 0"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.removeLunchOnDay(lunchItem, 'Måndag')}" icon="pi pi-minus" styleClass="ui-button-plain" style="scale: 60%;margin: 0"/>
+                                </div>
+                                <div class="justify-content-start gap-0 border-round surface-100" style="padding-left: 0.25rem; margin-right: 0.25rem">
+                                    <p:outputLabel for="@next" value="Tis"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.setLunchOnDay(lunchItem, 'Tisdag')}" icon="pi pi-plus" styleClass="ui-button-plain" style="scale: 60%"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.removeLunchOnDay(lunchItem, 'Tisdag')}" icon="pi pi-minus" styleClass="ui-button-plain" style="scale: 60%"/>
+                                </div>
+                                <div class="justify-content-start gap-0 border-round surface-100" style="padding-left: 0.25rem; margin-right: 0.25rem">
+                                    <p:outputLabel for="@next" value="Ons"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.setLunchOnDay(lunchItem, 'Onsdag')}" icon="pi pi-plus" styleClass="ui-button-plain" style="scale: 60%"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.removeLunchOnDay(lunchItem, 'Onsdag')}" icon="pi pi-minus" styleClass="ui-button-plain" style="scale: 60%"/>
+                                </div>
+                                <div class="justify-content-start gap-0 border-round surface-100" style="padding-left: 0.25rem; margin-right: 0.25rem">
+                                    <p:outputLabel for="@next" value="Tor"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.setLunchOnDay(lunchItem, 'Torsdag')}" icon="pi pi-plus" styleClass="ui-button-plain" style="scale: 60%"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.removeLunchOnDay(lunchItem, 'Torsdag')}" icon="pi pi-minus" styleClass="ui-button-plain" style="scale: 60%"/>
+                                </div>
+                                <div class="justify-content-start gap-0 border-round surface-100" style="padding-left: 0.25rem; margin-right: 0.25rem">
+                                    <p:outputLabel for="@next" value="Fre"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.setLunchOnDay(lunchItem, 'Fredag')}" icon="pi pi-plus" styleClass="ui-button-plain" style="scale: 60%"/>
+                                    <p:commandButton update="monday tuesday wednesday thursday friday" actionListener="#{lunchService.removeLunchOnDay(lunchItem, 'Fredag')}" icon="pi pi-minus" styleClass="ui-button-plain" style="scale: 60%"/>
+                                </div>
+                            </div>
+
+                           <!-- <h:selectManyCheckbox value="#{lunchSelectedBean.chooseLunch(lunchItem).selected}" valueChangeListener="#{lunchSelectedBean.listen()}" id="daySelect" widgetVar="blub">
+                                <p:ajax update="@this monday" listener="#{lunchSelectedBean.listen()}"/>
+                                <f:selectItem itemLabel="Mån" itemValue="Måndag"/>
+                                <f:selectItem itemLabel="Tis" itemValue="Tisdag"/>
+                                <f:selectItem itemLabel="Ons" itemValue="Onsdag"/>
+                                <f:selectItem itemLabel="Tor" itemValue="Torsdag"/>
+                                <f:selectItem itemLabel="Fre" itemValue="Fredag"/>
+                            </h:selectManyCheckbox>-->
                             <f:facet name="footer">
-                                <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener=""/>
-                            </f:facet>-->
+                                <p:commandButton update="@form monday tuesday wednesday thursday friday" type="submit" icon="pi pi-trash" actionListener="#{lunchService.removeLunch(lunchItem.id)}"/>
+                            </f:facet>
 
                         </p:card>
                     </ui:repeat>
