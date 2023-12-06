@@ -8,6 +8,7 @@ import java.util.Objects;
 @Table(name = "ratt_instans", schema = "antonsskafferi", catalog = "")
 @IdClass(RattInstansEntityPK.class)
 public class RattInstansEntity {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
@@ -40,7 +41,7 @@ public class RattInstansEntity {
         return tag;
     }
 
-    public void setTagId(Integer TypEntity) {
+    public void setTagId(TypEntity tag) {
         this.tag = tag;
     }
 
@@ -56,7 +57,7 @@ public class RattInstansEntity {
         return bestallningId;
     }
 
-    public void setBestallningId(int BestallningEntity) {
+    public void setBestallningId(BestallningEntity bestallningId) {
         this.bestallningId = bestallningId;
     }
 
@@ -64,7 +65,7 @@ public class RattInstansEntity {
         return alacarteId;
     }
 
-    public void setAlacarteId(int AlacarteEntity) {
+    public void setAlacarteId(AlacarteEntity alacarteId) {
         this.alacarteId = alacarteId;
     }
 

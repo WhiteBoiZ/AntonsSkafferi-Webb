@@ -35,7 +35,11 @@ public class BestallningResource {
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?datum=2021-10-10&tid=12:00&kommentar=hej&bordId=1
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public void addBestallning(@QueryParam("datum") String datum, @QueryParam("tid") String tid, @QueryParam("kommentar") String kommentar, @QueryParam("bordId") int bordId) {
+    public void addBestallning(@QueryParam("datum") String datum,
+                               @QueryParam("tid") String tid,
+                               @QueryParam("kommentar") String kommentar,
+                               @QueryParam("bordId") int bordId)
+    {
         bestallningService.addBestallning(datum, tid, kommentar, bordId);
     }
 
@@ -52,7 +56,10 @@ public class BestallningResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/rattinstans")
-    public RattInstansEntity findRattInstans(@QueryParam("id") int id, @QueryParam("alacarteId") int alacarteId, @QueryParam("bestallningId") int bestallningId) {
+    public RattInstansEntity findRattInstans(@QueryParam("id") int id,
+                                             @QueryParam("alacarteId") int alacarteId,
+                                             @QueryParam("bestallningId") int bestallningId)
+    {
         return bestallningService.findRattInstans(id, alacarteId, bestallningId);
     }
 
@@ -71,7 +78,8 @@ public class BestallningResource {
     public void addRattInstans(@QueryParam("tagId") int tagId,
                                @QueryParam("bestallningId") int bestallningId,
                                @QueryParam("alacarteId") int alacarteId,
-                               @QueryParam("ratt_preferenser") String ratt_preferenser) {
+                               @QueryParam("ratt_preferenser") String ratt_preferenser)
+    {
         bestallningService.addRattInstans(tagId, bestallningId, alacarteId, ratt_preferenser);
     }
 

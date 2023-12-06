@@ -28,7 +28,7 @@ public class BestallningService {
         bestallning.setDatum(datum);
         bestallning.setTid(tid);
         bestallning.setKommentar(kommentar);
-        bestallning.setBordId(em.find(BestallningEntity.class, bordId).getBordId());
+        bestallning.setBordId(em.find(BordEntity.class, bordId));
         em.persist(bestallning);
     }
 
@@ -59,9 +59,9 @@ public class BestallningService {
 
     public void addRattInstans(int tagId, int bestallningId, int alacarteId, String rattPreferenser) {
         RattInstansEntity rattInstans = new RattInstansEntity();
-        rattInstans.setTagId(em.find(TypEntity.class, tagId).getId());
-        rattInstans.setBestallningId(em.find(BestallningEntity.class, bestallningId).getId());
-        rattInstans.setAlacarteId(em.find(AlacarteEntity.class, alacarteId).getId());
+        rattInstans.setTagId(em.find(TypEntity.class, tagId));
+        rattInstans.setBestallningId(em.find(BestallningEntity.class, bestallningId));
+        rattInstans.setAlacarteId(em.find(AlacarteEntity.class, alacarteId));
         rattInstans.setRattPreferenser(rattPreferenser);
         em.persist(rattInstans);
     }
