@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "alacarte", schema = "antonsskafferi", catalog = "")
+@Table(name = "alacarte", schema = "antonsskafferi")
 public class AlacarteEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -23,7 +23,7 @@ public class AlacarteEntity {
     private TypEntity typ;
     @Basic
     @Column(name = "vald")
-    private int vald;
+    private Byte vald;
     @Basic
     @Column(name = "pris")
     private Integer pris;

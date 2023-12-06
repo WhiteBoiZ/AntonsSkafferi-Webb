@@ -38,8 +38,8 @@ public class LunchService {
 
     public LunchVeckaEntity findLunchVecka(int dagId, int lunchId){
         LunchVeckaEntityPK pk = new LunchVeckaEntityPK();
-        pk.setDagId(dagId);
-        pk.setLunchId(lunchId);
+        pk.setDag(dagId);
+        pk.setLunch(lunchId);
 
         return em.find(LunchVeckaEntity.class, pk);
     }

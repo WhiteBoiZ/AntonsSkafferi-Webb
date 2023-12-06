@@ -1,32 +1,27 @@
 package se.miun.whiteboiz.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
 import java.io.Serializable;
 
 public class LunchVeckaEntityPK implements Serializable {
 
-    private int dagId;
+    private int dag;
 
-    private int lunchId;
+    private int lunch;
 
-    public int getDagId() {
-        return dagId;
+    public int getDag() {
+        return dag;
     }
 
-    public void setDagId(int dagId) {
-        this.dagId = dagId;
+    public void setDag(int dag) {
+        this.dag = dag;
     }
 
-    public int getLunchId() {
-        return lunchId;
+    public int getLunch() {
+        return lunch;
     }
 
-    public void setLunchId(int lunchId) {
-        this.lunchId = lunchId;
+    public void setLunch(int lunch) {
+        this.lunch = lunch;
     }
 
     @Override
@@ -36,16 +31,16 @@ public class LunchVeckaEntityPK implements Serializable {
 
         LunchVeckaEntityPK that = (LunchVeckaEntityPK) o;
 
-        if (dagId != that.dagId) return false;
-        if (lunchId != that.lunchId) return false;
+        if (dag != that.dag) return false;
+        if (lunch != that.lunch) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = dagId;
-        result = 31 * result + lunchId;
+        int result = dag;
+        result = 31 * result + lunch;
         return result;
     }
 }

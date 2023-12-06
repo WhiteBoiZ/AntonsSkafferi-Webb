@@ -1,16 +1,11 @@
 package se.miun.whiteboiz.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
 import java.io.Serializable;
 
 public class RattInstansEntityPK implements Serializable {
     private int id;
-    private int bestallningId;
-    private int alacarteId;
+    private int bestallning;
+    private int alacarte;
 
     public int getId() {
         return id;
@@ -20,20 +15,20 @@ public class RattInstansEntityPK implements Serializable {
         this.id = id;
     }
 
-    public int getBestallningId() {
-        return bestallningId;
+    public int getBestallning() {
+        return bestallning;
     }
 
-    public void setBestallningId(int bestallningId) {
-        this.bestallningId = bestallningId;
+    public void setBestallning(int bestallning) {
+        this.bestallning = bestallning;
     }
 
-    public int getAlacarteId() {
-        return alacarteId;
+    public int getAlacarte() {
+        return alacarte;
     }
 
-    public void setAlacarteId(int alacarteId) {
-        this.alacarteId = alacarteId;
+    public void setAlacarte(int alacarte) {
+        this.alacarte = alacarte;
     }
 
     @Override
@@ -44,8 +39,8 @@ public class RattInstansEntityPK implements Serializable {
         RattInstansEntityPK that = (RattInstansEntityPK) o;
 
         if (id != that.id) return false;
-        if (bestallningId != that.bestallningId) return false;
-        if (alacarteId != that.alacarteId) return false;
+        if (bestallning != that.bestallning) return false;
+        if (alacarte != that.alacarte) return false;
 
         return true;
     }
@@ -53,8 +48,8 @@ public class RattInstansEntityPK implements Serializable {
     @Override
     public int hashCode() {
         int result = id;
-        result = 31 * result + bestallningId;
-        result = 31 * result + alacarteId;
+        result = 31 * result + bestallning;
+        result = 31 * result + alacarte;
         return result;
     }
 }

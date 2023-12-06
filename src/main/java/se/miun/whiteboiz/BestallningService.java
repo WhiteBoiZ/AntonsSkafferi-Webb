@@ -44,24 +44,24 @@ public class BestallningService {
     public RattInstansEntity findRattInstans(int id, int alacarteId, int bestallningId){
         RattInstansEntityPK pk = new RattInstansEntityPK();
         pk.setId(id);
-        pk.setAlacarteId(alacarteId);
-        pk.setBestallningId(bestallningId);
+        pk.setAlacarte(alacarteId);
+        pk.setBestallning(bestallningId);
 
         // Use the primary key when calling find
         return em.find(RattInstansEntity.class, pk);
     }
 
     public List<RattInstansEntity> findRattInstansByBestallningId(int bestallningId){
-        return em.createQuery("select R from RattInstansEntity R where R.bestallningId.id = :bestallningId", RattInstansEntity.class)
+        return em.createQuery("select R from RattInstansEntity R where R.bestallning.id = :bestallningId", RattInstansEntity.class)
                 .setParameter("bestallningId", bestallningId)
                 .getResultList();
     }
 
     public void addRattInstans(int tagId, int bestallningId, int alacarteId, String rattPreferenser) {
         RattInstansEntity rattInstans = new RattInstansEntity();
-        rattInstans.setTagId(em.find(TypEntity.class, tagId));
-        rattInstans.setBestallningId(em.find(BestallningEntity.class, bestallningId));
-        rattInstans.setAlacarteId(em.find(AlacarteEntity.class, alacarteId));
+        rattInstans.setTag(em.find(TypEntity.class, tagId));
+        rattInstans.setBestallning(em.find(BestallningEntity.class, bestallningId));
+        rattInstans.setAlacarte(em.find(AlacarteEntity.class, alacarteId));
         rattInstans.setRattPreferenser(rattPreferenser);
         em.persist(rattInstans);
     }

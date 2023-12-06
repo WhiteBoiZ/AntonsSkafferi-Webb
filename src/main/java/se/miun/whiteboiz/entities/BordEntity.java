@@ -3,7 +3,7 @@ package se.miun.whiteboiz.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "bord", schema = "antonsskafferi", catalog = "")
+@Table(name = "bord", schema = "antonsskafferi")
 public class BordEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
