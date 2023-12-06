@@ -15,11 +15,16 @@ public class LunchResource {
 
     @Inject
     LunchService lunchService;
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/lunch/id/1
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public LunchEntity getLunchById(@QueryParam("lunch_id") int lunch_id) {
+    @Path("/id/{lunch_id}")
+    public LunchEntity getLunchById(@PathParam("lunch_id") int lunch_id) {
         return lunchService.findLunch(lunch_id);
     }
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/lunch/all
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/all")
@@ -27,11 +32,20 @@ public class LunchResource {
         return lunchService.findAllLunches();
     }
 
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/lunch/vecka/all
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/vecka/all")
     public List<LunchVeckaEntity> getAllLunchesForWeek() {
         return lunchService.findAllLunchesForWeek();
+    }
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/lunch/vecka?dag_id=1&lunch_id=1
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/vecka")
+    public LunchVeckaEntity getLunchVecka(@QueryParam("dag_id") int dag_id, @QueryParam("lunch_id") int lunch_id) {
+        return lunchService.findLunchVecka(dag_id, lunch_id);
     }
 
 

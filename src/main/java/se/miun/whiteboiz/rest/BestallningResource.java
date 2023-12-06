@@ -15,6 +15,8 @@ public class BestallningResource {
     @Inject
     BestallningService bestallningService;
 
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/all
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/all")
@@ -22,6 +24,8 @@ public class BestallningResource {
         return bestallningService.findAllBestallningar();
     }
 
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/id/1
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/id/{id}")
@@ -29,6 +33,8 @@ public class BestallningResource {
         return bestallningService.findBestallning(id);
     }
 
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans/all
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/rattinstans/all")
@@ -36,11 +42,13 @@ public class BestallningResource {
             return bestallningService.findAllRattInstans();
     }
 
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans?id=1&alacarteId=1&bestallningId=1
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/rattinstans/id/{id}")
-    public RattInstansEntity findRattInstans(@PathParam("id") int id) {
-        return bestallningService.findRattInstans(id);
+    @Path("/rattinstans")
+    public RattInstansEntity findRattInstans(@QueryParam("id") int id, @QueryParam("alacarteId") int alacarteId, @QueryParam("bestallningId") int bestallningId) {
+        return bestallningService.findRattInstans(id, alacarteId, bestallningId);
     }
 
 }

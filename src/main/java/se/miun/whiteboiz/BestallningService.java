@@ -30,12 +30,13 @@ public class BestallningService {
         return em.createQuery("select R from RattInstansEntity R", RattInstansEntity.class).getResultList();
     }
 
-    public RattInstansEntity findRattInstans(int id) {
-        // Create an instance of RattInstansEntityPK
-        RattInstansEntityPK primaryKey = new RattInstansEntityPK();
-        primaryKey.setId(id);
+    public RattInstansEntity findRattInstans(int id, int alacarteId, int bestallningId){
+        RattInstansEntityPK pk = new RattInstansEntityPK();
+        pk.setId(id);
+        pk.setAlacarteId(alacarteId);
+        pk.setBestallningId(bestallningId);
 
         // Use the primary key when calling find
-        return em.find(RattInstansEntity.class, primaryKey);
+        return em.find(RattInstansEntity.class, pk);
     }
 }

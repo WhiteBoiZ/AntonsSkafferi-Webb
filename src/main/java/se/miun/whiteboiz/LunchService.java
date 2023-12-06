@@ -7,6 +7,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import se.miun.whiteboiz.entities.LunchEntity;
 import se.miun.whiteboiz.entities.LunchVeckaEntity;
+import se.miun.whiteboiz.entities.LunchVeckaEntityPK;
 
 import java.util.List;
 
@@ -24,5 +25,13 @@ public class LunchService {
 
     public List<LunchVeckaEntity> findAllLunchesForWeek(){
         return em.createQuery("select L from LunchVeckaEntity L ", LunchVeckaEntity.class).getResultList();
+    }
+
+    public LunchVeckaEntity findLunchVecka(int dagId, int lunchId){
+        LunchVeckaEntityPK pk = new LunchVeckaEntityPK();
+        pk.setDagId(dagId);
+        pk.setLunchId(lunchId);
+
+        return em.find(LunchVeckaEntity.class, pk);
     }
 }
