@@ -5,6 +5,7 @@ import jakarta.inject.Named;
 
 import java.time.LocalDate;
 import java.time.format.TextStyle;
+import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 @ApplicationScoped
@@ -15,5 +16,8 @@ public class HemsidaBackingBean {
     }
     public int getCurrentDayNumber() {
         return LocalDate.now().getDayOfWeek().getValue();
+    }
+    public int getCurrentWeekNumber() {
+        return LocalDate.now().get(WeekFields.ISO.weekOfWeekBasedYear());
     }
 }

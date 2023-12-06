@@ -38,7 +38,9 @@ public class LunchService {
     public List<LunchEntity> findAllLunches(){
         return em.createQuery("select L from LunchEntity L", LunchEntity.class).getResultList();
     }
-    public List<LunchVeckaEntity> findLunchesForDayWeekNumber(){
+
+
+    public List<LunchVeckaEntity> findAllLunchesForWeek(){
         return em.createQuery("select L from LunchVeckaEntity L ", LunchVeckaEntity.class).getResultList();
     }
 
@@ -58,7 +60,7 @@ public class LunchService {
 
     public List<LunchEntity> findLunchesForDay(String day){
         ArrayList<LunchEntity> dayLunches = new ArrayList<>();
-        for (LunchVeckaEntity lunchDag : findLunchesForDayWeekNumber()) {
+        for (LunchVeckaEntity lunchDag : findAllLunchesForWeek()) {
             if (lunchDag.getDag().getNamn().equals(day) && lunchDag.getLunch() != null ){
                 dayLunches.add(lunchDag.getLunch());
             }
@@ -69,7 +71,7 @@ public class LunchService {
 
     public List<String> findDaysForLunch(LunchEntity lunch){
         ArrayList<String> days = new ArrayList<>();
-        for (LunchVeckaEntity lunchVecka : findLunchesForDayWeekNumber()) {
+        for (LunchVeckaEntity lunchVecka : findAllLunchesForWeek()) {
             if(lunchVecka.getLunch().getId() == lunch.getId() ){
                 days.add(lunchVecka.getDag().getNamn());
             }
@@ -79,7 +81,7 @@ public class LunchService {
 
     public List<DagEntity> findDaysEntityForLunch(LunchEntity lunch){
         ArrayList<DagEntity> days = new ArrayList<>();
-        for (LunchVeckaEntity lunchVecka : findLunchesForDayWeekNumber()) {
+        for (LunchVeckaEntity lunchVecka : findAllLunchesForWeek()) {
             if(lunchVecka.getLunch().getId() == lunch.getId() ){
                 days.add(lunchVecka.getDag());
             }
@@ -89,7 +91,7 @@ public class LunchService {
 
     public List<LunchVeckaEntity> findVeckorForLunch(LunchEntity lunch){
         List<LunchVeckaEntity> lunchveckor = new ArrayList<>();
-        for(LunchVeckaEntity vecka : findLunchesForDayWeekNumber()){
+        for(LunchVeckaEntity vecka : findAllLunchesForWeek()){
             if(vecka.getLunch().getId() == lunch.getId()){
                 lunchveckor.add(vecka);
             }
