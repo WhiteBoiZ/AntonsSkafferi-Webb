@@ -50,7 +50,7 @@
                 <f:facet name="title">Fredag</f:facet>
                 <ui:repeat value="#{lunchService.findLunchesForDay('Fredag')}" var="lunch">
                     <p>
-                        #{lunch.title}<br/>#{lunch.description}
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
                     </p>
                 </ui:repeat>
             </p:card>

@@ -55,6 +55,26 @@ public class LunchService {
         return days;
     }
 
+    public List<DagEntity> findDaysEntityForLunch(LunchEntity lunch){
+        ArrayList<DagEntity> days = new ArrayList<>();
+        for (LunchVeckaEntity lunchVecka : findAllLunchesForWeek()) {
+            if(lunchVecka.getLunchId().getId() == lunch.getId() ){
+                days.add(lunchVecka.getDagId());
+            }
+        }
+        return days;
+    }
+
+    public List<LunchVeckaEntity> findVeckorForLunch(LunchEntity lunch){
+        List<LunchVeckaEntity> lunchveckor = new ArrayList<>();
+        for(LunchVeckaEntity vecka : findAllLunchesForWeek()){
+            if(vecka.getLunchId().getId() == lunch.getId()){
+                lunchveckor.add(vecka);
+            }
+        }
+        return lunchveckor;
+    }
+
     public void setDaysForLunch(List<String> days){
 
     }
@@ -67,13 +87,17 @@ public class LunchService {
     }
 
     public DagEntity getDagFromName(String name){
-        TypedQuery<DagEntity> query = em.createQuery("select D.namn from DagEntity D where D.namn=:nam", DagEntity.class);
+        TypedQuery<DagEntity> query = em.createQuery("select D from DagEntity D where D.namn=:nam", DagEntity.class);
         query.setParameter("nam", name);
         return query.getSingleResult();
     }
 
-    public void removeLunch(LunchEntity lunch){
-        em.remove(lunch);
+    public void removeLunch(int id){
+        LunchEntity garbage = em.find(LunchEntity.class, id);
+        for(LunchVeckaEntity vecka : findVeckorForLunch(garbage)){
+            em.remove(vecka);
+        }
+        em.remove(garbage);
     }
 
     public LunchVeckaEntity findLunchVecka(LunchEntity lunch, DagEntity dag){
@@ -99,5 +123,22 @@ public class LunchService {
 
     public void setInputBeskrivning(String inputBeskrivning) {
         this.inputBeskrivning = inputBeskrivning;
+    }
+
+    public void setLunchOnDay(LunchEntity lunch, String dagString){
+        if(!isLunchOnDay(lunch, dagString)){
+            mapLunchToDay(lunch, getDagFromName(dagString));
+        }
+
+    }
+
+    public void removeLunchOnDay(LunchEntity lunch, String dagString){
+        if(isLunchOnDay(lunch, dagString)){
+            removeLunchVecka(lunch, getDagFromName(dagString));
+        }
+
+    }
+    public boolean isLunchOnDay(LunchEntity lunch, String dagString){
+        return findDaysForLunch(lunch).contains(dagString);
     }
 }
