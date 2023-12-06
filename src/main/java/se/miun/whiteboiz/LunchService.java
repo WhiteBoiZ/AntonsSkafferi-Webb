@@ -75,9 +75,6 @@ public class LunchService {
         return lunchveckor;
     }
 
-    public void setDaysForLunch(List<String> days){
-
-    }
     public void putLunch(){
         em.persist(new LunchEntity(inputTitel, inputBeskrivning));
     }
