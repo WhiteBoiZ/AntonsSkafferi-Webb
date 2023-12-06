@@ -55,7 +55,7 @@ public class LunchResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/vecka/all")
     public List<LunchVeckaEntity> getAllLunchesForWeek() {
-        return lunchService.findAllLunchesForWeek();
+        return lunchService.findLunchesForDayWeekNumber();
     }
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/lunch/vecka?dag_id=1&lunch_id=1

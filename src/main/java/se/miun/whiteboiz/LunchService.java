@@ -1,7 +1,6 @@
 package se.miun.whiteboiz;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -39,8 +38,14 @@ public class LunchService {
     public List<LunchEntity> findAllLunches(){
         return em.createQuery("select L from LunchEntity L", LunchEntity.class).getResultList();
     }
-    public List<LunchVeckaEntity> findAllLunchesForWeek(){
+    public List<LunchVeckaEntity> findLunchesForDayWeekNumber(){
         return em.createQuery("select L from LunchVeckaEntity L ", LunchVeckaEntity.class).getResultList();
+    }
+
+    public List<LunchEntity> findLunchesForDayWeekNumber(int dagId){
+        TypedQuery<LunchEntity> query = em.createQuery("select L.lunch from LunchVeckaEntity L where L.dag.id=:dagId", LunchEntity.class);
+        query.setParameter("dagId", dagId);
+        return query.getResultList();
     }
 
     public LunchVeckaEntity findLunchVecka(int dagId, int lunchId){
@@ -53,7 +58,7 @@ public class LunchService {
 
     public List<LunchEntity> findLunchesForDay(String day){
         ArrayList<LunchEntity> dayLunches = new ArrayList<>();
-        for (LunchVeckaEntity lunchDag : findAllLunchesForWeek()) {
+        for (LunchVeckaEntity lunchDag : findLunchesForDayWeekNumber()) {
             if (lunchDag.getDag().getNamn().equals(day) && lunchDag.getLunch() != null ){
                 dayLunches.add(lunchDag.getLunch());
             }
@@ -64,7 +69,7 @@ public class LunchService {
 
     public List<String> findDaysForLunch(LunchEntity lunch){
         ArrayList<String> days = new ArrayList<>();
-        for (LunchVeckaEntity lunchVecka : findAllLunchesForWeek()) {
+        for (LunchVeckaEntity lunchVecka : findLunchesForDayWeekNumber()) {
             if(lunchVecka.getLunch().getId() == lunch.getId() ){
                 days.add(lunchVecka.getDag().getNamn());
             }
@@ -74,7 +79,7 @@ public class LunchService {
 
     public List<DagEntity> findDaysEntityForLunch(LunchEntity lunch){
         ArrayList<DagEntity> days = new ArrayList<>();
-        for (LunchVeckaEntity lunchVecka : findAllLunchesForWeek()) {
+        for (LunchVeckaEntity lunchVecka : findLunchesForDayWeekNumber()) {
             if(lunchVecka.getLunch().getId() == lunch.getId() ){
                 days.add(lunchVecka.getDag());
             }
@@ -84,7 +89,7 @@ public class LunchService {
 
     public List<LunchVeckaEntity> findVeckorForLunch(LunchEntity lunch){
         List<LunchVeckaEntity> lunchveckor = new ArrayList<>();
-        for(LunchVeckaEntity vecka : findAllLunchesForWeek()){
+        for(LunchVeckaEntity vecka : findLunchesForDayWeekNumber()){
             if(vecka.getLunch().getId() == lunch.getId()){
                 lunchveckor.add(vecka);
             }

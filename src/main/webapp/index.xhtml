@@ -33,15 +33,15 @@
                 <div id="dagens-header">
                     <h2>Dagens Lunch</h2>
                     <!-- Byt ut hårdkodad value för dag mot dag från beans -->
-                    <h:outputText value="Tisdag" />
+                    <h:outputText value="#{hemsidaBackingBean.currentDay}" />
                 </div>
                 <div id="dagens-content">
-                    <!-- Byt ut hårdkodade luncher mot dagens luncher från beans -->
-                    <h:outputText id="lunch-alt1" value="Köttbullar med potatismos,
-                                    serveras med gräddsås och rårörda lingon" />
-                    <span class="material-symbols-outlined">restaurant_menu</span>
-                    <h:outputText id="lunch-alt2" value="Köttbullar med potatismos,
-                                    serveras med gräddsås och rårörda lingon" />
+
+                    <ui:repeat value="#{lunchService.findLunchesForDayWeekNumber(hemsidaBackingBean.getCurrentDayNumber())}" var="dagensLunch">
+                        <h:outputText id="dagenLunchTitel" value="#{dagensLunch.titel}" />
+                        <h:outputText id="dagensLunchBeskrivning" value="#{dagensLunch.beskrivning}"/>
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                    </ui:repeat>
                 </div>
             </div>
 
