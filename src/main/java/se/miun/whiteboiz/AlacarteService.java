@@ -33,4 +33,17 @@ public class AlacarteService {
     public List<AlacarteEntity> findAllAlacarte(){
         return em.createQuery("select A from AlacarteEntity A ", AlacarteEntity.class).getResultList();
     }
+
+    public List<AlacarteEntity> findAllAlacarteForrater(){
+        return em.createQuery("select A from AlacarteEntity A where A.typ.id = 1", AlacarteEntity.class).getResultList();
+    }
+
+    public List<AlacarteEntity> findAllAlacarteHuvudratter(){
+        return em.createQuery("select A from AlacarteEntity A where A.typ.id = 2", AlacarteEntity.class).getResultList();
+    }
+
+    public List<AlacarteEntity> findAllAlacarteDesserter(){
+        return em.createQuery("select A from AlacarteEntity A where A.typ.id = 3", AlacarteEntity.class).getResultList();
+    }
+
 }

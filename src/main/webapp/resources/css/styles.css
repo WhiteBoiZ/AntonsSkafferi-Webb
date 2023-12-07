@@ -195,10 +195,16 @@ body {
 #veckans-content {
     margin-top: 1rem;
     width: 40%;
+
+    display: flex;
+    flex-direction: column;
 }
 
 #veckans-content h3 {
     margin-top: 0.5rem;
+}
+#veckans-content span {
+    font-size: 0.9rem;
 }
 
 

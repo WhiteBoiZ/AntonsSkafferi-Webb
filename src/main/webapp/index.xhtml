@@ -66,21 +66,34 @@
                 <div id="veckans-content">
                     <h3>Måndag</h3>
                     <ui:repeat value="#{lunchService.findLunchesForDay('Måndag')}" var="veckansLunch">
-                        <h:outputText id="veckansLunchTitelMon" value="#{veckansLunch.titel}" />
-                        <h:outputText id="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
                         <span class="material-symbols-outlined">restaurant_menu</span>
                     </ui:repeat>
                     <h3>Tisdag</h3>
                     <ui:repeat value="#{lunchService.findLunchesForDay('Måndag')}" var="veckansLunch">
-                        <h:outputText id="veckansLunchTitelTis" value="#{veckansLunch.titel}" />
-                        <h:outputText id="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
                         <span class="material-symbols-outlined">restaurant_menu</span>
                     </ui:repeat>
                     <h3>Onsdag</h3>
-                    <h:outputText value="Köttbullar med potatismos, serveras med gräddsås och rårörda lingon"/>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Tisdag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                    </ui:repeat>
                     <h3>Torsdag</h3>
-                    <h:outputText value="Köttbullar med potatismos, serveras med gräddsås och rårörda lingon"/>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Onsdag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                    </ui:repeat>
                     <h3>Fredag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Fredag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                    </ui:repeat>
 
 
 
@@ -99,25 +112,24 @@
             <div id="first-course-dessert">
                 <h3>Förrätter</h3>
                 <div id="first-course">
-                    <ui:repeat id ="updateAlaCarteStarter" value="#{alacartBean.listModelStarter}" var="alacartItem">
-                        <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
-                        <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                    <ui:repeat value="#{alacarteService.findAllAlacarteForrater()}" var="alacartItem">
+                        <h:outputLabel class="alacarteTitel" value="#{alacartItem.titel}"/>
+                        <h:outputLabel class="alacarteBeskrvning" value="#{alacartItem.beskrivning}"/>
                     </ui:repeat>
                 </div>
                 <h3>Dessert</h3>
                 <div id="dessert">
-                    <ui:repeat id ="updateAlaCarteDessert" value="#{alacartBean.listModelDessert}" var="alacartItem">
-                        <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
-                        <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                    <ui:repeat value="#{alacarteService.findAllAlacarteDesserter()}" var="alacartItem">
+                        <h:outputLabel class="alacarteTitel" value="#{alacartItem.titel}"/>
+                        <h:outputLabel class="alacarteBeskrvning" value="#{alacartItem.beskrivning}"/>
                     </ui:repeat>
                 </div>
             </div>
-
             <div id="main-course">
                 <h3>Varmrätter</h3>
-                <ui:repeat id ="updateAlaCarteMain" value="#{alacartBean.listModelMain}" var="alacartItem">
-                    <h:outputLabel class="alacarte-title" value="#{alacartItem.title}"/>
-                    <h:outputLabel class="description" value="#{alacartItem.description}"/>
+                <ui:repeat value="#{alacarteService.findAllAlacarteHuvudratter()}" var="alacartItem">
+                    <h:outputLabel class="alacarteTitel" value="#{alacartItem.titel}"/>
+                    <h:outputLabel class="alacarteBeskrvning" value="#{alacartItem.beskrivning}"/>
                 </ui:repeat>
             </div>
         </div>
