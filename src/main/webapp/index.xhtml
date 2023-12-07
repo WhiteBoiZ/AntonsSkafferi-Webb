@@ -112,24 +112,24 @@
             <div id="first-course-dessert">
                 <h3>Förrätter</h3>
                 <div id="first-course">
-                    <ui:repeat value="#{alacarteService.findAllAlacarteForrater()}" var="alacartItem">
-                        <h:outputLabel class="alacarteTitel" value="#{alacartItem.titel}"/>
-                        <h:outputLabel class="alacarteBeskrvning" value="#{alacartItem.beskrivning}"/>
+                    <ui:repeat value="#{alacarteService.findAllActiveAlacarteForrater()}" var="alacartItem">
+                        <h:outputLabel class="alacarte-title" value="#{alacartItem.titel}"/>
+                        <h:outputLabel class="description" value="#{alacartItem.beskrivning}"/>
                     </ui:repeat>
                 </div>
                 <h3>Dessert</h3>
                 <div id="dessert">
-                    <ui:repeat value="#{alacarteService.findAllAlacarteDesserter()}" var="alacartItem">
-                        <h:outputLabel class="alacarteTitel" value="#{alacartItem.titel}"/>
-                        <h:outputLabel class="alacarteBeskrvning" value="#{alacartItem.beskrivning}"/>
+                    <ui:repeat value="#{alacarteService.findAllActiveAlacarteDesserter()}" var="alacartItem">
+                        <h:outputLabel class="alacarte-title" value="#{alacartItem.titel}"/>
+                        <h:outputLabel class="description" value="#{alacartItem.beskrivning}"/>
                     </ui:repeat>
                 </div>
             </div>
             <div id="main-course">
                 <h3>Varmrätter</h3>
-                <ui:repeat value="#{alacarteService.findAllAlacarteHuvudratter()}" var="alacartItem">
-                    <h:outputLabel class="alacarteTitel" value="#{alacartItem.titel}"/>
-                    <h:outputLabel class="alacarteBeskrvning" value="#{alacartItem.beskrivning}"/>
+                <ui:repeat value="#{alacarteService.findAllActiveAlacarteHuvudratter()}" var="alacartItem">
+                    <h:outputLabel class="alacarte-title" value="#{alacartItem.titel}"/>
+                    <h:outputLabel class="description" value="#{alacartItem.beskrivning}"/>
                 </ui:repeat>
             </div>
         </div>
