@@ -32,7 +32,6 @@
             <div class="dagens-container">
                 <div id="dagens-header">
                     <h2>Dagens Lunch</h2>
-                    <!-- Byt ut hårdkodad value för dag mot dag från beans -->
                     <h:outputText value="#{hemsidaBackingBean.currentDay}" />
                 </div>
                 <div id="dagens-content">
@@ -65,6 +64,24 @@
                     <h:outputText value="#{hemsidaBackingBean.currentWeekNumber}" />
                 </div>
                 <div id="veckans-content">
+                    <h3>Måndag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Måndag')}" var="veckansLunch">
+                        <h:outputText id="veckansLunchTitelMon" value="#{veckansLunch.titel}" />
+                        <h:outputText id="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                    </ui:repeat>
+                    <h3>Tisdag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Måndag')}" var="veckansLunch">
+                        <h:outputText id="veckansLunchTitelTis" value="#{veckansLunch.titel}" />
+                        <h:outputText id="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                    </ui:repeat>
+                    <h3>Onsdag</h3>
+                    <h:outputText value="Köttbullar med potatismos, serveras med gräddsås och rårörda lingon"/>
+                    <h3>Torsdag</h3>
+                    <h:outputText value="Köttbullar med potatismos, serveras med gräddsås och rårörda lingon"/>
+                    <h3>Fredag</h3>
+
 
 
                 </div>
