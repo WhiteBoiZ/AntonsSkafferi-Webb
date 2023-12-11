@@ -1,7 +1,6 @@
 package se.miun.whiteboiz;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -39,8 +38,16 @@ public class LunchService {
     public List<LunchEntity> findAllLunches(){
         return em.createQuery("select L from LunchEntity L", LunchEntity.class).getResultList();
     }
+
+
     public List<LunchVeckaEntity> findAllLunchesForWeek(){
         return em.createQuery("select L from LunchVeckaEntity L ", LunchVeckaEntity.class).getResultList();
+    }
+
+    public List<LunchEntity> findLunchesForDayWeekNumber(int dagId){
+        TypedQuery<LunchEntity> query = em.createQuery("select L.lunch from LunchVeckaEntity L where L.dag.id=:dagId", LunchEntity.class);
+        query.setParameter("dagId", dagId);
+        return query.getResultList();
     }
 
     public LunchVeckaEntity findLunchVecka(int dagId, int lunchId){

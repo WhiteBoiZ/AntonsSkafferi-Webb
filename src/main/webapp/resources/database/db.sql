@@ -84,10 +84,23 @@ insert into bord (id, status) values (7, 'Ledigt');
 insert into bord (id, status) values (8, 'Ledigt');
 
 
-insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Toast Skagen', 'Toast med skagenröra', 1, false, 50);
-insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Toast', 'Toast med ost och skinka', 1, false, 50);
-insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Köttbullar', 'Köttbullar med potatismos och lingon', 2, false, 50);
-insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Pannbiff', 'Pannbiff med potatismos och lingon', 2, false, 50);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Toast Skagen', 'Toast med skagenröra', 1, true, 85);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Toast', 'Toast med ost och skinka', 1, false, 75);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Kantarelltoast med vitlök och persilja', 'Saftiga kantareller stekta med vitlök och persilja, serverade på rostat bröd. En smakrik och säsongsbetonad förrätt', 1, true, 75);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Rödbetsterrin med getost och valnötter', 'En läcker terrin av rostade rödbetor, getost och knapriga valnötter. Serveras med en lätt sallad och balsamicoreduktion.', 1, true, 85);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Wallenbergare', 'Wallenbergare med ärtor, potatismos och lingonsylt', 2, true, 95);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Köttbullar', 'Köttbullar med potatismos och lingon', 2, true, 90);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Pannbiff', 'Pannbiff med potatismos och lingon', 2, true, 90);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Pasta', 'Pasta med köttfärssås', 2, true, 85);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Kyckling', 'Kyckling med ris och currysås', 2, true, 95);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Sallad', 'Sallad med kyckling', 2, true, 85);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Kladdkaka', 'Kladdkaka med grädde', 3, true, 65);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Glass', 'Glass med chokladsås', 3, true, 65);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Chokladtryffeltårta med hallon och vispad grädde', 'En ljuvlig chokladtryffeltårta toppad med färska hallon och krämig vispad grädde. En perfekt avslutning på måltiden', 3, true, 65);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Kaffe', 'Kaffe med kaka', 4, true, 25);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Te', 'Te med kaka', 4, true, 25);
+insert into alacarte (titel, beskrivning, typ_id, vald, pris) values ('Läsk', 'Läsk med kaka', 4, true, 25);
+
 
 insert into bestallning (datum, tid, kommentar, bord_id) values ('2023-11-01', '16:11:00', 'Alla i sällskapet vill ha varmrätten vid olika tillfällen', 1);
 insert into bestallning (datum, tid, kommentar, bord_id) values ('2023-11-01', '16:37:00', 'Kungen på besök', 2);

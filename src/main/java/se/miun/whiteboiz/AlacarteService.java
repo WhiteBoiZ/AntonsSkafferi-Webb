@@ -54,4 +54,17 @@ public class AlacarteService {
         return em.createQuery("select A from AlacarteEntity A ", AlacarteEntity.class).getResultList();
     }
 
+    public List<AlacarteEntity> findAllActiveAlacarteForrater(){
+        return em.createQuery("select A from AlacarteEntity A where A.typ.id = 1 and A.vald = 1", AlacarteEntity.class).getResultList();
+    }
+
+    public List<AlacarteEntity> findAllActiveAlacarteHuvudratter(){
+        return em.createQuery("select A from AlacarteEntity A where A.typ.id = 2 and A.vald = 1", AlacarteEntity.class).getResultList();
+    }
+
+    public List<AlacarteEntity> findAllActiveAlacarteDesserter(){
+        return em.createQuery("select A from AlacarteEntity A where A.typ.id = 3 and A.vald = 1", AlacarteEntity.class).getResultList();
+    }
+
+
 }
