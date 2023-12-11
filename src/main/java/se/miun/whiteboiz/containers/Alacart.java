@@ -8,10 +8,21 @@ public class Alacart {
     private String description;
     private AlaCarteCategory alaCarteCategory;
 
-    public Alacart(String title, String description){
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+
+    public Alacart(int id,String title, String description){
         //this.alaCarteCategory = category;
         this.title = title;
         this.description = description;
+        this.id = id;
 
 
     }
