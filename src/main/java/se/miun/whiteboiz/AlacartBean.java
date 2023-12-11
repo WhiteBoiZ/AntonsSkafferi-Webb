@@ -8,6 +8,8 @@ import jakarta.inject.Named;
 import se.miun.whiteboiz.containers.Alacart;
 import se.miun.whiteboiz.containers.Lunch;
 import se.miun.whiteboiz.entities.AlacarteEntity;
+import se.miun.whiteboiz.entities.BordEntity;
+import se.miun.whiteboiz.entities.TypEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,27 +84,30 @@ public class AlacartBean {
 
     public void addStarter(){
         AlacarteEntity entity = new AlacarteEntity();
-        entity.setTypId(1);
+        entity.setTyp(alacarteService.findTyp(1));
         entity.setTitel(alaCarteTitle);
         entity.setBeskrivning(alaCarteDescription);
+        entity.setVald((byte) 1);
         alacarteService.addAlacarte(entity);
         alaCartMenuStarter.add(new Alacart(entity.getId(),alaCarteTitle, alaCarteDescription));
 
     }
     public void addDessert(){
         AlacarteEntity entity = new AlacarteEntity();
-        entity.setTypId(2);
+        entity.setTyp(alacarteService.findTyp(3));
         entity.setTitel(alaCarteTitle);
         entity.setBeskrivning(alaCarteDescription);
+        entity.setVald((byte) 1);
         alacarteService.addAlacarte(entity);
         alaCartMenuDessert.add(new Alacart(entity.getId(),alaCarteTitle, alaCarteDescription));
 
     }
     public void addMain(){
         AlacarteEntity entity = new AlacarteEntity();
-        entity.setTypId(3);
+        entity.setTyp(alacarteService.findTyp(2));
         entity.setTitel(alaCarteTitle);
         entity.setBeskrivning(alaCarteDescription);
+        entity.setVald((byte) 1);
         alacarteService.addAlacarte(entity);
         alaCartMenuMain.add(new Alacart(entity.getId(),alaCarteTitle, alaCarteDescription));
 
@@ -144,15 +149,15 @@ public class AlacartBean {
     List<AlacarteEntity> allItems = alacarteService.findAllAlacarte();
 
     for (AlacarteEntity item : allItems) {
-        switch (item.getTypId()) {
+        switch (item.getTyp().getId()) {
             case 1: // Starter
                 alaCartMenuStarter.add(new Alacart(item.getId(), item.getTitel(), item.getBeskrivning()));
                 break;
-            case 2: // Dessert
-                alaCartMenuDessert.add(new Alacart(item.getId(), item.getTitel(), item.getBeskrivning()));
-                break;
-            case 3: // Main
+            case 2: // Main
                 alaCartMenuMain.add(new Alacart(item.getId(), item.getTitel(), item.getBeskrivning()));
+                break;
+            case 3: // Dessert
+                alaCartMenuDessert.add(new Alacart(item.getId(), item.getTitel(), item.getBeskrivning()));
                 break;
         }
     }

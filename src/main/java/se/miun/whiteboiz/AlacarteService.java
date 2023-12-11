@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import se.miun.whiteboiz.entities.AlacarteEntity;
+import se.miun.whiteboiz.entities.TypEntity;
 
 import java.util.List;
 
@@ -16,17 +17,6 @@ import java.util.List;
 public class AlacarteService {
     @PersistenceContext
     private EntityManager em;
-
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    private String title;
 
 
     public void addAlacarte(AlacarteEntity alacartEntity){
@@ -49,6 +39,11 @@ public class AlacarteService {
     public AlacarteEntity findAlacarte(int id){
         return em.find(AlacarteEntity.class, id);
     }
+
+    public TypEntity findTyp(int id){
+        return em.find(TypEntity.class, id);
+    }
+
 
     public List<AlacarteEntity> findAllAlacarte(){
         return em.createQuery("select A from AlacarteEntity A ", AlacarteEntity.class).getResultList();
