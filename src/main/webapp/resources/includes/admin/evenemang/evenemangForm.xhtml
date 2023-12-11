@@ -16,39 +16,22 @@
                     <p:outputLabel value="Beskrivning" for="@next"/>
                     <p:inputTextarea value ="#{evenemangService.inputBeskrivning}" id="beskrivningEvenemang" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
                     <p:outputLabel value="Datum" for="@next"/>
-                    <p:inputTextarea value ="#{evenemangService.inputDatum}" id="datumEvenemang" label="Datum" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
+                    <p:inputText value ="#{evenemangService.inputDatum}" id="datumEvenemang" label="Datum" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
                     <p:outputLabel value="Tid" for="@next"/>
-                    <p:inputTextarea value ="#{evenemangService.inputTid}" id="tidEvenemang" label="Tid" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
+                    <p:inputText value ="#{evenemangService.inputTid}" id="tidEvenemang" label="Tid" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
 
-                    <h:form enctype="multipart/form-data">
-                        <p:outputLabel value="Lägg till bild" for="@next"/>
-                        <p:fileUpload value="#{evenemangFileUpload.file}" mode="simple" skinSimple="true"/>
-                        <br />
-                        <p:commandButton value="Submit" ajax="false" action="#{evenemangFileUpload.upload}" />
-                    </h:form>
-
-
+                    <p:outputLabel value="Bild" for="@next"/>
+                    <p:fileUpload listener="#{evenemangFileUpload.upload}" mode="advanced" />
 
 
                     <p:commandButton actionListener="#{evenemangService.putEvenemang()}" update="updateEvenemang" type="submit" value="Lägg till" icon="pi pi-plus" id="knappSkickaEvenemang">
-                        <p:confirm header="Konfirmation" message="Är du säker att du vill lägga till den här lunchen?" icon="ui-icon-alert"/>
+                        <p:confirm header="Konfirmation" message="Är du säker att du vill lägga till evenemanget?" icon="ui-icon-alert"/>
                     </p:commandButton>
                     <p:confirmDialog global="true">
                         <p:commandButton value="Ja" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
                         <p:commandButton value="Nej" type="button" styleClass="ui-button-secondary" icon="ui-icon-close"/>
                     </p:confirmDialog>
                 </div>
-                <p:outputPanel id = "updateEvenemang" deferred="true">
-                    <ui:repeat value="#{evenemangService.findAllEvenemang()}" var="evenemangItem">
-                        <p:card class="border-round-sm" style="margin-bottom: 1em">
-                            <f:facet name="title">#{evenemangItem.namn}</f:facet>
-                            <p class="surface-200 p-2 border-round" style="margin-top: 0; margin-bottom: 1rem">#{evenemangItem.beskrivning}</p>
-                            <p class="surface-200 p-2 border-round" style="margin-top: 0; margin-bottom: 1rem">#{evenemangItem.datum}</p>
-                            <p class="surface-200 p-2 border-round" style="margin-top: 0; margin-bottom: 1rem">#{evenemangItem.tid}</p>
-
-                        </p:card>
-                    </ui:repeat>
-                </p:outputPanel>
             </h:form>
         </div>
     </ui:composition>

@@ -21,12 +21,16 @@ public class EvenemangEntity {
     @Basic
     @Column(name = "beskrivning")
     private String beskrivning;
+    @Basic
+    @Column(name = "image")
+    private String image;
 
-    public EvenemangEntity(String namn, String beskrivning, String datum, String tid) {
+    public EvenemangEntity(String namn, String beskrivning, String datum, String tid, String image) {
         this.namn = namn;
         this.datum = datum;
         this.tid = tid;
         this.beskrivning = beskrivning;
+        this.image = image;
     }
 
     public EvenemangEntity() {
@@ -71,6 +75,14 @@ public class EvenemangEntity {
 
     public void setBeskrivning(String beskrivning) {
         this.beskrivning = beskrivning;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override

@@ -21,8 +21,14 @@ public class EvenemangService {
     private String inputBeskrivning;
     private String inputDatum;
     private String inputTid;
+    private String inputImageName;
+    public String getInputImageName() {
+        return inputImageName;
+    }
 
-    //image
+    public void setInputImageName(String inputImageName) {
+        this.inputImageName = inputImageName;
+    }
 
 
     public String getInputNamn() {
@@ -58,7 +64,7 @@ public class EvenemangService {
     }
 
     public void putEvenemang() {
-        em.persist(new EvenemangEntity(inputNamn, inputBeskrivning, inputDatum, inputTid));
+        em.persist(new EvenemangEntity(inputNamn, inputBeskrivning, inputDatum, inputTid, inputImageName));
     }
 
 
