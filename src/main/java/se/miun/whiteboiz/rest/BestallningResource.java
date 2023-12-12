@@ -32,6 +32,14 @@ public class BestallningResource {
         return bestallningService.findAllBestallningar();
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/all/withrattinstans")
+    public List<BestallningService.BestallningWithRattInstans> findAllBestallningarWithRattInstans() {
+        return bestallningService.findAllBestallningarWithRattInstans();
+    }
+
+
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?datum=2021-10-10&tid=12:00&kommentar=hej&bordId=1
     @POST
     @Produces(MediaType.APPLICATION_JSON)

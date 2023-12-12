@@ -7,6 +7,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import se.miun.whiteboiz.entities.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -66,6 +67,39 @@ public class BestallningService {
         rattInstans.setRattPreferenser(rattPreferenser);
         em.persist(rattInstans);
     }
+    public class BestallningWithRattInstans {
+        public BestallningWithRattInstans(BestallningEntity bestallning, List<RattInstansEntity> rattInstanser) {
+            this.bestallning = bestallning;
+            this.rattInstanser = rattInstanser;
+        }
+        public BestallningEntity bestallning;
+        public List<RattInstansEntity> rattInstanser;
+    }
+
+    public List<BestallningWithRattInstans> findAllBestallningarWithRattInstans() {
+        ArrayList<BestallningWithRattInstans> resultList = new ArrayList<>();
+        List<BestallningEntity> bestallningar = em.createQuery("select B from BestallningEntity B", BestallningEntity.class).getResultList();
+        for (BestallningEntity bestallning : bestallningar) {
+            List<RattInstansEntity> rattInstanser = em.createQuery("select R from RattInstansEntity R where r.bestallning.id=:b_id", RattInstansEntity.class).setParameter("b_id", bestallning.getId()).getResultList();
+            resultList.add(new BestallningWithRattInstans(bestallning, rattInstanser));
+        }
+        return resultList;
+
+        /*List<BestallningWithRattInstans> bestallningarWithRattInstans = new ArrayList<>();
+        for (BestallningEntity bestallning : bestallningar) {
+            BestallningWithRattInstans bestallningWithRattInstans = new BestallningWithRattInstans();
+            bestallningWithRattInstans.bestallning = bestallning;
+            bestallningWithRattInstans.rattInstanser = new ArrayList<>();
+            for (RattInstansEntity rattInstans : rattInstanser) {
+                if (rattInstans.getBestallning().getId() == bestallning.getId()) {
+                    bestallningWithRattInstans.rattInstanser.add(rattInstans);
+                }
+            }
+            bestallningarWithRattInstans.add(bestallningWithRattInstans);
+        }
+        return bestallningarWithRattInstans;*/
+    }
+
 
 
 }
