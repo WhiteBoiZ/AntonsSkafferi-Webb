@@ -24,6 +24,7 @@
             <li><a href="#alacarte">À la carte</a></li>
             <li><a href="#events">Evenemang</a></li>
             <li><a href="#footer">Om oss</a></li>
+            <li><a href="admin.xhtml">ADMIN</a></li>
         </ul>
     </div>
 
@@ -71,19 +72,19 @@
                         <span class="material-symbols-outlined">restaurant_menu</span>
                     </ui:repeat>
                     <h3>Tisdag</h3>
-                    <ui:repeat value="#{lunchService.findLunchesForDay('Måndag')}" var="veckansLunch">
-                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
-                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
-                        <span class="material-symbols-outlined">restaurant_menu</span>
-                    </ui:repeat>
-                    <h3>Onsdag</h3>
                     <ui:repeat value="#{lunchService.findLunchesForDay('Tisdag')}" var="veckansLunch">
                         <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
                         <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
                         <span class="material-symbols-outlined">restaurant_menu</span>
                     </ui:repeat>
-                    <h3>Torsdag</h3>
+                    <h3>Onsdag</h3>
                     <ui:repeat value="#{lunchService.findLunchesForDay('Onsdag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                    </ui:repeat>
+                    <h3>Torsdag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Torsdag')}" var="veckansLunch">
                         <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
                         <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
                         <span class="material-symbols-outlined">restaurant_menu</span>
