@@ -71,6 +71,9 @@ public class EvenemangService {
     public List<EvenemangEntity> findAllEvenemang(){
         return em.createQuery("select E from EvenemangEntity E", EvenemangEntity.class).getResultList();
     }
+    public List<EvenemangEntity> findAllEvenemangByDate(){
+        return em.createQuery("select E from EvenemangEntity E order by E.datum desc", EvenemangEntity.class).getResultList();
+    }
 
 
 }

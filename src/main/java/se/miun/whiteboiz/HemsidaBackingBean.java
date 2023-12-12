@@ -5,9 +5,13 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import se.miun.whiteboiz.entities.EvenemangEntity;
 
+import javax.swing.text.DateFormatter;
+import java.text.DateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.time.temporal.WeekFields;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -28,15 +32,14 @@ public class HemsidaBackingBean {
     }
 
     public EvenemangEntity getNextEvent() {
-        List<EvenemangEntity> events = evenemangService.findAllEvenemang();
+        List<EvenemangEntity> events = evenemangService.findAllEvenemangByDate();
         EvenemangEntity nextEvent = null;
+        LocalDate currentDate = LocalDate.now();
+        //compare with current date and get the upcoming event
         for (EvenemangEntity event : events) {
-            if (nextEvent == null) {
+            LocalDate eventDate = LocalDate.parse(event.getDatum());
+            if (nextEvent == null || currentDate.compareTo(eventDate) < 0) {
                 nextEvent = event;
-            } else {
-                if (event.getDatum().compareTo(nextEvent.getDatum()) < 0) {
-                    nextEvent = event;
-                }
             }
         }
         return nextEvent;
