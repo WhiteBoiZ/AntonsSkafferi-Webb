@@ -23,13 +23,14 @@ public class BestallningService {
     public List<BestallningEntity> findAllBestallningar(){
         return em.createQuery("select B from BestallningEntity B ", BestallningEntity.class).getResultList();
     }
-    public void addBestallning(String datum, String tid, String kommentar, int bordId) {
+    public BestallningEntity addBestallning(String datum, String tid, String kommentar, int bordId) {
         BestallningEntity bestallning = new BestallningEntity();
         bestallning.setDatum(datum);
         bestallning.setTid(tid);
         bestallning.setKommentar(kommentar);
         bestallning.setBordId(em.find(BordEntity.class, bordId));
         em.persist(bestallning);
+        return bestallning;
     }
 
     public void deleteBestallning(int bestallningId) {

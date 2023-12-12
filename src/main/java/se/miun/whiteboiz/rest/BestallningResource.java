@@ -35,12 +35,12 @@ public class BestallningResource {
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?datum=2021-10-10&tid=12:00&kommentar=hej&bordId=1
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public void addBestallning(@QueryParam("datum") String datum,
+    public BestallningEntity addBestallning(@QueryParam("datum") String datum,
                                @QueryParam("tid") String tid,
                                @QueryParam("kommentar") String kommentar,
                                @QueryParam("bordId") int bordId)
     {
-        bestallningService.addBestallning(datum, tid, kommentar, bordId);
+        return bestallningService.addBestallning(datum, tid, kommentar, bordId);
     }
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans/all
