@@ -92,6 +92,33 @@ public class BestallningResource {
     }
 
 
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/delete/1
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/delete/{id}")
+    public void deleteBestallning(@PathParam("id") int bestallningId) {
+        bestallningService.deleteBestallning(bestallningId);
+    }
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans/delete?id=1&alacarteId=1&bestallningId=1
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/rattinstans/delete")
+    public void deleteRattInstans(@QueryParam("id") int id,
+                                  @QueryParam("alacarteId") int alacarteId,
+                                  @QueryParam("bestallningId") int bestallningId)
+    {
+        bestallningService.deleteRattInstans(id, alacarteId, bestallningId);
+    }
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans/delete/1
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/rattinstans/delete/{id}")
+    public void deleteRattInstans(@PathParam("id") int id) {
+        bestallningService.deleteAllRattInstansInBestallning(id);
+    }
+
 
 
 

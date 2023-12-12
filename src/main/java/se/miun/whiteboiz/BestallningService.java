@@ -67,6 +67,26 @@ public class BestallningService {
         rattInstans.setRattPreferenser(rattPreferenser);
         em.persist(rattInstans);
     }
+
+    public void deleteRattInstans(int id, int alacarteId, int bestallningId) {
+        RattInstansEntityPK pk = new RattInstansEntityPK();
+        pk.setId(id);
+        pk.setAlacarte(alacarteId);
+        pk.setBestallning(bestallningId);
+
+        RattInstansEntity rattInstans = em.find(RattInstansEntity.class, pk);
+        em.remove(rattInstans);
+    }
+
+    public void deleteAllRattInstansInBestallning(int id) {
+        List<RattInstansEntity> rattInstanser = em.createQuery("select R from RattInstansEntity R where R.bestallning.id = :bestallningId", RattInstansEntity.class)
+                .setParameter("bestallningId", id)
+                .getResultList();
+        for (RattInstansEntity rattInstans : rattInstanser) {
+            em.remove(rattInstans);
+        }
+    }
+
     public class BestallningWithRattInstans {
         public BestallningWithRattInstans(BestallningEntity bestallning, List<RattInstansEntity> rattInstanser) {
             this.bestallning = bestallning;
