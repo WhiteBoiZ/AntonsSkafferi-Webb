@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-232.10227.8">
-    <data-source name="antonsDatabas" uuid="0afac2dd-e99e-4a53-b433-bac0bf89357d">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MARIADB" exact-version="0" />
-      <schema-mapping />
+    <data-source name="antonsskafferi@localhost" uuid="00eb2e2b-f6b9-4f6a-a1d2-f206ed6e42a2">
+      <database-info product="MariaDB" version="11.2.2-MariaDB" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="3.0.7" dbms="MARIADB" exact-version="11.2.2" exact-driver-version="3.0">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <user-name>root</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" qname="antonsskafferi" />
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>
