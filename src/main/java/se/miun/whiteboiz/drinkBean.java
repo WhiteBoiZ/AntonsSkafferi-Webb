@@ -9,7 +9,6 @@ import java.util.ArrayList;
 @ApplicationScoped
 @Named
 public class drinkBean {
-
     private String drinkTitle;
     private String drinkDescription;
     private ArrayList<Drink> drinksMenu = new ArrayList<>();
