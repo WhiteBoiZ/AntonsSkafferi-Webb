@@ -27,17 +27,13 @@ public class Alacart {
 
     }
     //Getters & Setters
-    public AlaCarteCategory getAlaCarteCategory(){
-        return alaCarteCategory;
-    }
-    public void setAlaCarteCategory(AlaCarteCategory category){
-        this.alaCarteCategory = category;
-    }
+
+
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String titel) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
