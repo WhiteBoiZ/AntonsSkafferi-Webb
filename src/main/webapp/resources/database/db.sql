@@ -143,3 +143,6 @@ insert into lunch_vecka (dag_id, lunch_id)values (5, 5);
 insert into evenemang (namn, datum, tid, image, beskrivning) values ('Julbord', '2023-12-24', '18:00:00', 'event1.jpg', 'Kom och ät julbord med oss!');
 insert into evenemang (namn, datum, tid, image, beskrivning) values ('Nyårsmiddag', '2023-12-31', '18:00:00', 'event2.jpg', 'Kom och ät nyårsmiddag med oss!');
 
+insert into evenemang (namn, datum, tid, image, beskrivning) values ('Midsommar', '2022-06-24', '18:00:00', 'event3.jpg', 'Kom och ät midsommar med oss!');
+insert into evenemang (namn, datum, tid, image, beskrivning) values ('Valborg', '2022-04-30', '18:00:00', 'event4.jpg', 'Kom och ät valborg med oss!');
+insert into evenemang (namn, datum, tid, image, beskrivning) values ('Påsk', '2022-04-15', '18:00:00', 'event5.jpg', 'Kom och ät påsk med oss!');
