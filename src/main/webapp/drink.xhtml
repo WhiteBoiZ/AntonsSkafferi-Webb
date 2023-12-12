@@ -9,7 +9,7 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <f:view>
     <ui:composition template="/template/common/commonLayout.xhtml">
-        <ui:define name="title">Antons Skafferi Admin page - Drinks</ui:define>
+        <ui:define name="title">Antons Skafferi Admin - Dryck</ui:define>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         <ui:define name="content">
             <div class="grid">
@@ -22,22 +22,22 @@
                                 <p:inputTextarea value="#{drinkBean.drinkTitle}" id = "titleHuvudText" label="Huvudtext" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
                                 <p:outputLabel value="Undertext" for="@next"/>
                                 <p:inputTextarea value ="#{drinkBean.drinkDesc}" id="beskrivningUnderText" label="Undertext" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
-                                <p:commandButton update="updateDrink" type="submit" action="#{drinkBean.addDrink()}" value="Drink" icon="pi pi-plus" id="knappSkickaFörrätt">
+                                <p:commandButton update="@all" type="submit" action="#{drinkBean.addDrink()}" value="Drink" icon="pi pi-plus" id="knappSkickaFörrätt">
                                 </p:commandButton>
 
                             </div>
 
                             <p:outputPanel id = "updateDrink" deferred="true">
-                                <ui:repeat value="#{drinkBean.listModelDrink}" var="drinkItem">
+                                <ui:repeat value="#{alacarteService.findAllActiveAlacarteDrinks()}" var="drinkItem">
                                     <p:card class="border-round-sm" style="margin-bottom: 1em">
-                                        <f:facet name="title">#{drinkItem.title}</f:facet>
-                                        <p style="margin-top: 0">#{drinkItem.description}</p>
+                                        <f:facet name="title">#{drinkItem.titel}</f:facet>
+                                        <p style="margin-top: 0">#{drinkItem.beskrivning}</p>
                                         <!--chatgpt genererad -->
                                         <h:outputText value="&lt;strong&gt;Kategori:&lt;/strong&gt; &lt;em&gt;Drinkar&lt;/em&gt;" escape="false">
 
                                         </h:outputText>
                                         <f:facet name="footer">
-                                            <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{drinkBean.removeDrink()}"/>
+                                            <p:commandButton update="@all" type="submit" icon="pi pi-trash" actionListener="#{drinkBean.removeDrink(drinkItem)}"/>
                                         </f:facet>
                                     </p:card>
                                 </ui:repeat>
@@ -62,9 +62,9 @@
                                 <div id="first-course-dessert">
                                     <h3>Drinkar</h3>
                                     <div id="first-course">
-                                        <ui:repeat id ="updateDrink" value="#{drinkBean.listModelDrink}" var="drinkItem">
-                                            <h:outputLabel class="alacarte-title" value="#{drinkItem.title}"/>
-                                            <h:outputLabel class="description" value="#{drinkItem.description}"/>
+                                        <ui:repeat id ="updateDrink" value="#{alacarteService.findAllActiveAlacarteDrinks()}" var="drinkItem">
+                                            <h:outputLabel class="alacarte-title" value="#{drinkItem.titel}"/>
+                                            <h:outputLabel class="description" value="#{drinkItem.beskrivning}"/>
                                         </ui:repeat>
                                     </div>
 

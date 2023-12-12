@@ -1,5 +1,8 @@
 package se.miun.whiteboiz.entities;
 
+import jakarta.faces.component.UIOutput;
+import jakarta.faces.event.AjaxBehaviorEvent;
+import jakarta.faces.event.ValueChangeEvent;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -23,7 +26,7 @@ public class AlacarteEntity {
     private TypEntity typ;
     @Basic
     @Column(name = "vald")
-    private Byte vald;
+    private boolean vald;
     @Basic
     @Column(name = "pris")
     private Integer pris;
@@ -60,11 +63,11 @@ public class AlacarteEntity {
         this.typ = typId;
     }
 
-    public int getVald() {
+    public boolean getVald() {
         return vald;
     }
 
-    public void setVald(Byte vald) {
+    public void setVald(boolean vald) {
         this.vald = vald;
     }
 
@@ -82,6 +85,13 @@ public class AlacarteEntity {
         if (o == null || getClass() != o.getClass()) return false;
         AlacarteEntity that = (AlacarteEntity) o;
         return id == that.id && vald == that.vald && Objects.equals(titel, that.titel) && Objects.equals(beskrivning, that.beskrivning) && Objects.equals(typ, that.typ) && Objects.equals(pris, that.pris);
+    }
+
+
+    public void handleVald(AjaxBehaviorEvent event){
+
+        boolean newValue = (boolean) ( (UIOutput) event.getSource()).getValue();
+        this.vald = newValue;
     }
 
     @Override

@@ -15,13 +15,7 @@
                     <p:inputText  value="#{lunchService.inputTitel}" id = "titleLunch" label="Title" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
                     <p:outputLabel id="descLunch" value="Beskrivning" for="@next"/>
                     <p:inputTextarea value ="#{lunchService.inputBeskrivning}" id="beskrivningLunch" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
-                    <p:commandButton actionListener="#{lunchService.putLunch()}" update="updateLunch" type="submit" value="Lägg till" icon="pi pi-plus" id="knappSkickaLunch">
-                        <p:confirm header="Konfirmation" message="Är du säker att du vill lägga till den här lunchen?" icon="ui-icon-alert"/>
-                    </p:commandButton>
-                    <p:confirmDialog global="true">
-                        <p:commandButton value="Ja" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
-                        <p:commandButton value="Nej" type="button" styleClass="ui-button-secondary" icon="ui-icon-close"/>
-                    </p:confirmDialog>
+                    <p:commandButton actionListener="#{lunchService.putLunch()}" update="updateLunch" type="submit" value="Lägg till" icon="pi pi-plus" id="knappSkickaLunch"/>
                 </div>
                 <p:outputPanel id = "updateLunch" deferred="true">
                     <ui:repeat value="#{lunchService.findAllLunches()}" var="lunchItem">
