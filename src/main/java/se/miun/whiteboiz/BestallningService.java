@@ -23,6 +23,20 @@ public class BestallningService {
     public List<BestallningEntity> findAllBestallningar(){
         return em.createQuery("select B from BestallningEntity B ", BestallningEntity.class).getResultList();
     }
+
+    public List<BestallningEntity> findAllBestallningarWithRattInstans(){
+        List<BestallningEntity> bestallningar = em.createQuery("select B from BestallningEntity B ", BestallningEntity.class).getResultList();
+        List<RattInstansEntity> rattInstanser = em.createQuery("select R from RattInstansEntity R ", RattInstansEntity.class).getResultList();
+        for (BestallningEntity bestallning : bestallningar) {
+            for (RattInstansEntity rattInstans : rattInstanser) {
+                if (rattInstans.getBestallning().getId() == bestallning.getId()) {
+                    bestallning.getRattInstanser().add(rattInstans);
+                }
+            }
+        }
+
+    }
+
     public void addBestallning(String datum, String tid, String kommentar, int bordId) {
         BestallningEntity bestallning = new BestallningEntity();
         bestallning.setDatum(datum);

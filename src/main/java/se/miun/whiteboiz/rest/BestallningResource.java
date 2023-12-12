@@ -24,6 +24,8 @@ public class BestallningResource {
         return bestallningService.findBestallning(id);
     }
 
+
+
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/all
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -31,6 +33,14 @@ public class BestallningResource {
     public List<BestallningEntity> findAllBestallningar() {
         return bestallningService.findAllBestallningar();
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/allwithrattinstans")
+    public List<BestallningEntity> findAllBestallningarWithRattInstans() {
+        return bestallningService.findAllBestallningarWithRattInstans();
+    }
+
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?datum=2021-10-10&tid=12:00&kommentar=hej&bordId=1
     @POST
@@ -50,6 +60,10 @@ public class BestallningResource {
     public List<RattInstansEntity> findAllRattInstans() {
             return bestallningService.findAllRattInstans();
     }
+
+
+
+
 
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans?id=1&alacarteId=1&bestallningId=1

@@ -2,6 +2,8 @@ package se.miun.whiteboiz.entities;
 
 import jakarta.persistence.*;
 
+import java.util.Calendar;
+
 
 @Entity
 @Table(name = "bestallning", schema = "antonsskafferi")
@@ -88,4 +90,6 @@ public class BestallningEntity {
         result = 31 * result + (bord != null ? bord.hashCode() : 0);
         return result;
     }
+
+
 }
