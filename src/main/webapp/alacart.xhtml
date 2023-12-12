@@ -41,7 +41,7 @@
 
                                         </h:outputText>
                                         <f:facet name="footer">
-                                            <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeStarter()}"/>
+                                            <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeStarter(alacartItem.id)}"/>
                                         </f:facet>
                                     </p:card>
                                 </ui:repeat>
@@ -55,7 +55,7 @@
 
                                         </h:outputText>
                                         <f:facet name="footer">
-                                        <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeMain()}"/>
+                                        <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeMain(alacartItem.id)}"/>
                                         </f:facet>
                                     </p:card>
                                 </ui:repeat>
@@ -69,7 +69,7 @@
 
                                         </h:outputText>
                                         <f:facet name="footer">
-                                        <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeDessert()}"/>
+                                        <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeDessert(alacartItem.id)}"/>
                                         </f:facet>
                                     </p:card>
                                 </ui:repeat>
