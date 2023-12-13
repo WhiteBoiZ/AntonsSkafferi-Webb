@@ -1,8 +1,5 @@
 package se.miun.whiteboiz;
 
-import jakarta.annotation.ManagedBean;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
@@ -55,14 +52,15 @@ public class LoginBean implements Serializable {
     }
 
 
-    private boolean login(String username, String password){
-        List<UsersEntity> users = em.createQuery("select U from UsersEntity U", UsersEntity.class).getResultList();
-        for (UsersEntity user : users) {
-            if (Objects.equals(user.getUsername(), username) && Objects.equals(user.getPassword(), password)){
-                return true;
-            }
+    private boolean validateLoginCredentials(String username, String password){
+        List<UsersEntity> users = em.createQuery("select U from UsersEntity U where U.username=:username", UsersEntity.class)
+                .setParameter("username", username)
+                .getResultList();
+        if(users.isEmpty()){
+            return false;
         }
-        return false;
+        UsersEntity user = users.get(0);
+        return Objects.equals(user.getPassword(), password);
     }
 
     public static HttpSession getSession() {
@@ -95,8 +93,8 @@ public class LoginBean implements Serializable {
     }
 
 
-    public String loginProject() {
-        boolean result = login(uname, password);
+    public String login() {
+        boolean result = validateLoginCredentials(uname, password);
         if (result) {
 
             // get Http Session and store username
