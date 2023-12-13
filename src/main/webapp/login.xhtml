@@ -36,12 +36,12 @@
                  style="width: 350px; margin: 0 auto;">
             <h:panelGrid id="loginPanel" columns="2" cellpadding="5">
                 <h:outputText value="Username" />
-                <p:inputText id="username" value="#{loginBean.uname}"></p:inputText>
+                <p:inputText id="username" value="#{loginBean.uname}"/>
                 <p:spacer /><p:spacer />
                 <h:outputText value="Password" />
                 <p:password id="password" value="#{loginBean.password}"
-                            feedback="false"></p:password>
-                <p:message for="password"></p:message>
+                            feedback="false"/>
+                <p:message for="password"/>
             </h:panelGrid>
             <h:panelGrid columns="1" cellpadding="10" width="100%">
                 <p:commandButton id="loginButton" action="#{loginBean.loginProject}"

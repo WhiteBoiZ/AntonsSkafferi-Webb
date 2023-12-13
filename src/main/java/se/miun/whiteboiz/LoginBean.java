@@ -16,6 +16,7 @@ import se.miun.whiteboiz.entities.UsersEntity;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 
 @Named
@@ -57,7 +58,7 @@ public class LoginBean implements Serializable {
     private boolean login(String username, String password){
         List<UsersEntity> users = em.createQuery("select U from UsersEntity U", UsersEntity.class).getResultList();
         for (UsersEntity user : users) {
-            if (user.getUsername() == username && user.getPassword() == password){
+            if (Objects.equals(user.getUsername(), username) && Objects.equals(user.getPassword(), password)){
                 return true;
             }
         }
@@ -101,7 +102,7 @@ public class LoginBean implements Serializable {
             // get Http Session and store username
             HttpSession session = getSession();
             session.setAttribute("username", uname);
-            return "index";
+            return "admin";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
                     "Invalid Login!",
