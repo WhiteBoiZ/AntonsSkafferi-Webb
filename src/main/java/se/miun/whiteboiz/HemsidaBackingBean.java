@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.time.temporal.WeekFields;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -32,7 +33,7 @@ public class HemsidaBackingBean {
     }
 
     public EvenemangEntity getNextEvent() {
-        List<EvenemangEntity> events = evenemangService.findAllEvenemangByDate();
+        List<EvenemangEntity> events = evenemangService.findAllEvenemangByDate("DESC");
         EvenemangEntity nextEvent = null;
         LocalDate currentDate = LocalDate.now();
         //compare with current date and get the upcoming event
@@ -46,14 +47,26 @@ public class HemsidaBackingBean {
     }
 
     public List<EvenemangEntity> getFutureEvents() {
-        List<EvenemangEntity> events = evenemangService.findAllEvenemang();
-        events.removeIf(event -> event.getDatum().compareTo(LocalDate.now().toString()) < 0);
-        return events;
+        List<EvenemangEntity> events = evenemangService.findAllEvenemangByDate("ASC");
+        List<EvenemangEntity> futureEvents = new ArrayList<>();
+        for (EvenemangEntity event : events) {
+            LocalDate eventDate = LocalDate.parse(event.getDatum());
+            if (eventDate.isAfter(LocalDate.now())) {
+                futureEvents.add(event);
+            }
+        }
+        return futureEvents;
     }
 
     public List<EvenemangEntity> getPastEvents() {
-        List<EvenemangEntity> events = evenemangService.findAllEvenemang();
-        events.removeIf(event -> event.getDatum().compareTo(LocalDate.now().toString()) >= 0);
-        return events;
+        List<EvenemangEntity> events = evenemangService.findAllEvenemangByDate("ASC");
+        List<EvenemangEntity> pastEvents = new ArrayList<>();
+        for (EvenemangEntity event : events) {
+            LocalDate eventDate = LocalDate.parse(event.getDatum());
+            if (eventDate.isBefore(LocalDate.now())) {
+                pastEvents.add(event);
+            }
+        }
+        return pastEvents;
     }
 }

@@ -16,12 +16,14 @@
                     <p:outputLabel value="Beskrivning" for="@next"/>
                     <p:inputTextarea value ="#{evenemangService.inputBeskrivning}" id="beskrivningEvenemang" label="Beskrivning" autoResize="false" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/><br/>
                     <p:outputLabel value="Datum &amp; tid" for="@next"/>
-                    <p:inputText value="#{evenemangService.inputDatum}" id="datumEvenemang" label="Datum" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+                    <p:datePicker value="#{evenemangService.inputDatum}" id="datumEvenemang" label="Datum"  class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
                     <p:outputLabel value="Tid" for="@next"/>
-                    <p:inputText value="#{evenemangService.inputTid}" id="tidEvenemang" label="Tid" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
+                    <p:datePicker value="#{evenemangService.inputTid}" id="tidEvenemang" label="Tid" timeOnly="true" class="ext-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"/>
 
                     <p:outputLabel value="Bild" for="@next"/>
-                    <p:fileUpload listener="#{evenemangFileUpload.upload}" mode="advanced" />
+                    <p:fileUpload listener="#{evenemangFileUpload.upload}" mode="advanced" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+
+
 
 
                     <p:commandButton actionListener="#{evenemangService.putEvenemang()}" update="updateEvenemang" type="submit" value="Lägg till" icon="pi pi-plus" id="knappSkickaEvenemang">

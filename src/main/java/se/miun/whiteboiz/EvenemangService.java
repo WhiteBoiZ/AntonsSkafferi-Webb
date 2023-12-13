@@ -4,9 +4,14 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 import se.miun.whiteboiz.entities.EvenemangEntity;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @ApplicationScoped
@@ -19,8 +24,8 @@ public class EvenemangService {
 
     private String inputNamn;
     private String inputBeskrivning;
-    private String inputDatum;
-    private String inputTid;
+    private LocalDate inputDatum;
+    private LocalTime inputTid;
     private String inputImageName;
     public String getInputImageName() {
         return inputImageName;
@@ -47,32 +52,51 @@ public class EvenemangService {
         this.inputBeskrivning = inputBeskrivning;
     }
 
-    public String getInputDatum() {
+    public LocalDate getInputDatum() {
         return inputDatum;
     }
 
-    public void setInputDatum(String inputDatum) {
+    public void setInputDatum(LocalDate inputDatum) {
         this.inputDatum = inputDatum;
     }
 
-    public String getInputTid() {
+    public LocalTime getInputTid() {
         return inputTid;
     }
 
-    public void setInputTid(String inputTid) {
+    public void setInputTid(LocalTime inputTid) {
         this.inputTid = inputTid;
     }
 
     public void putEvenemang() {
-        em.persist(new EvenemangEntity(inputNamn, inputBeskrivning, inputDatum, inputTid, inputImageName));
+        String inputDatumString = inputDatum.toString();
+        String inputTidString = inputTid.toString();
+        em.persist(new EvenemangEntity(inputNamn, inputBeskrivning, inputDatumString, inputTidString, inputImageName));
     }
 
 
     public List<EvenemangEntity> findAllEvenemang(){
         return em.createQuery("select E from EvenemangEntity E", EvenemangEntity.class).getResultList();
     }
-    public List<EvenemangEntity> findAllEvenemangByDate(){
-        return em.createQuery("select E from EvenemangEntity E order by E.datum desc", EvenemangEntity.class).getResultList();
+
+    //Använder CriteriaBuilder för att sortera evenemang efter datum i stigande eller fallande ordning
+    public List<EvenemangEntity> findAllEvenemangByDate(String sortDirection) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<EvenemangEntity> query = cb.createQuery(EvenemangEntity.class);
+        Root<EvenemangEntity> root = query.from(EvenemangEntity.class);
+
+        // Adjust the path expression based on your entity structure
+        query.orderBy(
+                "desc".equalsIgnoreCase(sortDirection) ? cb.desc(root.get("datum")) :
+                        "asc".equalsIgnoreCase(sortDirection) ? cb.asc(root.get("datum")) :
+                                cb.desc(root.get("datum"))
+        );
+
+        return em.createQuery(query).getResultList();
+    }
+
+    public void deleteEvenemang(EvenemangEntity evenemang) {
+        em.remove(em.merge(evenemang));
     }
 
 
