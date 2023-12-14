@@ -32,7 +32,7 @@
                             </div>
 
                             <p:outputPanel id = "updateAlaCarte" deferred="true">
-                                <ui:repeat value="#{alacarteService.findAllAlacarteForrater()}" var="alacartItem">
+                                <ui:repeat value="#{alacarteService.findAllActiveAlacarteForrater()}" var="alacartItem">
                                     <p:card class="border-round-sm" style="margin-bottom: 1em">
                                         <f:facet name="title">#{alacartItem.titel}</f:facet>
                                         <p style="margin-top: 0">#{alacartItem.beskrivning}</p>
@@ -42,12 +42,11 @@
                                         </h:outputText>
                                         <f:facet name="footer">
                                             <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeAlacarte(alacartItem.id)}"/>
-                                            <p:selectBooleanCheckbox value="#{alacartItem.vald}"/>
                                         </f:facet>
                                     </p:card>
                                 </ui:repeat>
 
-                                <ui:repeat value="#{alacarteService.findAllAlacarteHuvudratter()}" var="alacartItem">
+                                <ui:repeat value="#{alacarteService.findAllActiveAlacarteHuvudratter()}" var="alacartItem">
                                     <p:card class="border-round-sm" style="margin-bottom: 1em">
                                         <f:facet name="title">#{alacartItem.titel}</f:facet>
                                         <p style="margin-top: 0">#{alacartItem.beskrivning}</p>
@@ -57,12 +56,11 @@
                                         </h:outputText>
                                         <f:facet name="footer">
                                         <p:commandButton update="@form" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeAlacarte(alacartItem.id)}"/>
-                                            <p:selectBooleanCheckbox value="#{alacarteService.findAlacarte(alacartItem.id).vald}"/>
                                         </f:facet>
                                     </p:card>
                                 </ui:repeat>
 
-                                <ui:repeat value="#{alacarteService.findAllAlacarteDesserter()}" var="alacartItem">
+                                <ui:repeat value="#{alacarteService.findAllActiveAlacarteDesserter()}" var="alacartItem">
                                     <p:card class="border-round-sm" style="margin-bottom: 1em">
                                         <f:facet name="title">#{alacartItem.titel}</f:facet>
                                         <p style="margin-top: 0">#{alacartItem.beskrivning}</p>
@@ -72,7 +70,6 @@
                                         </h:outputText>
                                         <f:facet name="footer">
                                         <p:commandButton update="@form" type="submit" icon="pi pi-trash"/>
-                                            <p:selectBooleanCheckbox value="#{alacarteService.findAlacarte(alacartItem.id)}"/>
 
                                         </f:facet>
                                     </p:card>
