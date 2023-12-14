@@ -121,5 +121,20 @@ public class BestallningService {
     }
 
 
+    public void updateBestallningForratKlar(int bestallningId, boolean forrattKlar) {
+        BestallningEntity bestallning = em.find(BestallningEntity.class, bestallningId);
+        bestallning.setForrattKlar(forrattKlar);
+    }
+
+    public void updateBestallningVarmrattKlar(int bestallningId, boolean forrattKlar) {
+        BestallningEntity bestallning = em.find(BestallningEntity.class, bestallningId);
+        bestallning.setVarmrattKlar(forrattKlar);
+    }
+
+    public void updateBestallningEfterrattKlar(int bestallningId, boolean forrattKlar) {
+        BestallningEntity bestallning = em.find(BestallningEntity.class, bestallningId);
+        bestallning.setEfterrattKlar(forrattKlar);
+    }
+
 
 }

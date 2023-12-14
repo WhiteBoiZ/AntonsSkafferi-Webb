@@ -19,6 +19,18 @@ public class BestallningEntity {
     @Basic
     @Column(name = "kommentar")
     private String kommentar;
+    @Basic
+    @Column(name = "forratt_klar")
+    private boolean forrattKlar;
+
+    @Basic
+    @Column(name = "varmratt_klar")
+    private boolean varmrattKlar;
+
+    @Basic
+    @Column(name = "efterratt_klar")
+    private boolean efterrattKlar;
+
     @ManyToOne
     @JoinColumn(name = "bord_id")
     private BordEntity bord;
@@ -54,6 +66,33 @@ public class BestallningEntity {
     public void setKommentar(String kommentar) {
         this.kommentar = kommentar;
     }
+
+
+    public boolean isForrattKlar() {
+        return forrattKlar;
+    }
+
+    public void setForrattKlar(boolean forrattKlar) {
+        this.forrattKlar = forrattKlar;
+    }
+
+    public boolean isVarmrattKlar() {
+        return varmrattKlar;
+    }
+
+    public void setVarmrattKlar(boolean varmrattKlar) {
+        this.varmrattKlar = varmrattKlar;
+    }
+
+    public boolean isEfterrattKlar() {
+        return efterrattKlar;
+    }
+
+    public void setEfterrattKlar(boolean efterrattKlar) {
+        this.efterrattKlar = efterrattKlar;
+    }
+
+
 
     public BordEntity getBordId() {
         return bord;

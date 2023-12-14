@@ -47,6 +47,9 @@ create table bestallning(
     datum varchar(255) not null,
     tid varchar(255) not null,
     kommentar text,
+    forratt_klar int default 0,
+    varmratt_klar int default 0,
+    efterratt_klar int default 0,
     bord_id int references bord(id),
     primary key (id)
 );
