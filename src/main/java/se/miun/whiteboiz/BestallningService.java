@@ -105,19 +105,6 @@ public class BestallningService {
         }
         return resultList;
 
-        /*List<BestallningWithRattInstans> bestallningarWithRattInstans = new ArrayList<>();
-        for (BestallningEntity bestallning : bestallningar) {
-            BestallningWithRattInstans bestallningWithRattInstans = new BestallningWithRattInstans();
-            bestallningWithRattInstans.bestallning = bestallning;
-            bestallningWithRattInstans.rattInstanser = new ArrayList<>();
-            for (RattInstansEntity rattInstans : rattInstanser) {
-                if (rattInstans.getBestallning().getId() == bestallning.getId()) {
-                    bestallningWithRattInstans.rattInstanser.add(rattInstans);
-                }
-            }
-            bestallningarWithRattInstans.add(bestallningWithRattInstans);
-        }
-        return bestallningarWithRattInstans;*/
     }
 
 
