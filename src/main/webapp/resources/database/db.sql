@@ -61,6 +61,13 @@ create table ratt_instans(
 
 );
 
+CREATE TABLE users (
+    id int auto_increment not null,
+    username varchar(50),
+    password VARCHAR(255),
+    primary key (id)
+);
+
 
 
 insert into dag (id, namn) values (1, 'Måndag');
@@ -130,6 +137,7 @@ insert into lunch_vecka (dag_id, lunch_id)values (3, 3);
 insert into lunch_vecka (dag_id, lunch_id)values (4, 4);
 insert into lunch_vecka (dag_id, lunch_id)values (5, 5);
 
+insert into users(username, password) values ('anton', 'anton123');
 
 
 
