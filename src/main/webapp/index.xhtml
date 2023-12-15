@@ -62,7 +62,7 @@
             <div class="veckans-container">
                 <div id="veckans-header">
                     <h2>Veckans Lunchmeny</h2>
-                    <h:outputText value="#{hemsidaBackingBean.currentWeekNumber}" />
+                    <h:outputText value="v.#{hemsidaBackingBean.currentWeekNumber}" />
                 </div>
                 <div id="veckans-content">
                     <h3>Måndag</h3>
@@ -143,23 +143,21 @@
         <div class="selected-event">
             <div class="sel-event-upper">
                 <div class="sel-event-img">
-                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                    <h:graphicImage library="images" name="#{hemsidaBackingBean.nextEvent.image}" class="event-img" />
                 </div>
                 <div class="sel-event-info">
                     <div class="event-title">
-                        <h:outputText value="Title" />
+                        <h:outputText value="#{hemsidaBackingBean.nextEvent.namn}" />
                     </div>
                     <div class="event-desc">
-                        <h:outputText value="Description" />
+                        <h:outputText value="#{hemsidaBackingBean.nextEvent.beskrivning}" />
                     </div>
-                </div>
-            </div>
-            <div class="sel-event-lower">
-                <div class="sel-event-gallery">
-                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
-                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
-                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
-                    <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                    <div class="event-date">
+                        <h:outputText value="#{hemsidaBackingBean.nextEvent.datum}" />
+                    </div>
+                    <div class="event-time">
+                        <h:outputText value="#{hemsidaBackingBean.nextEvent.tid}" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,57 +165,44 @@
             <div class="coming-events">
                 <h2>Kommande evenemang</h2>
                 <div class="coming-events-container">
-                    <div class="coming-event">
-                        <div class="coming-events-img">
-                            <h:graphicImage library="images" name="event1.jpg" class="event-img" />
+                    <ui:repeat value="#{hemsidaBackingBean.futureEvents}" var="futureEvents">
+                        <div class="coming-event">
+                            <div class="coming-events-img">
+                                <h:graphicImage library="images" name="#{futureEvents.image}" class="event-img" />
+                            </div>
+                            <div class="coming-event-title">
+                                <h:outputText value="#{futureEvents.namn}" />
+                            </div>
+                            <div class="coming-event-date">
+                                <h:outputText value="#{futureEvents.datum}" />
+                            </div>
                         </div>
-                        <div class="coming-event-title">
-                            <h:outputText value="Title" />
-                        </div>
-                    </div>
-                    <div class="coming-event">
-                        <div class="coming-events-img">
-                            <h:graphicImage library="images" name="event1.jpg" class="event-img" />
-                        </div>
-                        <div class="coming-event-title">
-                            <h:outputText value="Title" />
-                        </div>
-                    </div>
+                    </ui:repeat>
                 </div>
 
             </div>
             <div class="prev-events">
                 <h2>Tidigare evenemang</h2>
                 <div class="prev-events-container">
-                    <div class="prev-event">
-                        <div class="prev-events-img">
-                            <h:graphicImage library="images" name="event1.jpg" class="prev-event-img" />
+                    <ui:repeat value="#{hemsidaBackingBean.pastEvents}" var="pastEvents">
+                        <div class="prev-event">
+                            <div class="prev-events-img">
+                                <h:graphicImage library="images" name="#{pastEvents.image}" class="event-img" />
+                            </div>
+                            <div class="prev-event-title">
+                                <h:outputText value="#{pastEvents.namn}" />
+                            </div>
+                            <div class="prev-event-date">
+                                <h:outputText value="#{pastEvents.datum}" />
+                            </div>
                         </div>
-                        <div class="prev-event-title">
-                            <h:outputText value="Title" />
-                        </div>
-                    </div>
-                    <div class="prev-event">
-                        <div class="prev-events-img">
-                            <h:graphicImage library="images" name="event1.jpg" class="prev-event-img" />
-                        </div>
-                        <div class="prev-event-title">
-                            <h:outputText value="Title" />
-                        </div>
-                    </div>
-                    <div class="prev-event">
-                        <div class="prev-events-img">
-                            <h:graphicImage library="images" name="event1.jpg" class="prev-event-img" />
-                        </div>
-                        <div class="prev-event-title">
-                            <h:outputText value="Title" />
-                        </div>
-                    </div>
+                    </ui:repeat>
                 </div>
             </div>
         </div>
     </div>
     <div id="footer">
+
 
     </div>
 
