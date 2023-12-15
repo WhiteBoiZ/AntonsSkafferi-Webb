@@ -16,25 +16,21 @@
 </h:head>
 
 <h:body>
-    <div id="page" style="max-width: 80rem">
-        <div id="header">
-            <ui:insert name="header">
-                <ui:include src="/template/common/commonHeader.xhtml"/>
-            </ui:insert>
-        </div>
+    <div id="header" style="width: 100%">
+        <ui:insert name="header">
+            <ui:include src="/template/common/commonHeader.xhtml"/>
+        </ui:insert>
+    </div>
 
-        <div id="content">
-            <ui:insert name="content">
-                <ui:include src="/template/common/commonContent.xhtml"/>
-            </ui:insert>
-        </div>
-
-        <div id="footer" class="bg-primary-300 border-round" style="min-height: 3rem">
-            <ui:insert name="footer">
-                <ui:include src="/template/common/commonFooter.xhtml"/>
-            </ui:insert>
-        </div>
-
+    <div id="content">
+        <ui:insert name="content">
+            <ui:include src="/template/common/commonContent.xhtml"/>
+        </ui:insert>
+    </div>
+    <div id="footer" class="bg-primary-300 border-round" style="width: 100%; min-height: 3rem; max-height: 3rem">
+        <ui:insert name="footer">
+            <ui:include src="/template/common/commonFooter.xhtml"/>
+        </ui:insert>
     </div>
 
 </h:body>
