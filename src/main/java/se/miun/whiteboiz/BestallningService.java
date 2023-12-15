@@ -7,6 +7,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import se.miun.whiteboiz.entities.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,15 +24,14 @@ public class BestallningService {
     public List<BestallningEntity> findAllBestallningar(){
         return em.createQuery("select B from BestallningEntity B ", BestallningEntity.class).getResultList();
     }
-
-
-    public void addBestallning(String datum, String tid, String kommentar, int bordId) {
+    public BestallningEntity addBestallning(String datum, String tid, String kommentar, int bordId) {
         BestallningEntity bestallning = new BestallningEntity();
         bestallning.setDatum(datum);
         bestallning.setTid(tid);
         bestallning.setKommentar(kommentar);
         bestallning.setBordId(em.find(BordEntity.class, bordId));
         em.persist(bestallning);
+        return bestallning;
     }
 
     public void deleteBestallning(int bestallningId) {
@@ -66,6 +66,74 @@ public class BestallningService {
         rattInstans.setAlacarte(em.find(AlacarteEntity.class, alacarteId));
         rattInstans.setRattPreferenser(rattPreferenser);
         em.persist(rattInstans);
+    }
+
+    public void deleteRattInstans(int id, int alacarteId, int bestallningId) {
+        RattInstansEntityPK pk = new RattInstansEntityPK();
+        pk.setId(id);
+        pk.setAlacarte(alacarteId);
+        pk.setBestallning(bestallningId);
+
+        RattInstansEntity rattInstans = em.find(RattInstansEntity.class, pk);
+        em.remove(rattInstans);
+    }
+
+    public void deleteAllRattInstansInBestallning(int id) {
+        List<RattInstansEntity> rattInstanser = em.createQuery("select R from RattInstansEntity R where R.bestallning.id = :bestallningId", RattInstansEntity.class)
+                .setParameter("bestallningId", id)
+                .getResultList();
+        for (RattInstansEntity rattInstans : rattInstanser) {
+            em.remove(rattInstans);
+        }
+    }
+
+    public class BestallningWithRattInstans {
+        public BestallningWithRattInstans(BestallningEntity bestallning, List<RattInstansEntity> rattInstanser) {
+            this.bestallning = bestallning;
+            this.rattInstanser = rattInstanser;
+        }
+        public BestallningEntity bestallning;
+        public List<RattInstansEntity> rattInstanser;
+    }
+
+    public List<BestallningWithRattInstans> findAllBestallningarWithRattInstans() {
+        ArrayList<BestallningWithRattInstans> resultList = new ArrayList<>();
+        List<BestallningEntity> bestallningar = em.createQuery("select B from BestallningEntity B", BestallningEntity.class).getResultList();
+        for (BestallningEntity bestallning : bestallningar) {
+            List<RattInstansEntity> rattInstanser = em.createQuery("select R from RattInstansEntity R where r.bestallning.id=:b_id", RattInstansEntity.class).setParameter("b_id", bestallning.getId()).getResultList();
+            resultList.add(new BestallningWithRattInstans(bestallning, rattInstanser));
+        }
+        return resultList;
+
+        /*List<BestallningWithRattInstans> bestallningarWithRattInstans = new ArrayList<>();
+        for (BestallningEntity bestallning : bestallningar) {
+            BestallningWithRattInstans bestallningWithRattInstans = new BestallningWithRattInstans();
+            bestallningWithRattInstans.bestallning = bestallning;
+            bestallningWithRattInstans.rattInstanser = new ArrayList<>();
+            for (RattInstansEntity rattInstans : rattInstanser) {
+                if (rattInstans.getBestallning().getId() == bestallning.getId()) {
+                    bestallningWithRattInstans.rattInstanser.add(rattInstans);
+                }
+            }
+            bestallningarWithRattInstans.add(bestallningWithRattInstans);
+        }
+        return bestallningarWithRattInstans;*/
+    }
+
+
+    public void updateBestallningForratKlar(int bestallningId, boolean forrattKlar) {
+        BestallningEntity bestallning = em.find(BestallningEntity.class, bestallningId);
+        bestallning.setForrattKlar(forrattKlar);
+    }
+
+    public void updateBestallningVarmrattKlar(int bestallningId, boolean forrattKlar) {
+        BestallningEntity bestallning = em.find(BestallningEntity.class, bestallningId);
+        bestallning.setVarmrattKlar(forrattKlar);
+    }
+
+    public void updateBestallningEfterrattKlar(int bestallningId, boolean forrattKlar) {
+        BestallningEntity bestallning = em.find(BestallningEntity.class, bestallningId);
+        bestallning.setEfterrattKlar(forrattKlar);
     }
 
 

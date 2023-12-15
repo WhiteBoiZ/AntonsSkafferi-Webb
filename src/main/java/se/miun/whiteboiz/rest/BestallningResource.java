@@ -24,8 +24,6 @@ public class BestallningResource {
         return bestallningService.findBestallning(id);
     }
 
-
-
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/all
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -34,16 +32,23 @@ public class BestallningResource {
         return bestallningService.findAllBestallningar();
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/all/withrattinstans")
+    public List<BestallningService.BestallningWithRattInstans> findAllBestallningarWithRattInstans() {
+        return bestallningService.findAllBestallningarWithRattInstans();
+    }
+
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?datum=2021-10-10&tid=12:00&kommentar=hej&bordId=1
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public void addBestallning(@QueryParam("datum") String datum,
+    public BestallningEntity addBestallning(@QueryParam("datum") String datum,
                                @QueryParam("tid") String tid,
                                @QueryParam("kommentar") String kommentar,
                                @QueryParam("bordId") int bordId)
     {
-        bestallningService.addBestallning(datum, tid, kommentar, bordId);
+        return bestallningService.addBestallning(datum, tid, kommentar, bordId);
     }
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans/all
@@ -53,10 +58,6 @@ public class BestallningResource {
     public List<RattInstansEntity> findAllRattInstans() {
             return bestallningService.findAllRattInstans();
     }
-
-
-
-
 
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans?id=1&alacarteId=1&bestallningId=1
@@ -91,9 +92,57 @@ public class BestallningResource {
     }
 
 
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/delete/1
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/delete/{id}")
+    public void deleteBestallning(@PathParam("id") int bestallningId) {
+        bestallningService.deleteBestallning(bestallningId);
+    }
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans/delete?id=1&alacarteId=1&bestallningId=1
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/rattinstans/delete")
+    public void deleteRattInstans(@QueryParam("id") int id,
+                                  @QueryParam("alacarteId") int alacarteId,
+                                  @QueryParam("bestallningId") int bestallningId)
+    {
+        bestallningService.deleteRattInstans(id, alacarteId, bestallningId);
+    }
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning/rattinstans/delete/1
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/rattinstans/delete/{id}")
+    public void deleteRattInstans(@PathParam("id") int id) {
+        bestallningService.deleteAllRattInstansInBestallning(id);
+    }
 
 
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?id=1&forrattKlar=true
+    @PATCH
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/forrattKlar")
+    public void updateBestallningForratKlar(@QueryParam("id") int id, @QueryParam("forrattKlar") boolean forrattKlar) {
+        bestallningService.updateBestallningForratKlar(id, forrattKlar);
+    }
 
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?id=1&varmrattKlar=true
+    @PATCH
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/varmrattKlar")
+    public void updateBestallningVarmrattKlar(@QueryParam("id") int id, @QueryParam("varmrattKlar") boolean varmrattKlar) {
+        bestallningService.updateBestallningVarmrattKlar(id, varmrattKlar);
+    }
+
+    //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?id=1&efterrattKlar=true
+    @PATCH
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/efterrattKlar")
+    public void updateBestallningEfterrattKlar(@QueryParam("id") int id, @QueryParam("efterrattKlar") boolean efterrattKlar) {
+        bestallningService.updateBestallningEfterrattKlar(id, efterrattKlar);
+    }
 
 
 }
