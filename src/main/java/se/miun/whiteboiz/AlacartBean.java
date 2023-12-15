@@ -2,10 +2,15 @@ package se.miun.whiteboiz;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.faces.event.ValueChangeEvent;
 import jakarta.faces.model.ListDataModel;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import se.miun.whiteboiz.containers.Alacart;
 import se.miun.whiteboiz.containers.Lunch;
+import se.miun.whiteboiz.entities.AlacarteEntity;
+import se.miun.whiteboiz.entities.BordEntity;
+import se.miun.whiteboiz.entities.TypEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,69 +19,8 @@ import java.util.List;
 @Named
 public class AlacartBean {
 
-
-
-    public List<Alacart> getAlaCartMenuStarter() {
-        return alaCartMenuStarter;
-    }
-
-    public void setAlaCartMenuStarter(List<Alacart> alaCartMenuStarter) {
-        this.alaCartMenuStarter = alaCartMenuStarter;
-    }
-
-    private List<Alacart> alaCartMenuStarter = new ArrayList<>();
-
-    public List<Alacart> getAlaCartMenuDessert() {
-        return alaCartMenuDessert;
-    }
-
-    public List<Alacart> getAlaCartMenuMain() {
-        return alaCartMenuMain;
-    }
-
-    public void setAlaCartMenuMain(List<Alacart> alaCartMenuMain) {
-        this.alaCartMenuMain = alaCartMenuMain;
-    }
-
-    public void setAlaCartMenuDessert(List<Alacart> alaCartMenuDessert) {
-        this.alaCartMenuDessert = alaCartMenuDessert;
-    }
-
-    private List<Alacart> alaCartMenuDessert = new ArrayList<>();
-    private List<Alacart> alaCartMenuMain = new ArrayList<>();
-
-
-    public ListDataModel<Alacart> getListModelDessert() {
-        return listModelDessert;
-    }
-
-    public void setListModelDessert(ListDataModel<Alacart> listModelDessert) {
-        this.listModelDessert = listModelDessert;
-    }
-
-    private ListDataModel<Alacart> listModelDessert = new ListDataModel<Alacart>(alaCartMenuDessert);
-
-    public ListDataModel<Alacart> getListModelMain() {
-        return listModelMain;
-    }
-
-    public ListDataModel<Alacart> getListModelStarter() {
-        return listModelStarter;
-    }
-
-    public void setListModelStarter(ListDataModel<Alacart> listModelStarter) {
-        this.listModelStarter = listModelStarter;
-    }
-
-    public void setListModelMain(ListDataModel<Alacart> listModelMain) {
-        this.listModelMain = listModelMain;
-    }
-
-    private ListDataModel<Alacart> listModelMain = new ListDataModel<Alacart>(alaCartMenuMain);
-    private ListDataModel<Alacart> listModelStarter = new ListDataModel<Alacart>(alaCartMenuStarter);
-
-    private ListDataModel<Alacart> listModelDefault = new ListDataModel<Alacart>();
-
+    @Inject
+    private AlacarteService alacarteService;
 
 
     public String getAlaCarteTitle() {
@@ -100,40 +44,41 @@ public class AlacartBean {
     private String alaCarteDescription;
 
     public void addStarter(){
-        alaCartMenuStarter.add(new Alacart(alaCarteTitle, alaCarteDescription));
-
+        AlacarteEntity entity = new AlacarteEntity();
+        entity.setTyp(alacarteService.findTyp(1));
+        entity.setTitel(alaCarteTitle);
+        entity.setBeskrivning(alaCarteDescription);
+        entity.setVald(true);
+        alacarteService.addAlacarte(entity);
     }
     public void addDessert(){
-        alaCartMenuDessert.add(new Alacart(alaCarteTitle, alaCarteDescription));
+        AlacarteEntity entity = new AlacarteEntity();
+        entity.setTyp(alacarteService.findTyp(3));
+        entity.setTitel(alaCarteTitle);
+        entity.setBeskrivning(alaCarteDescription);
+        entity.setVald(true);
+        alacarteService.addAlacarte(entity);
 
     }
     public void addMain(){
-        alaCartMenuMain.add(new Alacart(alaCarteTitle, alaCarteDescription));
+        AlacarteEntity entity = new AlacarteEntity();
+        entity.setTyp(alacarteService.findTyp(2));
+        entity.setTitel(alaCarteTitle);
+        entity.setBeskrivning(alaCarteDescription);
+        entity.setVald(true);
+        alacarteService.addAlacarte(entity);
 
     }
-    public Alacart getMain(){
-        return alaCartMenuMain.get(listModelMain.getRowIndex());
+
+    public void removeAlacarte(int id){
+        alacarteService.removeAlacarte(id);
     }
 
-    public Alacart getStarter(){
-        return alaCartMenuStarter.get(listModelStarter.getRowIndex());
-    }
-    public void removeStarter(){
-        alaCartMenuStarter.remove(listModelStarter.getRowIndex());
-    }
+    public void handleVald(ValueChangeEvent event){
 
-    public void removeMain(){
-        alaCartMenuMain.remove(listModelMain.getRowIndex());
-    }
+    };
 
-    public void removeDessert(){
-        alaCartMenuDessert.remove(listModelDessert.getRowIndex());
-    }
-
-@PostConstruct
-    public void init(){
-
-    alaCartMenuStarter.add(new Alacart("Gravad lax med hovmästarsås och hembakat knäckebröd",
+   /** alaCartMenuStarter.add(new Alacart("Gravad lax med hovmästarsås och hembakat knäckebröd",
             "En klassiker med noggrant gravad lax, serverad med den traditionella hovmästarsåsen och knaprigt hemlagat knäckebröd."));
     alaCartMenuStarter.add(new Alacart("Kantarelltoast med vitlök och persilja",
             "Saftiga kantareller stekta med vitlök och persilja, serverade på rostat bröd. En smakrik och säsongsbetonad förrätt."));
@@ -152,10 +97,6 @@ public class AlacartBean {
     alaCartMenuDessert.add(new Alacart("Chokladtryffeltårta med hallon och vispad grädde",
             "En ljuvlig chokladtryffeltårta toppad med färska hallon och krämig vispad grädde. En perfekt avslutning på måltiden."));
     alaCartMenuDessert.add(new Alacart("Vaniljpannacotta med skogsbärskompott",
-            "Len vaniljpannacotta toppad med en smakrik kompott av skogsbär. En lätt och fräsch efterrätt."));
-
-}
-
-
+            "Len vaniljpannacotta toppad med en smakrik kompott av skogsbär. En lätt och fräsch efterrätt.")); **/
 
 }

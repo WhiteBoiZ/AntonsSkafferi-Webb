@@ -8,25 +8,32 @@ public class Alacart {
     private String description;
     private AlaCarteCategory alaCarteCategory;
 
-    public Alacart(String title, String description){
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+
+    public Alacart(int id,String title, String description){
         //this.alaCarteCategory = category;
         this.title = title;
         this.description = description;
+        this.id = id;
 
 
     }
     //Getters & Setters
-    public AlaCarteCategory getAlaCarteCategory(){
-        return alaCarteCategory;
-    }
-    public void setAlaCarteCategory(AlaCarteCategory category){
-        this.alaCarteCategory = category;
-    }
+
+
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String titel) {
+    public void setTitle(String title) {
         this.title = title;
     }
 

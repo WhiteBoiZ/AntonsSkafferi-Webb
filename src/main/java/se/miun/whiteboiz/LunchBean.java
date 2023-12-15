@@ -72,8 +72,7 @@ public class LunchBean {
         return selection;
     }
 
-
-     public Lunch getLunch(){
+    public Lunch getLunch(){
         return lunches.get(listModel.getRowIndex());
      }
 
