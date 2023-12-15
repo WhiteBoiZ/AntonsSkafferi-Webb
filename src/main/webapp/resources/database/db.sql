@@ -62,15 +62,17 @@ create table ratt_instans(
 );
 
 
-create table evenemang(
-    id int auto_increment not null,
-    namn varchar(255) not null,
-    datum varchar(255) not null,
-    tid varchar(255) not null,
-    image varchar(255),
+create table evenemang
+(
+    id          int auto_increment not null,
+    namn        varchar(255)       not null,
+    datum       varchar(255)       not null,
+    tid         varchar(255)       not null,
+    image       varchar(255),
     beskrivning text,
     primary key (id)
-  
+);
+
 CREATE TABLE users (
     id int auto_increment not null,
     username varchar(50),
@@ -148,7 +150,7 @@ insert into lunch_vecka (dag_id, lunch_id)values (3, 3);
 insert into lunch_vecka (dag_id, lunch_id)values (4, 4);
 insert into lunch_vecka (dag_id, lunch_id)values (5, 5);
 
-insert into users(username, password) values ('anton', 'anton123');
+insert into users (username, password) values ('anton', 'anton123');
 
 insert into evenemang (namn, datum, tid, image, beskrivning) values ('Jazz kväll', '2023-12-20', '18:00', 'jazz.jpg', 'Kom och lyssna på jazz med oss!');
 insert into evenemang (namn, datum, tid, image, beskrivning) values ('Julbord', '2023-12-24', '18:00', 'jul.jpg', 'Kom och ät julbord med oss!');
