@@ -69,7 +69,7 @@
 
                                         </h:outputText>
                                         <f:facet name="footer">
-                                        <p:commandButton update="@all" type="submit" icon="pi pi-trash"/>
+                                        <p:commandButton update="@all" type="submit" icon="pi pi-trash" actionListener="#{alacartBean.removeAlacarte(alacartItem.id)}"/>
 
                                         </f:facet>
                                     </p:card>
