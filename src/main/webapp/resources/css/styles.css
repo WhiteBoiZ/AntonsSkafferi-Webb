@@ -76,11 +76,7 @@ body {
 
 .lunch {
     display: flex;
-    align-items: center;
     width: 100%;
-    height: calc(100vh - 140px);
-    position: relative;
-    overflow: hidden;
     border-bottom: 4px solid var(--secondary-color);
     border-top: 4px solid var(--secondary-color);
 
@@ -88,42 +84,32 @@ body {
 }
 
 .dagens, .veckans {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    z-index: -2;
-}
-
-.dagens {
-    border: 4px solid var(--secondary-color);
-    border-left: none;
-    height: fit-content;
-    padding: 5% 125px 5% 0;
-}
-
-.veckans {
+    flex: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
-    padding-left: 125px;
+    text-align: center;
+    z-index: 1;
+}
+
+.dagens {
+
+
+}
+
+.veckans {
     background-color: rgba(63, 45, 28, 0.30);
 
 }
 
 
 #image-column {
-    height: 100%;
+    flex: 0.5;
+    min-width: 175px;
+    min-height: 100%;
     border-left: 4px solid var(--secondary-color);
     border-right: 4px solid var(--secondary-color);
-    z-index: -1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,30 +117,34 @@ body {
 }
 
 .image-wrapper {
-    height: calc(100% / 3);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+
 }
 
 #matbild1, #matbild2, #matbild3 {
-    max-height: 100%;
-    width: auto;
     max-width: 100%;
+    max-height: 100%;
 }
 
 .dagens-container, .veckans-container {
-    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
 
 }
 
-.veckans-container {
-    width: 100%;
-    height: 100%;
+.dagens-container {
+    border: 4px solid var(--secondary-color);
+    border-left: none;
+    border-right: none;
+    height: 80%;
 }
 
 #dagens-header {
@@ -201,6 +191,8 @@ body {
 #veckans-content {
     margin-top: 1rem;
     width: 70%;
+    display: flex;
+    flex-direction: column;
 }
 
 #veckans-content h3 {
@@ -399,10 +391,21 @@ body {
 
 
 #footer {
+    color: var(--primary-color);
     width: 100%;
     height: 50vh;
     background-color: rgba(63, 45, 28, 0.7);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
+
+#footer h2 {
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive;
+}
+
 
 
 /* Extra small devices (phones, 600px and down) */
