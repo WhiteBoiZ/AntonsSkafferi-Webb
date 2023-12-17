@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:body>
+    <ui:composition>
+            <h:outputText value="Förhandsgranskning Lunchmeny" style = "font-weight: bold;"/><br/>
+            <br/>
+            <p:card id = "monday" class="border-round-sm" style="margin-bottom: 1em">
+                <f:facet name="title">Måndag</f:facet>
+                <ui:repeat value="#{lunchService.findLunchesForDay('Måndag')}" var="lunch">
+                    <p>
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
+                    </p>
+                </ui:repeat>
+            </p:card>
+
+            <p:card id = "tuesday" class="border-round-sm" style="margin-bottom: 1em">
+                <f:facet name="title">Tisdag</f:facet>
+                <ui:repeat value="#{lunchService.findLunchesForDay('Tisdag')}" var="lunch">
+                    <p>
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
+                    </p>
+                </ui:repeat>
+            </p:card>
+
+            <p:card id = "wednesday" class="border-round-sm" style="margin-bottom: 1em">
+                <f:facet name="title">Onsdag</f:facet>
+                <ui:repeat value="#{lunchService.findLunchesForDay('Onsdag')}" var="lunch">
+                    <p>
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
+                    </p>
+                </ui:repeat>
+            </p:card>
+
+            <p:card id = "thursday" class="border-round-sm" style="margin-bottom: 1em">
+                <f:facet name="title">Torsdag</f:facet>
+                <ui:repeat value="#{lunchService.findLunchesForDay('Torsdag')}" var="lunch">
+                    <p>
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
+                    </p>
+                </ui:repeat>
+            </p:card>
+
+            <p:card id = "friday" class="border-round-sm" style="margin-bottom: 1em">
+                <f:facet name="title">Fredag</f:facet>
+                <ui:repeat value="#{lunchService.findLunchesForDay('Fredag')}" var="lunch">
+                    <p>
+                        #{lunch.titel}<br/>#{lunch.beskrivning}
+                    </p>
+                </ui:repeat>
+            </p:card>
+    </ui:composition>
+</h:body>
+</html>

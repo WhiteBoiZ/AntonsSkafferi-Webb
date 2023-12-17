@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+
+<h:head>
+    <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css"/>
+    <h:outputStylesheet name="css/styles.css"/>
+    <title><ui:insert name="title">Page Title</ui:insert></title>
+</h:head>
+
+<h:body>
+    <div id="header" style="width: 100%">
+        <ui:insert name="header">
+            <ui:include src="/template/common/commonHeader.xhtml"/>
+        </ui:insert>
+    </div>
+    <div id="content">
+        <ui:insert name="content">
+            <ui:include src="/template/common/commonContent.xhtml"/>
+        </ui:insert>
+    </div>
+    <div id="footer" class="bg-primary-300 border-round" style="width: 100%; min-height: 3rem; max-height: 3rem">
+        <ui:insert name="footer">
+            <ui:include src="/template/common/commonFooter.xhtml"/>
+        </ui:insert>
+    </div>
+
+</h:body>
+
+</html>

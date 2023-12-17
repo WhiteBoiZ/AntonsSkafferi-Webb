@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@100;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+:root {
+    --primary-color: #f5f5f5;
+    --secondary-color: #3f2d1c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#background-img {
+    top: 0;
+    object-fit: cover;
+    z-index: -1;
+    position: absolute;
+}
+
+.header {
+    font-family: 'Noto Serif', serif;
+    text-align: center;
+    color: white;
+    margin-top: 1.3rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+}
+
+#navbar {
+    font-family: 'Lora', serif;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0.6rem 2rem;
+    margin-top: -0.2rem;
+    margin-bottom: 15px;
+    background-color: rgba(63, 45, 28, 0.25);
+    border: 1px solid var(--secondary-color);
+}
+#navbar ul {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    list-style-type: none;
+
+}
+#navbar li {
+
+}
+#navbar li a {
+    color: white;
+    text-decoration: none;
+}
+
+.lunch {
+    display: flex;
+    width: 100%;
+    border-bottom: 4px solid var(--secondary-color);
+    border-top: 4px solid var(--secondary-color);
+
+
+}
+
+.dagens, .veckans {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.dagens {
+
+
+}
+
+.veckans {
+    background-color: rgba(63, 45, 28, 0.30);
+
+}
+
+
+#image-column {
+    flex: 0.5;
+    min-width: 175px;
+    min-height: 100%;
+    border-left: 4px solid var(--secondary-color);
+    border-right: 4px solid var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+#matbild1, #matbild2, #matbild3 {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.dagens-container, .veckans-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+
+}
+
+.dagens-container {
+    border: 4px solid var(--secondary-color);
+    border-left: none;
+    border-right: none;
+    height: 80%;
+}
+
+#dagens-header {
+    padding-top: 4rem;
+    font-size: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+#dagens-header h2 {
+    font-size: 2.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-skip-ink: none;
+    font-family: 'Dancing Script', cursive;
+}
+
+#dagens-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 70%;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    padding-bottom: 4rem;
+}
+
+#veckans-header {
+    font-size: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+    padding-top: 2rem;
+
+}
+
+#veckans-header h2 {
+    font-size: 2.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-skip-ink: none;
+    font-family: 'Dancing Script', cursive;
+}
+
+#veckans-content {
+    margin-top: 1rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+#veckans-content h3 {
+    margin-top: 0.5rem;
+}
+
+
+#dagens-content .material-symbols-outlined {
+    font-size: 4rem;
+}
+
+
+.a4 {
+    width: 210mm;
+    height: 297mm;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.alacarte h3{
+    text-align: center;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+#alacarte {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+#alacarte-header {
+    padding-top: 2rem;
+}
+
+#alacarte-header h2 {
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+#course-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 5rem;
+}
+
+#course-container h3{
+    margin-bottom: 3%;
+    font-size: 1.8rem;
+}
+
+#first-course-dessert{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+
+
+#main-course{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+
+
+#dessert{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+#first-course{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+
+.alacarte-title{
+    font-size: 1.1rem;
+    margin-top: 0.7rem;
+}
+
+.description{
+    font-size: 0.7rem;
+}
+
+#events {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding: 4rem 3rem;
+    gap: 1rem;
+}
+
+.selected-event {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sel-event-upper {
+    display: flex;
+}
+
+.sel-event-img {
+    width: 70%;
+    height: 100%;
+}
+
+.sel-event-info {
+    width: 30%;
+    background-color: white;
+    padding: 1rem;
+}
+
+.event-title {
+    font-size: 2rem;
+}
+
+.event-desc {
+    font-size: 1.5rem;
+}
+
+.sel-event-lower {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.sel-event-gallery {
+    display: flex;
+    gap: 1rem;
+    width: 60%;
+}
+
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 30%;
+}
+
+.event-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.coming-events, .prev-events {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+
+.coming-events-container, .prev-events-container {
+    display: flex;
+    gap: 1rem;
+    overflow: scroll;
+}
+
+.coming-event {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.prev-event {
+    display: flex;
+    flex-direction: column;
+    min-width: 45%;
+    padding-bottom: 1rem;
+}
+
+.prev-event-img {
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.coming-event-title, .prev-event-title {
+    font-size: 1.5rem;
+}
+
+
+#footer {
+    color: var(--primary-color);
+    width: 100%;
+    height: 50vh;
+    background-color: rgba(63, 45, 28, 0.7);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#footer h2 {
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #image-column {
+        display: none;
+    }
+
+    .lunch {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+
+    .dagens {
+        border: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .veckans {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    #navbar {
+        margin: 0;
+        padding: 0.8rem;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    #image-column {
+        display: none;
+    }
+
+    .lunch {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+
+    .dagens {
+        border: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .veckans {
+        width: 100%;
+        padding: 0;
+    }
+
+    .a4 {
+        border: none;
+        width: 100%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+    #image-column {
+        display: none;
+    }
+
+    .lunch {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+    }
+
+    .dagens {
+        border: none;
+        width: 100%;
+        padding: 0;
+    }
+
+    .veckans {
+        width: 100%;
+        padding: 0;
+        padding-bottom: 2rem;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

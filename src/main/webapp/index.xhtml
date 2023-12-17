@@ -5,7 +5,209 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+
+<h:head>
+    <title>Antons Skafferi</title>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/styles.css" />
+    <h:outputScript name="js/script.js" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</h:head>
+
+<h:body id="body">
+    <h:graphicImage library="images" name="header2.png" id="background-img" />
+    <div class="header">
+        <h1>Antons Skafferi</h1>
+    </div>
+    <div id="navbar">
+        <ul>
+            <li><a href="#body">Lunch</a></li>
+            <li><a href="#alacarte">À la carte</a></li>
+            <li><a href="#events">Evenemang</a></li>
+            <li><a href="#footer">Om oss</a></li>
+        </ul>
+    </div>
+
+    <div class="lunch">
+        <div class="dagens">
+            <div class="dagens-container">
+                <div id="dagens-header">
+                    <h2>Dagens Lunch</h2>
+                    <h:outputText value="#{hemsidaBackingBean.currentDay}" />
+                </div>
+                <div id="dagens-content">
+
+                    <ui:repeat value="#{lunchService.findLunchesForDayWeekNumber(hemsidaBackingBean.getCurrentDayNumber())}" var="dagensLunch">
+                        <h:outputText id="dagenLunchTitel" value="#{dagensLunch.titel}" />
+                        <h:outputText id="dagensLunchBeskrivning" value="#{dagensLunch.beskrivning}"/>
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                    </ui:repeat>
+                </div>
+            </div>
+
+        </div>
+        <div id="image-column">
+            <!-- Dessa bilder ska kanske också kunna bytas av Anton på adminsidan? -->
+            <div class="image-wrapper">
+                <h:graphicImage library="images" name="pannbiff.jpeg" id="matbild1" />
+            </div>
+            <div class="image-wrapper">
+                <h:graphicImage library="images" name="kottbullar.jpeg" id="matbild2" />
+            </div>
+            <div class="image-wrapper">
+                <h:graphicImage library="images" name="laxbiffar.jpeg" id="matbild3" />
+            </div>
+        </div>
+        <div class="veckans">
+            <div class="veckans-container">
+                <div id="veckans-header">
+                    <h2>Veckans Lunchmeny</h2>
+                    <h:outputText value="v.#{hemsidaBackingBean.currentWeekNumber}" />
+                </div>
+                <div id="veckans-content">
+                    <h3>Måndag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Måndag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                    </ui:repeat>
+                    <h3>Tisdag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Tisdag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                    </ui:repeat>
+                    <h3>Onsdag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Onsdag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                    </ui:repeat>
+                    <h3>Torsdag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Torsdag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                    </ui:repeat>
+                    <h3>Fredag</h3>
+                    <ui:repeat value="#{lunchService.findLunchesForDay('Fredag')}" var="veckansLunch">
+                        <h:outputText class="veckansLunchTitel" value="#{veckansLunch.titel}" />
+                        <h:outputText class="veckansLunchBeskrivning" value="#{veckansLunch.beskrivning}"/>
+                    </ui:repeat>
+
+
+
+                </div>
+            </div>
+
+        </div> <!-- end of veckans -->
+    </div> <!-- end of lunch -->
+    <div class="alacarte a4" id="alacarte">
+        <div id="alacarte-header">
+            <h2>À la carte</h2>
+            <p>Vi har ett brett utbud av rätter på vår à la carte meny. <br/> Välkommen in och se vad vi har att erbjuda.</p>
+        </div>
+        <div id="course-container">
+            <!-- Byt ut value för alla rätter med rätter från beans -->
+            <div id="first-course-dessert">
+                <h3>Förrätter</h3>
+                <div id="first-course">
+                    <ui:repeat value="#{alacarteService.findAllActiveAlacarteForrater()}" var="alacartItem">
+                        <h:outputLabel class="alacarte-title" value="#{alacartItem.titel}"/>
+                        <h:outputLabel class="description" value="#{alacartItem.beskrivning}"/>
+                    </ui:repeat>
+                </div>
+                <h3>Dessert</h3>
+                <div id="dessert">
+                    <ui:repeat value="#{alacarteService.findAllActiveAlacarteDesserter()}" var="alacartItem">
+                        <h:outputLabel class="alacarte-title" value="#{alacartItem.titel}"/>
+                        <h:outputLabel class="description" value="#{alacartItem.beskrivning}"/>
+                    </ui:repeat>
+                </div>
+            </div>
+            <div id="main-course">
+                <h3>Varmrätter</h3>
+                <ui:repeat value="#{alacarteService.findAllActiveAlacarteHuvudratter()}" var="alacartItem">
+                    <h:outputLabel class="alacarte-title" value="#{alacartItem.titel}"/>
+                    <h:outputLabel class="description" value="#{alacartItem.beskrivning}"/>
+                </ui:repeat>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <div id="events">
+        <div class="selected-event">
+            <div class="sel-event-upper">
+                <div class="sel-event-img">
+                    <h:graphicImage library="images" name="#{hemsidaBackingBean.nextEvent.image}" class="event-img" />
+                </div>
+                <div class="sel-event-info">
+                    <div class="event-title">
+                        <h:outputText value="#{hemsidaBackingBean.nextEvent.namn}" />
+                    </div>
+                    <div class="event-desc">
+                        <h:outputText value="#{hemsidaBackingBean.nextEvent.beskrivning}" />
+                    </div>
+                    <div class="event-date">
+                        <h:outputText value="#{hemsidaBackingBean.nextEvent.datum}" />
+                    </div>
+                    <div class="event-time">
+                        <h:outputText value="#{hemsidaBackingBean.nextEvent.tid}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="event-container">
+            <div class="coming-events">
+                <h2>Kommande evenemang</h2>
+                <div class="coming-events-container">
+                    <ui:repeat value="#{hemsidaBackingBean.futureEvents}" var="futureEvents">
+                        <div class="coming-event">
+                            <div class="coming-events-img">
+                                <h:graphicImage library="images" name="#{futureEvents.image}" class="event-img" />
+                            </div>
+                            <div class="coming-event-title">
+                                <h:outputText value="#{futureEvents.namn}" />
+                            </div>
+                            <div class="coming-event-date">
+                                <h:outputText value="#{futureEvents.datum}" />
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+
+            </div>
+            <div class="prev-events">
+                <h2>Tidigare evenemang</h2>
+                <div class="prev-events-container">
+                    <ui:repeat value="#{hemsidaBackingBean.pastEvents}" var="pastEvents">
+                        <div class="prev-event">
+                            <div class="prev-events-img">
+                                <h:graphicImage library="images" name="#{pastEvents.image}" class="event-img" />
+                            </div>
+                            <div class="prev-event-title">
+                                <h:outputText value="#{pastEvents.namn}" />
+                            </div>
+                            <div class="prev-event-date">
+                                <h:outputText value="#{pastEvents.datum}" />
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <h2>Antons Skafferi</h2>
+        <div id="opening-hours">
+            <h3>Öppetider</h3>
+            <p>Vardagar: 11:00 - 22:00</p>
+            <p>Helger: 16:00 - 01:00</p>
+        </div>
+        <h3>Boka bord: 070-123 45 67</h3>
+        <p><a href="${facesContext.externalContext.requestContextPath}/admin.xhtml">ADMIN</a></p>
+
+    </div>
+
+</h:body>
+
 </html>
+
