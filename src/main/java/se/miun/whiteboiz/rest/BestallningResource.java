@@ -121,7 +121,7 @@ public class BestallningResource {
 
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?id=1&forrattKlar=true
-    @PUT
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/forrattKlar")
     public void updateBestallningForratKlar(@QueryParam("id") int id, @QueryParam("forrattKlar") boolean forrattKlar) {
@@ -129,7 +129,7 @@ public class BestallningResource {
     }
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?id=1&varmrattKlar=true
-    @PUT
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/varmrattKlar")
     public void updateBestallningVarmrattKlar(@QueryParam("id") int id, @QueryParam("varmrattKlar") boolean varmrattKlar) {
@@ -137,7 +137,7 @@ public class BestallningResource {
     }
 
     //http://localhost:8080/Antons-Skafferi-Webb-1.0-SNAPSHOT/api/bestallning?id=1&efterrattKlar=true
-    @PUT
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/efterrattKlar")
     public void updateBestallningEfterrattKlar(@QueryParam("id") int id, @QueryParam("efterrattKlar") boolean efterrattKlar) {
